@@ -1,0 +1,22 @@
+{
+  "name": "folio-2023",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "host": "vite --host"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "gsap": "^3.11.5",
+    "locomotive-scroll": "^4.1.4",
+    "split-type": "^0.3.3",
+    "three": "^0.153.0",
+    "vite-plugin-glsl": "^1.1.2"
+  }
+}

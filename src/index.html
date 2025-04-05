@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amit Pandey | Software Developer</title>
+        <meta name="description" content="Amit Pandey is a creative web developer and 3D experience designer with a passion for building innovative and interactive experiences.">
+        <meta name="keywords" content="Amit Pandey, web developer, 3D experience designer, creative, innovative, interactive">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+        <script src="https://kit.fontawesome.com/c3b56a7551.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLJN3MWC1B"></script>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-SLJN3MWC1B');
+        </script>
+        <!--============================================================================================
+            *** MY-SCRIPT ***
+         ============================================================================================ -->
+        <script>
+            function showDetails1() {
+                let detail = document.getElementById('detail-1');
+                let projectItem = document.getElementById('project-item-1');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails1() {
+                let detail = document.getElementById('detail-1');
+                let projectItem = document.getElementById('project-item-1');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails2() {
+                let detail = document.getElementById('detail-2');
+                let projectItem = document.getElementById('project-item-2');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails2() {
+                let detail = document.getElementById('detail-2');
+                let projectItem = document.getElementById('project-item-2');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails3() {
+                let detail = document.getElementById('detail-3');
+                let projectItem = document.getElementById('project-item-3');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails3() {
+                let detail = document.getElementById('detail-3');
+                let projectItem = document.getElementById('project-item-3');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails4() {
+                let detail = document.getElementById('detail-4');
+                let projectItem = document.getElementById('project-item-4');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails4() {
+                let detail = document.getElementById('detail-4');
+                let projectItem = document.getElementById('project-item-4');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+            function showDetails5() {
+                let detail = document.getElementById('detail-5');
+                let projectItem = document.getElementById('project-item-5');
+                projectItem.style.borderBottom = "none";
+                detail.style.borderBottom = "1px solid #4e545a";
+                detail.style.display = "flex";
+            }
+            function hideDetails5() {
+                let detail = document.getElementById('detail-5');
+                let projectItem = document.getElementById('project-item-5');
+                projectItem.style.borderBottom = "1px solid #4e545a";
+                detail.style.borderBottom = "none";
+                detail.style.display = "none";
+            }
+        </script>
+    </head>
+
+    <body>
+        <canvas id="constellation-bg"></canvas>
+        <div id="app">
+            <div id="loader-page">
+                <div class="word">LOADING...</div>
+                <div class="temp"></div>
+                <div class="loading-container">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+            <div id="main-page">
+                <!--=======================================================================================
+                    SIDEBAR-LEFT
+                =======================================================================================  -->
+                <div class="side-bar">
+                    <div class="logo">
+                        <img src="./images/logo.png" alt="logo">
+                    </div>
+                    <div class="folio">
+                        <p>PORTFOLIO 2023</p>
+                    </div>
+                    <div class="bottom-box">
+                        <div class="social-media">
+                           <a target="_blank" href="https://github.com/AmitP-027"><i class="fa-brands fa-github"></i></a> 
+                           <a target="_blank" href="https://www.linkedin.com/in/amitp027/"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a target="_blank" href="https://twitter.com/Amit_P_27"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                        <div class="music-bars">
+                            <span class="stroke"></span>
+                            <span class="stroke"></span>
+                            <span class="stroke"></span>
+                            <span class="stroke"></span>
+                            <span class="stroke"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--=======================================================================================
+                    MAIN CONTENT
+                =======================================================================================  -->
+                <div class="scrollable">
+                    <div class="hero">
+                        <div class="hero-top">
+                            <p class="my-text">LOCATION: INDIA, VARANASI.</p>
+                            <p class="my-text">CURRENT TIME: <span class="my-text" id="time"></span> </p>
+                        </div>
+                        <div class="hero-mid">
+                            <h1 class="name my-text">AMIT</h1>
+                            <h1 class="surname my-text">PANDEY</h1>
+                            <h1 class="creative my-text">( SOFTWARE <span class="developer my-text"> DEVELOPER)
+                                </span>
+                            </h1>
+                            <div>
+                                -------------------------------------------------------------------------------------------------------------------------------
+                            </div>
+                           
+                        </div>
+                        <div class="hero-bottom">
+                            <p class="loves my-text">LOVES: CODING & PROBLEM SOLVING.</p>
+                            <p class="loves my-text">LEARNING: JAVA SPRINGBOOT.</p>
+                        </div>
+                    </div>
+                    <div class="projects">
+                        <div class="marquee">
+                            <div class="marquee__inner" aria-hidden="true">
+                                <span>PROJECTS</span>
+                                <span class="hollow">PROJECTS</span>
+                                <span>PROJECTS</span>
+                                <span class="hollow">PROJECTS</span>
+                            </div>
+                        </div>
+
+                        <div class="stripes">
+
+                            <!--=======================================================================================
+                        INNOVISION
+                =======================================================================================  -->
+                            <li id="project-item-1" class="project-item">
+                                <div class="info">
+                                    <span class="no">1.</span>
+                                    <span class="project-title">Innovision-2K23</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-1" class="scramble" type="button">
+                                            <span onclick="showDetails1()" id="scrambleSpan-1">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-2" class="scramble" type="button" onclick="showDetails1()"><span
+                                                id="scrambleSpan-2">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-1" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://innovision2023.com"><img class="project-image"
+                                                src="./images/innovision.png" alt="img"></a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: <br> This is the website I have built
+                                            for Innovision, an annual technical event organized by students at our
+                                            institute on a national level. This webpage showcases essential information
+                                            about the event, such as its objectives, schedule, competitions, workshops,
+                                            and guest speakers, to engage participants effectively and ensure a
+                                            successful event.</p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: <br>#three.js #shaders #webgl</p>
+                                        <br>
+                                        <a target="_blank" href="https://innovision2023.com"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails1()" id="cross-1" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+
+                            <!--=======================================================================================
+                        TRINITY
+                =======================================================================================  -->
+
+                            <li id="project-item-2" class="project-item">
+                                <div class="info">
+                                    <span class="no">2.</span>
+                                    <span class="project-title">TRINITY-2023</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-3" class="scramble" type="button">
+                                            <span onclick="showDetails2()" id="scrambleSpan-3">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-4" class="scramble" type="button" onclick="showDetails2()"><span
+                                                id="scrambleSpan-4">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-2" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://trinity-2023.vercel.app"><img
+                                                class="project-image" src="./images/trinity.png" alt="img"></a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: I have created the website for
+                                            Trinity 2023, an event organized by ACM RSCOE, with the aim of educating our
+                                            juniors about the three stages of web development: design, development, and
+                                            version control. The website features interactive elements, Blender models,
+                                            and custom shaders to enhance the experience.</p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: <br>#three.js #blender #webgl</p>
+                                        <br>
+                                        <a target="_blank" href="https://trinity-2023.vercel.app"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails2()" id="cross-2" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+                            <!--=======================================================================================
+                        CO ATTAINMENT
+                =======================================================================================  -->
+
+                            <li id="project-item-3" class="project-item">
+                                <div class="info">
+                                    <span class="no">3.</span>
+                                    <span class="project-title">CO Attainment Calculator Web App</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-5" class="scramble" type="button">
+                                            <span onclick="showDetails3()" id="scrambleSpan-5">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-6" class="scramble" type="button" onclick="showDetails3()"><span
+                                                id="scrambleSpan-6">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-3" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://github.com/AmitP-027/CO_Attainment"><img
+                                                class="project-image" src="./images/coAttainment.png" alt="img"></a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: It is build on top of the React JS,
+                                            with scss. It is a web app that will automatically find all the computation
+                                            results for course outcome attainments of students of particular
+                                            division.<br></p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: <br>#react.js #MERN-STACK #sheet.js
+                                            #bootstrap</p>
+                                        <br>
+                                        <a target="_blank" href="https://github.com/AmitP-027/CO_Attainment"
+                                            class="visit-button"><span>Code</span></a>
+                                    </div>
+                                    <i onclick="hideDetails3()" id="cross-3" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+                        <!--=======================================================================================
+                        PACMAN Game
+                =======================================================================================  -->
+
+                            <li id="project-item-4" class="project-item">
+                                <div class="info">
+                                    <span class="no">4.</span>
+                                    <span class="project-title">PACMAN GAME</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-7" class="scramble" type="button">
+                                            <span onclick="showDetails4()" id="scrambleSpan-7">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-8" class="scramble" type="button" onclick="showDetails4()"><span
+                                                id="scrambleSpan-8">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-4" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://amitp-027-pacmam.netlify.app/">
+                                            <img class="project-image" src="./images/pacman.png" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description:
+                                            I developed a PACMAN game using vanilla JavaScript. The enemy in the game
+                                            features random artificial intelligence, providing unpredictable movement
+                                            patterns. This random AI creates an element of surprise as the enemy pursues
+                                            PACMAN throughout the maze, enhancing the overall gameplay experience.<br>
+                                        </p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: #Vanilla JavaScript #HTML-canvas<br></p>
+                                        <br>
+                                        <a target="_blank" href="https://amitp-027-pacmam.netlify.app/"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails4()" id="cross-4" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+
+                            <!--=======================================================================================
+                        CASTLE-BATTLE Game
+                =======================================================================================  -->
+
+                            <li id="project-item-5" class="project-item">
+                                <div class="info">
+                                    <span class="no">5.</span>
+                                    <span class="project-title">CASTLE-BATTLE GAME</span>
+                                </div>
+                                <div class="more-info">
+                                    <div class="btn-1">
+                                        <a id="scramble-9" class="scramble" type="button">
+                                            <span onclick="showDetails5()" id="scrambleSpan-9">EXPLORE</span>
+                                        </a>
+                                    </div>
+                                    <div class="btn-2">
+                                        <a id="scramble-10" class="scramble" type="button"
+                                            onclick="showDetails5()"><span id="scrambleSpan-10">EXPLORE</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <div id="detail-5" class="details">
+                                <div class="project-image-info">
+                                    <div class="project-details-left">
+                                        <a target="_blank" href="https://amitp-027-castle-battle.netlify.app/">
+                                            <img class="project-image" src="./images/castleBattle.png" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="project-details-right">
+                                        <p class="full-description">Description: Castle-Battle is an exciting and
+                                            engaging two-player fighting game built entirely in vanilla JavaScript. The
+                                            game is designed to provide an immersive gaming experience, complete with
+                                            captivating sound effects and impressive sprite animations.<br>
+                                        </p>
+                                        <br>
+                                        <p class="tech-stack">Tools and Tech: #Vanilla JavaScript #HTML-canvas<br></p>
+                                        <br>
+                                        <a target="_blank" href="https://amitp-027-castle-battle.netlify.app/"
+                                            class="visit-button"><span>Visit</span></a>
+                                    </div>
+                                    <i onclick="hideDetails5()" id="cross-5" class="fa-solid fa-xmark cross"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="skills">
+                        <div class="marquee">
+                            <div class="marquee__inner">
+                                <span>SKILLS</span>
+                                <span class="hollow">SKILLS</span>
+                                <span>SKILLS</span>
+                                <span class="hollow">SKILLS</span>
+                                <span>SKILLS</span>
+                                <span class="hollow">SKILLS</span>
+                            </div>
+                        </div>
+
+                        <div class="stripes">
+                            <div class="tech-icons">
+                            </div>
+
+                            <li class="skill-item">
+                                <div class="info">
+                                    <span class="skill-title">Web Development</span>
+                                </div>
+                                <div class="skill-icons">
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-react"></i>
+                                        </div>
+                                        <span>React</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fas fa-n"></i>
+                                        </div>
+                                        <span>Next.js</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-vuejs"></i>
+                                        </div>
+                                        <span>Vue</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-python"></i>
+                                        </div>
+                                        <span>Django</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fas fa-flask"></i>
+                                        </div>
+                                        <span>Flask</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-php"></i>
+                                        </div>
+                                        <span>PHP</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="skill-item web-frameworks">
+                                <div class="info">
+                                    <span class="skill-title">Frontend & CSS</span>
+                                </div>
+                                <div class="skill-icons">
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-html5"></i>
+                                        </div>
+                                        <span>HTML5</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-bootstrap"></i>
+                                        </div>
+                                        <span>Bootstrap</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fas fa-wind"></i>
+                                        </div>
+                                        <span>Tailwind</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-node-js"></i>
+                                        </div>
+                                        <span>Node.js</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="skill-item">
+                                <div class="info">
+                                    <span class="skill-title">Tools & Technologies</span>
+                                </div>
+                                <div class="skill-icons">
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-docker"></i>
+                                        </div>
+                                        <span>Docker</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-git-alt"></i>
+                                        </div>
+                                        <span>Git</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <span>SQL</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fab fa-aws"></i>
+                                        </div>
+                                        <span>AWS</span>
+                                    </div>
+                                    <div class="skill-icon">
+                                        <div class="icon-circle">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </div>
+                                        <span>Postman</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                    
+                    <div class="experience">
+                        <div class="marquee">
+                            <div class="marquee__inner" aria-hidden="true">
+                                <span>EXPERIENCE</span>
+                                <span class="hollow">EXPERIENCE</span>
+                                <span>EXPERIENCE</span>
+                                <span class="hollow">EXPERIENCE</span>
+                            </div>
+                        </div>
+                        <div class="stripes">
+                            <div class="experience-item">
+                                <div class="info">
+                                    <span class="no">01</span>
+                                    <span class="company-title">NOVEM CONTROLS</span>
+                                </div>
+                                <div class="experience-details">
+                                    <div class="role-info">
+                                        <h3 class="position">Junior Software Development Engineer</h3>
+                                        <p class="duration">Jan 2024 - Dec 2024</p>
+                                    </div>
+                                    <div class="responsibilities">
+                                        <p>Developed and maintained scalable web applications using modern JavaScript frameworks</p>
+                                        <p>Collaborated with cross-functional teams to implement new features and optimize existing functionality</p>
+                                        <p>Participated in code reviews and contributed to improving development practices</p>
+                                        <p>Worked on performance optimization and bug fixing to enhance user experience</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education">
+                        <div class="marquee">
+                            <div class="marquee__inner" aria-hidden="true">
+                                <span>EDUCATION</span>
+                                <span class="hollow">EDUCATION</span>
+                                <span>EDUCATION</span>
+                                <span class="hollow">EDUCATION</span>
+                            </div>
+                        </div>
+                        <div class="stripes">
+                            <div class="education-item">
+                                <div class="info">
+                                    <span class="no">01</span>
+                                    <span class="institute-title">CHANDIGARH UNIVERSITY</span>
+                                </div>
+                                <div class="education-details">
+                                    <div class="course-info">
+                                        <h3 class="degree">Bachelor of Computer Applications</h3>
+                                        <p class="duration">2021 - 2024</p>
+                                    </div>
+                                    <div class="additional-info">
+                                        <p>Mohali, Punjab</p>
+                                        <p class="score">CGPA: 8.08</p>
+                                        <div class="highlights">
+                                            <p>Core coursework in Data Structures, Algorithms, Database Management, and Web Development</p>
+                                            <p>Active member of the University's Programming Club</p>
+                                            <p>Participated in various coding competitions and hackathons</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="education-item">
+                                <div class="info">
+                                    <span class="no">02</span>
+                                    <span class="institute-title">SARASWATI VIDYA MANDIR</span>
+                                </div>
+                                <div class="education-details">
+                                    <div class="course-info">
+                                        <h3 class="degree">Higher Secondary Education (10+2)</h3>
+                                        <p class="duration">2019 - 2021</p>
+                                    </div>
+                                    <div class="additional-info">
+                                        <p>Ballia, Uttar Pradesh</p>
+                                        <p class="score">Percentage: 83%</p>
+                                        <div class="highlights">
+                                            <p>Specialized in Science stream with focus on Mathematics and Computer Science</p>
+                                            <p>Participated in various academic competitions and school events</p>
+                                            <p>Class representative and active member of the school's science club</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact">
+                        <div class="marquee">
+                            <div class="marquee__inner">
+                                <span>CONTACT</span>
+                                <span class="hollow">CONTACT</span>
+                                <span>CONTACT</span>
+                                <span class="hollow">CONTACT</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-container">
+                            <div class="contact-info">
+                                <div class="info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <p>Email</p>
+                                    <a href="mailto:iamit.kr.p@gmail.com">iamit.kr.p@gmail.com</a>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p>Location</p>
+                                    <span>Pune, Maharashtra, India</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-phone"></i>
+                                    <p>Phone</p>
+                                    <a href="tel:+1234567890">+91 1234567890</a>
+                                </div>
+                            </div>
+                            <div id="telephone3D" class="model-container">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="copyright">
+                        <p> 2023 | Designed and developed with love by AP027.</p>
+                    </div>
+                </div>
+                <!--=======================================================================================
+                    SIDEBAR-RIGHT
+                =======================================================================================  -->
+                <div class="side-bar-2">
+                    <div class="theme">
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox" class="checkbox-label">
+                            <i class="fas fa-moon"></i>
+                            <i class="fa-regular fa-sun"></i>
+                            <span class="ball"></span>
+                        </label>
+                    </div>
+                    <div class="resume">
+                        <div class="resume-box">
+                            <i class="fa-solid fa-download"></i>
+                            <a download href="./resume.pdf"><p>RESUME</p></a> 
+                        </div>
+                    </div>
+                    <div class="mail">
+                        <a href="mailto:iamit.kr.p@gmail.com">iamit.kr.p@gmail.com</a>
+                        <div class="verticalbar"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <canvas class="webgl"></canvas>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'></script>
+        <script type="module" src="./script.js"></script>
+        <script src="./background-effects.js"></script>
+        <script src="./constellation.js"></script>
+        <script type="module" src="./shaders/telephone/telephone.js"></script>
+    </body>
+
+</html>
