@@ -132,6 +132,16 @@ const element7 = document.getElementById('scramble-7');
 const element8 = document.getElementById('scramble-8');
 const element9 = document.getElementById('scramble-9');
 const element10 = document.getElementById('scramble-10');
+
+// Skills section scramble elements
+const skillElement1 = document.getElementById('skill-scramble-1');
+const skillElement2 = document.getElementById('skill-scramble-2');
+const skillElement3 = document.getElementById('skill-scramble-3');
+const skillElement4 = document.getElementById('skill-scramble-4');
+const skillElement5 = document.getElementById('skill-scramble-5');
+const skillElement6 = document.getElementById('skill-scramble-6');
+const skillElement7 = document.getElementById('skill-scramble-7');
+const skillElement8 = document.getElementById('skill-scramble-8');
 const elementSpan1 = document.getElementById('scrambleSpan-1');
 const elementSpan2 = document.getElementById('scrambleSpan-2');
 const elementSpan3 = document.getElementById('scrambleSpan-3');
@@ -142,6 +152,16 @@ const elementSpan7 = document.getElementById('scrambleSpan-7');
 const elementSpan8 = document.getElementById('scrambleSpan-8');
 const elementSpan9 = document.getElementById('scrambleSpan-9');
 const elementSpan10 = document.getElementById('scrambleSpan-10');
+
+// Skills section scramble spans
+const skillSpan1 = document.getElementById('skillScrambleSpan-1');
+const skillSpan2 = document.getElementById('skillScrambleSpan-2');
+const skillSpan3 = document.getElementById('skillScrambleSpan-3');
+const skillSpan4 = document.getElementById('skillScrambleSpan-4');
+const skillSpan5 = document.getElementById('skillScrambleSpan-5');
+const skillSpan6 = document.getElementById('skillScrambleSpan-6');
+const skillSpan7 = document.getElementById('skillScrambleSpan-7');
+const skillSpan8 = document.getElementById('skillScrambleSpan-8');
 
 const originalText = elementSpan1.innerText
 
@@ -155,6 +175,23 @@ const scrambleText = text => {
         .map(x => randomInt(3) > 1 ? randomFromArray(chars) : x)
         .join('')
 }
+function showSkills1() {
+    let detail = document.getElementById('skill-detail-1');
+    let skillItem = document.getElementById('skill-item-1');
+    skillItem.style.borderBottom = "none";
+    detail.style.borderBottom = "1px solid #4e545a";
+    detail.style.display = "flex";
+    detail.querySelector('.skill-detail-content').style.display = "flex";
+}
+
+function hideSkills1() {
+    let detail = document.getElementById('skill-detail-1');
+    let skillItem = document.getElementById('skill-item-1');
+    skillItem.style.borderBottom = "1px solid #4e545a";
+    detail.style.borderBottom = "none";
+    detail.style.display = "none";
+    detail.querySelector('.skill-detail-content').style.display = "none";
+}
 
 element1.addEventListener('mouseover', () => {
     interval = setInterval(() =>
@@ -166,6 +203,7 @@ element1.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan1.innerText = originalText
 })
+
 
 
 
@@ -280,11 +318,100 @@ elementSpan10.addEventListener('mouseover', () => {
         elementSpan10.innerText = scrambleText(originalText)
     , 100)
 })
-
 element10.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan10.innerText = originalText
 })
+
+// Skills section scramble event listeners
+skillElement1.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan1.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement1.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan1.innerText = originalText
+})
+
+skillElement2.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan2.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement2.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan2.innerText = originalText
+})
+
+skillElement3.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan3.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement3.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan3.innerText = originalText
+})
+
+skillElement4.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan4.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement4.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan4.innerText = originalText
+})
+
+skillElement5.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan5.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement5.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan5.innerText = originalText
+})
+
+skillElement6.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan6.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement6.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan6.innerText = originalText
+})
+
+skillElement7.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan7.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement7.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan7.innerText = originalText
+})
+
+skillElement8.addEventListener('mouseover', () => {
+    interval = setInterval(() =>
+        skillSpan8.innerText = scrambleText(originalText)
+    , 100)
+})
+
+skillElement8.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    skillSpan8.innerText = originalText
+})
+
 
 
 /** ===========================================================================================

@@ -812,9 +812,510 @@ span {
     font-size: 20px;
     padding: 0 2vw;
   }
-
-  .stripes {
+.stripes {
     font-family: "Roboto Mono", monospace;
+}
+
+.skill-detail-content {
+    display: none;
+    padding: 20px;
+}
+
+#skill-detail-1, #skill-detail-2, #skill-detail-3, #skill-detail-4 {
+    display: none;
+    padding-bottom: 10px;
+}
+
+.skill-item {
+    pointer-events: auto;
+}
+
+.skill-item .scramble {
+    pointer-events: auto;
+}
+
+/* Light theme button styles */
+.skill-item .btn-1 a {
+    background: none;
+    pointer-events: auto;
+    border: 2px solid #010100;
+    color: #000;
+}
+
+.skill-item .btn-1 a::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% - 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(1);
+    z-index: 1;
+}
+
+.skill-item .btn-1 a::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleX(1);
+    z-index: 2;
+}
+
+/* Dark theme button styles */
+body.dark .skill-item .btn-1 a {
+    border: 2px solid #b3b3b3;
+    color: #b3b3b3;
+}
+
+body.dark .skill-item .btn-1 a::before {
+    background-color: #070707;
+}
+
+body.dark .skill-item .btn-1 a::after {
+    background-color: #070707;
+}
+
+.skill-item .btn-1 a:hover::before {
+    transform: scaleY(0);
+}
+
+.skill-item .btn-1 a:hover::after {
+    transform: scaleX(0);
+}
+
+/* Dark mode second button */
+.skill-item .btn-2 a {
+    pointer-events: auto;
+    border: 2px solid #b3b3b3;
+    background: none;
+}
+
+.skill-item .btn-2 a::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% - 10px);
+    background-color: #070707;
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(1);
+    z-index: 1;
+}
+
+.skill-item .btn-2 a::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+    background-color: #070707;
+    transition: all 0.5s ease-in-out;
+    transform: scaleX(1);
+    z-index: 2;
+}
+
+.skill-item .btn-2 a span {
+    color: #b3b3b3;
+}
+
+.skill-item .btn-2 a:hover::before {
+    transform: scaleY(0);
+}
+
+.skill-item .btn-2 a:hover::after {
+    transform: scaleX(0);
+}
+
+.skill-item {
+    pointer-events: auto;
+}
+
+.skill-item .scramble {
+    pointer-events: auto;
+}
+
+/* Light theme button styles */
+.skill-item .btn-1 a {
+    background: none;
+    pointer-events: auto;
+    border: 2px solid #010100;
+    color: #000;
+}
+
+.skill-item .btn-1 a::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% - 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(1);
+    z-index: 1;
+}
+
+.skill-item .btn-1 a::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleX(1);
+    z-index: 2;
+}
+
+/* Dark theme button styles */
+body.dark .skill-item .btn-1 a {
+    border: 2px solid #b3b3b3;
+    color: #b3b3b3;
+}
+
+body.dark .skill-item .btn-1 a::before {
+    background-color: #070707;
+}
+
+body.dark .skill-item .btn-1 a::after {
+    background-color: #070707;
+}
+
+.skill-item .btn-1 a:hover::before {
+    transform: scaleY(0);
+}
+
+.skill-item .btn-1 a:hover::after {
+    transform: scaleX(0);
+}
+
+.skill-item .btn-2 a {
+    pointer-events: auto;
+}
+
+.skill-item {
+    pointer-events: auto;
+}
+
+.skill-item .scramble {
+    pointer-events: auto;
+}
+
+.skill-item .btn-1 a {
+    background: none;
+    pointer-events: auto;
+}
+
+.skill-item .btn-1 a::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% - 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleY(1);
+}
+
+.skill-item .btn-1 a::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -5px;
+    width: calc(100% - 10px);
+    height: calc(100% + 10px);
+    background-color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    transform: scaleX(1);
+}
+
+.skill-item .btn-1 a:hover::before {
+    transform: scaleY(0);
+}
+
+.skill-item .btn-1 a:hover::after {
+    transform: scaleX(0);
+}
+
+.skill-item .btn-2 a {
+    pointer-events: auto;
+}
+
+
+  #skill-detail-1, #skill-detail-2, #skill-detail-3, #skill-detail-4 {
+      display: none;
+      padding-bottom: 10px;
+  }
+
+  .skill-detail-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      width: 100%;
+  }
+
+  .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 10px;
+  }
+
+  .skill-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      gap: 10px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon i {
+      font-size: 28px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon span {
+      font-size: 12px;
+      font-family: "Roboto Mono", monospace;
+      opacity: 0.8;
+  }
+
+  .skill-icon:hover {
+      transform: translateY(-5px);
+  }
+
+  .skill-icon:hover i {
+      color: var(--hover-color-dark);
+  }
+
+  .skill-icon:hover span {
+      opacity: 1;
+  }
+
+  body.dark .skill-icon i {
+      color: var(--text-color-dark);
+  }
+
+  body.dark .skill-icon span {
+      color: var(--text-color-dark);
+  }
+
+  @media (max-width: 985px) {
+      .skill-icons {
+          gap: 20px;
+          padding: 5px;
+      }
+
+      .skill-icon i {
+          font-size: 24px;
+      }
+
+      .skill-icon span {
+          font-size: 10px;
+      }
+
+      .skill-detail-content {
+          padding: 15px 10px;
+      }
+  }
+  .skill-item {
+      margin-top: 20px;
+      border-bottom: 1px solid #4e545a;
+      padding: 20px 14px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-item .info {
+      display: flex;
+      align-items: center;
+  }
+
+  .skill-item .info .no {
+      margin-right: 10px;
+      font-family: "Roboto Mono", monospace;
+  }
+
+  .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      padding: 0 20px;
+  }
+
+  .skill-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+  }
+
+  .icon-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(179, 179, 179, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon i {
+      font-size: 24px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon span {
+      font-size: 12px;
+      font-family: "Roboto Mono", monospace;
+  }
+
+  .skill-icon:hover .icon-circle {
+      background: rgba(179, 179, 179, 0.2);
+      transform: translateY(-5px);
+  }
+
+  body.dark .skill-icon:hover .icon-circle {
+      background: rgba(255, 255, 255, 0.1);
+  }
+
+  body.dark .icon-circle {
+      background: rgba(255, 255, 255, 0.05);
+  }
+
+  .skill-item {
+      margin-top: 20px;
+      border-bottom: 1px solid #4e545a;
+      padding: 20px 14px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-item .info {
+      display: flex;
+      align-items: center;
+  }
+
+  .skill-item .info .no {
+      margin-right: 10px;
+      font-family: "Roboto Mono", monospace;
+  }
+
+  .skill-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      padding: 0 20px;
+  }
+
+  .skill-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+  }
+
+  .icon-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(179, 179, 179, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon i {
+      font-size: 24px;
+      transition: all 0.3s ease;
+  }
+
+  .skill-icon span {
+      font-size: 12px;
+      font-family: "Roboto Mono", monospace;
+  }
+
+  .skill-icon:hover .icon-circle {
+      background: rgba(179, 179, 179, 0.2);
+      transform: translateY(-5px);
+  }
+
+  body.dark .skill-icon:hover .icon-circle {
+      background: rgba(255, 255, 255, 0.1);
+  }
+
+  body.dark .icon-circle {
+      background: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (max-width: 985px) {
+      .skill-icons {
+          gap: 15px;
+          padding: 0 10px;
+      }
+
+      .icon-circle {
+          width: 40px;
+          height: 40px;
+      }
+
+      .skill-icon i {
+          font-size: 20px;
+      }
+
+      .skill-icon span {
+          font-size: 10px;
+      }
+
+      .skill-item {
+          padding: 15px 10px;
+      }
+
+      .skill-item .info .no {
+          font-size: 12px;
+      }
+
+      .project-title {
+          font-size: 14px;
+      }
+  }
+
+  .skill-item:hover .skill-text {
+      opacity: 1;
+  }
+
+  .skill-title {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+  }
+
+  body.dark .skill-text {
+      color: var(--text-color-dark);
+  }
+
+  .skill-item:hover {
+      background: rgba(78, 84, 90, 0.1);
+  }
+
+  body.dark .skill-item:hover {
+      background: rgba(179, 179, 179, 0.1);
   }
 
   .project-item {
