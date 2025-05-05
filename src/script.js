@@ -178,19 +178,23 @@ const scrambleText = text => {
 function showSkills1() {
     let detail = document.getElementById('skill-detail-1');
     let skillItem = document.getElementById('skill-item-1');
+    let content = detail.querySelector('.skill-detail-content');
+    
     skillItem.style.borderBottom = "none";
     detail.style.borderBottom = "1px solid #4e545a";
     detail.style.display = "flex";
-    detail.querySelector('.skill-detail-content').style.display = "flex";
+    content.classList.add('active');
 }
 
 function hideSkills1() {
     let detail = document.getElementById('skill-detail-1');
     let skillItem = document.getElementById('skill-item-1');
+    let content = detail.querySelector('.skill-detail-content');
+    
     skillItem.style.borderBottom = "1px solid #4e545a";
     detail.style.borderBottom = "none";
     detail.style.display = "none";
-    detail.querySelector('.skill-detail-content').style.display = "none";
+    content.classList.remove('active');
 }
 
 element1.addEventListener('mouseover', () => {
@@ -219,7 +223,71 @@ element2.addEventListener('mouseout', () => {
 })
 
 
+function showSkills2() {
+    let detail = document.getElementById('skill-detail-2');
+    let skillItem = document.getElementById('skill-item-2');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "none";
+    detail.style.borderBottom = "1px solid #4e545a";
+    detail.style.display = "flex";
+    content.classList.add('active');
+}
 
+function hideSkills2() {
+    let detail = document.getElementById('skill-detail-2');
+    let skillItem = document.getElementById('skill-item-2');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "1px solid #4e545a";
+    detail.style.borderBottom = "none";
+    detail.style.display = "none";
+    content.classList.remove('active');
+}
+
+function showSkills3() {
+    let detail = document.getElementById('skill-detail-3');
+    let skillItem = document.getElementById('skill-item-3');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "none";
+    detail.style.borderBottom = "1px solid #4e545a";
+    detail.style.display = "flex";
+    content.classList.add('active');
+}
+
+function hideSkills3() {
+    let detail = document.getElementById('skill-detail-3');
+    let skillItem = document.getElementById('skill-item-3');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "1px solid #4e545a";
+    detail.style.borderBottom = "none";
+    detail.style.display = "none";
+    content.classList.remove('active');
+}
+
+function showSkills4() {
+    let detail = document.getElementById('skill-detail-4');
+    let skillItem = document.getElementById('skill-item-4');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "none";
+    detail.style.borderBottom = "1px solid #4e545a";
+    detail.style.display = "flex";
+    content.classList.add('active');
+}
+
+function hideSkills4() {
+    let detail = document.getElementById('skill-detail-4');
+    let skillItem = document.getElementById('skill-item-4');
+    let content = detail.querySelector('.skill-detail-content');
+    
+    skillItem.style.borderBottom = "1px solid #4e545a";
+    detail.style.borderBottom = "none";
+    detail.style.display = "none";
+    content.classList.remove('active');
+}
 
 element3.addEventListener('mouseover', () => {
     interval = setInterval(() =>
@@ -231,6 +299,7 @@ element3.addEventListener('mouseout', () => {
     clearInterval(interval)
     elementSpan3.innerText = originalText
 })
+
 
 
 
