@@ -1,0 +1,139 @@
+/* src/skill-grid.css */
+
+.skill-grid-container {
+    display: grid;
+    /* Adjust columns for different screen sizes */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 20px;
+    padding: 40px 10px; /* Padding around the grid */
+    margin-top: 30px;
+}
+
+.skill-item-grid {
+    background-color: rgba(20, 20, 25, 0.4); /* Dark transparent background */
+    border: 1px solid #4e545a; /* Standard border color */
+    border-radius: 6px;
+    padding: 25px 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Contain pseudo-elements */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    min-height: 150px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scanline animation on hover */
+.skill-item-grid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Scanline height */
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.8), transparent); /* Cyan gradient */
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    animation: scanline 2s linear infinite paused; /* Paused initially */
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-10px); opacity: 0; }
+    25% { transform: translateY(30%); opacity: 0.7; }
+    50% { transform: translateY(70%); opacity: 0.7; }
+    75% { transform: translateY(110%); opacity: 0; }
+    100% { transform: translateY(110%); opacity: 0; }
+}
+
+/* Hover effects */
+.skill-item-grid:hover {
+    transform: translateY(-5px); /* Slight lift */
+    border-color: #00e5ff; /* Cyan border */
+    box-shadow: 0 5px 20px rgba(0, 229, 255, 0.2); /* Cyan glow */
+    background-color: rgba(30, 30, 40, 0.6);
+}
+
+.skill-item-grid:hover::after {
+    /* Start scanline on hover */
+    /* transform: translateY(100%); */
+    /* opacity: 0.6; */
+    animation-play-state: running; /* Run animation */
+}
+
+.skill-item-grid i { /* Skill icon */
+    font-size: 3em; /* Larger icon */
+    color: #b3b3b3; /* Default icon color */
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item-grid:hover i {
+    color: #00e5ff; /* Cyan icon on hover */
+    transform: scale(1.1); /* Slightly larger icon */
+}
+
+.skill-item-grid span { /* Skill name */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95em;
+    color: #b3b3b3; /* Default text color */
+    margin-top: auto; /* Push text towards bottom if needed */
+    transition: color 0.3s ease;
+}
+
+.skill-item-grid:hover span {
+    color: #ffffff; /* White text on hover */
+}
+
+/* Theme adjustments */
+body:not(.dark) .skill-item-grid {
+    background-color: rgba(240, 240, 245, 0.6);
+    border-color: #ccc;
+    color: #333;
+}
+
+body:not(.dark) .skill-item-grid i {
+    color: #555;
+}
+
+body:not(.dark) .skill-item-grid span {
+    color: #333;
+}
+
+body:not(.dark) .skill-item-grid:hover {
+    border-color: #00b8d4; /* Slightly darker cyan for light mode */
+    box-shadow: 0 5px 20px rgba(0, 184, 212, 0.2);
+    background-color: rgba(220, 245, 255, 0.7);
+}
+
+body:not(.dark) .skill-item-grid:hover i {
+    color: #00b8d4;
+}
+
+body:not(.dark) .skill-item-grid:hover span {
+    color: #000;
+}
+
+body:not(.dark) .skill-item-grid::after {
+    background: linear-gradient(90deg, transparent, rgba(0, 184, 212, 0.8), transparent);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .skill-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+        gap: 15px;
+    }
+    .skill-item-grid {
+        padding: 20px 10px;
+        min-height: 120px;
+    }
+     .skill-item-grid i {
+        font-size: 2.5em;
+    }
+     .skill-item-grid span {
+        font-size: 0.85em;
+    }
+} 

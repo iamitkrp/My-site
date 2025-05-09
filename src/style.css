@@ -354,7 +354,7 @@ body.dark a {
   box-sizing: border-box;
   transform: rotate(90deg);
   color: black;
-  pointer-event: auto;
+  pointer-events: auto;
   cursor: pointer;
   font-family: "Roboto Mono", monospace;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -584,6 +584,7 @@ span {
   display: flex;
   justify-content: center;
   padding: 20px;
+  position: relative; /* Added for positioning context */
 }
 .project-image {
   width: 400px;
@@ -662,7 +663,7 @@ span {
 .visit-button > span {
   text-decoration: none;
   pointer-events: auto;
-  pointer: cursor;
+  cursor: pointer;
   border: 2px solid grey;
   padding: 4px 10px;
 }
@@ -686,10 +687,39 @@ span {
   display: none;
   padding-bottom: 10px;
 }
+/* 
 .cross {
-  pointer-events: auto;
+  position: absolute;
+  bottom: 15px; 
+  right: 15px;
+  font-size: 1.2rem;
+  color: #666;
   cursor: pointer;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.1);
 }
+
+.cross:hover {
+  color: #333;
+  background-color: rgba(200, 200, 200, 0.3);
+  transform: rotate(90deg);
+}
+
+body.dark .cross {
+  color: #aaa;
+}
+
+body.dark .cross:hover {
+  color: #fff;
+  background-color: rgba(100, 100, 100, 0.3);
+}
+*/
 .copyright {
   margin-top: 60px;
   font-family: "Roboto Mono", monospace;
@@ -821,35 +851,180 @@ span {
 }
 
 .skill-detail-content {
-    display: flex;
+    position: relative;
     width: 100%;
-    padding: 40px 0;
-    justify-content: center;
+    padding: 25px 0;
+    border-radius: 8px;
+    background-color: rgba(245, 245, 245, 0.03);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin: 10px 0;
 }
 
-.skill-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 60px;
-    max-width: 800px;
+body.dark .skill-detail-content {
+    background-color: rgba(30, 30, 30, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.skill-icon {
+.single-row-icons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 50px;
+    width: 100%;
+    padding: 20px 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
 }
 
-.skill-icon i {
-    font-size: 3rem;
-    transition: transform 0.3s ease, color 0.3s ease;
+.single-row-icons::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
 
-.skill-icon span {
-    font-size: 1rem;
-    letter-spacing: 1px;
+.single-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 100px;
+  height: 120px;
+  margin: 0 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.single-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.single-icon::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #ff0000 0deg,
+    #ffff00 90deg,
+    #00ff00 180deg,
+    #00ffff 270deg,
+    #ff00ff 360deg
+  );
+  top: -25%;
+  left: -25%;
+  animation: rotate 5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.single-icon:hover::before {
+  opacity: 0.15;
+}
+
+.single-icon:hover {
+  transform: translateY(-15px) rotateX(10deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.single-icon i {
+  font-size: 3rem;
+  color: #333;
+  transition: all 0.5s ease;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 2;
+}
+
+.single-icon:hover i {
+  transform: translateZ(30px) scale(1.2);
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateZ(30px) scale(1.2);
+  }
+  50% {
+    transform: translateZ(40px) scale(1.2);
+  }
+}
+
+body.dark .single-icon {
+    background: rgba(30, 30, 30, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(70, 70, 70, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .single-icon::after {
+    background: linear-gradient(135deg, rgba(70, 70, 70, 0.1) 0%, transparent 100%);
+}
+
+body.dark .single-icon:hover {
+    transform: translateY(-15px) rotateX(10deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(100, 100, 100, 0.4);
+}
+
+body.dark .single-icon i {
+    color: #ddd;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+}
+
+body.dark .single-icon:hover i {
+    color: var(--hover-color-light);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+.skill-name {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #555;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.single-icon:hover .skill-name {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.dark .skill-name {
+    color: #bbb;
 }
 
 .skill-icon:hover i {
@@ -1654,7 +1829,7 @@ body.dark .skill-icon i {
   .visit-button > span {
     text-decoration: none;
     pointer-events: auto;
-    pointer: cursor;
+    cursor: pointer;
     border: 2px solid grey;
     padding: 4px 10px;
   }

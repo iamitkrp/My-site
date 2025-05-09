@@ -1,0 +1,173 @@
+/* Dark Mode */
+body.dark {
+    --skills-text-primary: #fff;
+    --skills-text-secondary: #ccc;
+    --skills-accent-color: #fff;
+    --skills-background-secondary: rgba(255, 255, 255, 0.05);
+    --skills-border-primary: rgba(255, 255, 255, 0.1);
+    --skills-border-accent: rgba(255, 255, 255, 0.3);
+    --skills-hover-background-accent: rgba(255, 255, 255, 0.1);
+    --skills-shadow-accent: rgba(255, 255, 255, 0.15);
+}
+
+/* Light Mode (Default) */
+body:not(.dark) {
+    --skills-text-primary: #000;
+    --skills-text-secondary: #555;
+    --skills-accent-color: #000;
+    --skills-background-secondary: rgba(0, 0, 0, 0.03);
+    --skills-border-primary: rgba(0, 0, 0, 0.1);
+    --skills-border-accent: rgba(0, 0, 0, 0.4);
+    --skills-hover-background-accent: rgba(0, 0, 0, 0.08);
+    --skills-shadow-accent: rgba(0, 0, 0, 0.15);
+}
+
+/* Skills Section - Alternative Approach */
+.skills {
+    padding: 4rem 0;
+    position: relative;
+    color: var(--skills-text-primary);
+}
+
+/* Inherit marquee styles if they are globally defined, or redefine here if needed */
+/* .marquee ... */
+/* .marquee__inner ... */
+
+.skills .stripes {
+    padding: 2rem 5%; /* Use percentage for responsive padding */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Space between skill groups */
+}
+
+.skill-group {
+    border-left: 3px solid var(--skills-accent-color); /* Use CSS variable */
+    padding-left: 1.5rem;
+    position: relative; /* For potential pseudo-elements or animations */
+}
+
+.skill-group-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.8rem; /* Larger title for groups */
+    color: var(--skills-text-primary); /* Use CSS variable */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.skill-group-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Position underline slightly below text */
+    left: 0;
+    width: 50px; /* Shorter underline for a subtle effect */
+    height: 2px;
+    background: var(--skills-accent-color); /* Use CSS variable */
+    transition: width 0.3s ease-in-out;
+}
+
+.skill-group:hover .skill-group-title::after {
+    width: 100px; /* Expand underline on hover for interactivity */
+}
+
+.skill-list-alt {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Gap between individual skill items */
+}
+
+.skill-item-alt {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem; /* Standardize font size */
+    color: var(--skills-text-secondary); /* Use CSS variable */
+    background-color: var(--skills-background-secondary); /* Use CSS variable */
+    padding: 0.75rem 1.25rem;
+    border-radius: 5px;
+    border: 1px solid var(--skills-border-primary); /* Use CSS variable */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Space between icon and text */
+    transition: all 0.3s ease;
+}
+
+.skill-item-alt:hover {
+    color: var(--skills-text-primary); /* Use CSS variable */
+    background-color: var(--skills-hover-background-accent); /* Use CSS variable */
+    border-color: var(--skills-border-accent); /* Use CSS variable */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 5px 15px var(--skills-shadow-accent); /* Use CSS variable */
+}
+
+.skill-icon-alt {
+    font-size: 1.5rem; /* Slightly larger icons */
+    color: var(--skills-accent-color); /* Use CSS variable */
+    transition: transform 0.3s ease;
+}
+
+.skill-item-alt:hover .skill-icon-alt {
+    transform: scale(1.1); /* Icon zoom on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills .stripes {
+        padding: 2rem 3%;
+    }
+
+    .skill-group-title {
+        font-size: 1.5rem;
+    }
+
+    .skill-item-alt {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .skill-icon-alt {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-list-alt {
+        flex-direction: column; /* Stack skills vertically on very small screens */
+        align-items: flex-start;
+    }
+
+    .skill-item-alt {
+        width: 100%; /* Make skill items full width */
+        justify-content: flex-start;
+    }
+}
+
+/* Direct overrides for light mode */
+body:not(.dark) .skill-group-title {
+    color: #000 !important;
+}
+
+body:not(.dark) .skill-item-alt {
+    color: #555 !important;
+    background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+body:not(.dark) .skill-icon-alt {
+    color: #000 !important;
+}
+
+/* Direct overrides for dark mode */
+body.dark .skill-group-title {
+    color: #fff !important;
+}
+
+body.dark .skill-item-alt {
+    color: #ccc !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark .skill-icon-alt {
+    color: #fff !important;
+} 

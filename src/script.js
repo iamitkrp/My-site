@@ -1,5 +1,5 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import VertexShader from './shaders/test/vertex.glsl'
 import FragmentShader from './shaders/test/fragment.glsl'
 import { gsap } from 'gsap';
@@ -134,14 +134,14 @@ const element9 = document.getElementById('scramble-9');
 const element10 = document.getElementById('scramble-10');
 
 // Skills section scramble elements
-const skillElement1 = document.getElementById('skill-scramble-1');
-const skillElement2 = document.getElementById('skill-scramble-2');
-const skillElement3 = document.getElementById('skill-scramble-3');
-const skillElement4 = document.getElementById('skill-scramble-4');
-const skillElement5 = document.getElementById('skill-scramble-5');
-const skillElement6 = document.getElementById('skill-scramble-6');
-const skillElement7 = document.getElementById('skill-scramble-7');
-const skillElement8 = document.getElementById('skill-scramble-8');
+// const skillElement1 = document.getElementById('skill-scramble-1');
+// const skillElement2 = document.getElementById('skill-scramble-2');
+// const skillElement3 = document.getElementById('skill-scramble-3');
+// const skillElement4 = document.getElementById('skill-scramble-4');
+// const skillElement5 = document.getElementById('skill-scramble-5');
+// const skillElement6 = document.getElementById('skill-scramble-6');
+// const skillElement7 = document.getElementById('skill-scramble-7');
+// const skillElement8 = document.getElementById('skill-scramble-8');
 const elementSpan1 = document.getElementById('scrambleSpan-1');
 const elementSpan2 = document.getElementById('scrambleSpan-2');
 const elementSpan3 = document.getElementById('scrambleSpan-3');
@@ -154,16 +154,14 @@ const elementSpan9 = document.getElementById('scrambleSpan-9');
 const elementSpan10 = document.getElementById('scrambleSpan-10');
 
 // Skills section scramble spans
-const skillSpan1 = document.getElementById('skillScrambleSpan-1');
-const skillSpan2 = document.getElementById('skillScrambleSpan-2');
-const skillSpan3 = document.getElementById('skillScrambleSpan-3');
-const skillSpan4 = document.getElementById('skillScrambleSpan-4');
-const skillSpan5 = document.getElementById('skillScrambleSpan-5');
-const skillSpan6 = document.getElementById('skillScrambleSpan-6');
-const skillSpan7 = document.getElementById('skillScrambleSpan-7');
-const skillSpan8 = document.getElementById('skillScrambleSpan-8');
-
-const originalText = elementSpan1.innerText
+// const skillSpan1 = document.getElementById('skillScrambleSpan-1');
+// const skillSpan2 = document.getElementById('skillScrambleSpan-2');
+// const skillSpan3 = document.getElementById('skillScrambleSpan-3');
+// const skillSpan4 = document.getElementById('skillScrambleSpan-4');
+// const skillSpan5 = document.getElementById('skillScrambleSpan-5');
+// const skillSpan6 = document.getElementById('skillScrambleSpan-6');
+// const skillSpan7 = document.getElementById('skillScrambleSpan-7');
+// const skillSpan8 = document.getElementById('skillScrambleSpan-8');
 
 const randomInt = max => Math.floor(Math.random() * max)
 const randomFromArray = array => array[randomInt(array.length)]
@@ -175,312 +173,32 @@ const scrambleText = text => {
         .map(x => randomInt(3) > 1 ? randomFromArray(chars) : x)
         .join('')
 }
-function showSkills1() {
-    let detail = document.getElementById('skill-detail-1');
-    let skillItem = document.getElementById('skill-item-1');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "none";
-    detail.style.borderBottom = "1px solid #4e545a";
-    detail.style.display = "flex";
-    content.classList.add('active');
-}
 
-function hideSkills1() {
-    let detail = document.getElementById('skill-detail-1');
-    let skillItem = document.getElementById('skill-item-1');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "1px solid #4e545a";
-    detail.style.borderBottom = "none";
-    detail.style.display = "none";
-    content.classList.remove('active');
-}
+// Attach scramble listeners using delegation OR keep individual listeners
+// Let's refine the individual listeners slightly
+const projectLinks = document.querySelectorAll('.projects .stripes a.scramble'); 
 
-element1.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan1.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element1.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan1.innerText = originalText
-})
-
-
-
-
-element2.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan2.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element2.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan2.innerText = originalText
-})
-
-
-function showSkills2() {
-    let detail = document.getElementById('skill-detail-2');
-    let skillItem = document.getElementById('skill-item-2');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "none";
-    detail.style.borderBottom = "1px solid #4e545a";
-    detail.style.display = "flex";
-    content.classList.add('active');
-}
-
-function hideSkills2() {
-    let detail = document.getElementById('skill-detail-2');
-    let skillItem = document.getElementById('skill-item-2');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "1px solid #4e545a";
-    detail.style.borderBottom = "none";
-    detail.style.display = "none";
-    content.classList.remove('active');
-}
-
-function showSkills3() {
-    let detail = document.getElementById('skill-detail-3');
-    let skillItem = document.getElementById('skill-item-3');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "none";
-    detail.style.borderBottom = "1px solid #4e545a";
-    detail.style.display = "flex";
-    content.classList.add('active');
-}
-
-function hideSkills3() {
-    let detail = document.getElementById('skill-detail-3');
-    let skillItem = document.getElementById('skill-item-3');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "1px solid #4e545a";
-    detail.style.borderBottom = "none";
-    detail.style.display = "none";
-    content.classList.remove('active');
-}
-
-function showSkills4() {
-    let detail = document.getElementById('skill-detail-4');
-    let skillItem = document.getElementById('skill-item-4');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "none";
-    detail.style.borderBottom = "1px solid #4e545a";
-    detail.style.display = "flex";
-    content.classList.add('active');
-}
-
-function hideSkills4() {
-    let detail = document.getElementById('skill-detail-4');
-    let skillItem = document.getElementById('skill-item-4');
-    let content = detail.querySelector('.skill-detail-content');
-    
-    skillItem.style.borderBottom = "1px solid #4e545a";
-    detail.style.borderBottom = "none";
-    detail.style.display = "none";
-    content.classList.remove('active');
-}
-
-element3.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan3.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element3.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan3.innerText = originalText
-})
-
-
-
-
-
-elementSpan4.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan4.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element4.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan4.innerText = originalText
-})
-
-
-
-elementSpan5.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan5.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element5.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan5.innerText = originalText
-})
-
-
-
-elementSpan6.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan6.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element6.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan6.innerText = originalText
-})
-
-
-
-elementSpan7.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan7.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element7.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan7.innerText = originalText
-})
-
-
-
-elementSpan8.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan8.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element8.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan8.innerText = originalText
-})
-
-
-
-elementSpan9.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan9.innerText = scrambleText(originalText)
-    , 100)
-})
-
-element9.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan9.innerText = originalText
-})
-
-
-
-elementSpan10.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        elementSpan10.innerText = scrambleText(originalText)
-    , 100)
-})
-element10.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    elementSpan10.innerText = originalText
-})
-
-// Skills section scramble event listeners
-skillElement1.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan1.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement1.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan1.innerText = originalText
-})
-
-skillElement2.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan2.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement2.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan2.innerText = originalText
-})
-
-skillElement3.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan3.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement3.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan3.innerText = originalText
-})
-
-skillElement4.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan4.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement4.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan4.innerText = originalText
-})
-
-skillElement5.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan5.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement5.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan5.innerText = originalText
-})
-
-skillElement6.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan6.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement6.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan6.innerText = originalText
-})
-
-skillElement7.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan7.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement7.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan7.innerText = originalText
-})
-
-skillElement8.addEventListener('mouseover', () => {
-    interval = setInterval(() =>
-        skillSpan8.innerText = scrambleText(originalText)
-    , 100)
-})
-
-skillElement8.addEventListener('mouseout', () => {
-    clearInterval(interval)
-    skillSpan8.innerText = originalText
-})
-
+projectLinks.forEach(link => {
+    let scrambleInterval; // Use local interval per link
+    link.addEventListener('mouseover', function() {
+        const span = this.querySelector('span');
+        if (!span) return;
+        const currentText = span.innerText;
+        this.dataset.originalText = currentText; // Store current text ("EXPLORE" or "CLOSE")
+        clearInterval(scrambleInterval); 
+        scrambleInterval = setInterval(() => {
+            span.innerText = scrambleText(currentText);
+        }, 100);
+    });
+    link.addEventListener('mouseout', function() {
+        clearInterval(scrambleInterval);
+        const span = this.querySelector('span');
+         if (!span) return;
+        if (this.dataset.originalText) {
+            span.innerText = this.dataset.originalText;
+        }
+    });
+});
 
 
 /** ===========================================================================================
@@ -766,18 +484,61 @@ const tick = () => {
 
 tick()
 
-// Contact form handling
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// --- Toggle Logic --- 
+function toggleDetails(projectNumber) {
+    let detailDiv = document.getElementById(`detail-${projectNumber}`);
+    let projectItemDiv = document.getElementById(`project-item-${projectNumber}`);
     
-    const name = this.name.value;
-    const email = this.email.value;
-    const subject = this.subject.value;
-    const message = this.message.value;
+    if (!detailDiv || !projectItemDiv) {
+        return; 
+    }
 
-    // Create mailto URL with form data
-    const mailtoUrl = `mailto:iamit.kr.p@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    let spanId1 = `scrambleSpan-${(projectNumber * 2) - 1}`;
+    let spanId2 = `scrambleSpan-${projectNumber * 2}`;
+    let span1 = document.getElementById(spanId1);
+    let span2 = document.getElementById(spanId2);
+    let link1 = span1 ? span1.closest('a') : null;
+    let link2 = span2 ? span2.closest('a') : null;
+
+    const exploreText = "EXPLORE";
+    const closeText = "CLOSE";
+    let currentTextState = exploreText; 
+
+    if (detailDiv.style.display === "flex") {
+        // Hiding
+        projectItemDiv.style.borderBottom = "1px solid #4e545a";
+        detailDiv.style.borderBottom = "none";
+        detailDiv.style.display = "none";
+        currentTextState = exploreText;
+    } else {
+        // Showing
+        projectItemDiv.style.borderBottom = "none";
+        detailDiv.style.borderBottom = "1px solid #4e545a";
+        detailDiv.style.display = "flex";
+        currentTextState = closeText;
+    }
     
-    // Open default email client
-    window.location.href = mailtoUrl;
-});
+    // Update text and dataset
+    if (span1) span1.innerText = currentTextState;
+    if (span2) span2.innerText = currentTextState;
+    if (link1) link1.dataset.originalText = currentTextState;
+    if (link2) link2.dataset.originalText = currentTextState;
+}
+
+// --- Click Event Delegation --- 
+const projectsContainer = document.querySelector('.projects .stripes'); 
+if (projectsContainer) {
+    projectsContainer.addEventListener('click', function(event) {
+        const clickedLink = event.target.closest('a.scramble');
+        
+        if (!clickedLink || !clickedLink.id.startsWith('scramble-')) return; 
+
+        const linkIdNum = parseInt(clickedLink.id.split('-')[1]);
+        const projectNumber = Math.ceil(linkIdNum / 2);
+
+        if (projectNumber >= 1 && projectNumber <= 5) { 
+             event.preventDefault(); 
+             toggleDetails(projectNumber);
+        }
+    });
+}

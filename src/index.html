@@ -8,6 +8,8 @@
         <meta name="description" content="Amit Pandey is a creative web developer and 3D experience designer with a passion for building innovative and interactive experiences.">
         <meta name="keywords" content="Amit Pandey, web developer, 3D experience designer, creative, innovative, interactive">
         <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./skill-grid.css">
+        <link rel="stylesheet" href="./skills.css">
         <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
         <script src="https://kit.fontawesome.com/c3b56a7551.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -26,138 +28,6 @@
         <!--============================================================================================
             *** MY-SCRIPT ***
          ============================================================================================ -->
-        <script>
-            function showSkills1() {
-                let detail = document.getElementById('skill-detail-1');
-                let skillItem = document.getElementById('skill-item-1');
-                skillItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideSkills1() {
-                let detail = document.getElementById('skill-detail-1');
-                let skillItem = document.getElementById('skill-item-1');
-                skillItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-
-            function showSkills2() {
-                let detail = document.getElementById('skill-detail-2');
-                let skillItem = document.getElementById('skill-item-2');
-                skillItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideSkills2() {
-                let detail = document.getElementById('skill-detail-2');
-                let skillItem = document.getElementById('skill-item-2');
-                skillItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-
-            function showSkills3() {
-                let detail = document.getElementById('skill-detail-3');
-                let skillItem = document.getElementById('skill-item-3');
-                skillItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideSkills3() {
-                let detail = document.getElementById('skill-detail-3');
-                let skillItem = document.getElementById('skill-item-3');
-                skillItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-
-            function showSkills4() {
-                let detail = document.getElementById('skill-detail-4');
-                let skillItem = document.getElementById('skill-item-4');
-                skillItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideSkills4() {
-                let detail = document.getElementById('skill-detail-4');
-                let skillItem = document.getElementById('skill-item-4');
-                skillItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-
-            function showDetails1() {
-                let detail = document.getElementById('detail-1');
-                let projectItem = document.getElementById('project-item-1');
-                projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideDetails1() {
-                let detail = document.getElementById('detail-1');
-                let projectItem = document.getElementById('project-item-1');
-                projectItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-            function showDetails2() {
-                let detail = document.getElementById('detail-2');
-                let projectItem = document.getElementById('project-item-2');
-                projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideDetails2() {
-                let detail = document.getElementById('detail-2');
-                let projectItem = document.getElementById('project-item-2');
-                projectItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-            function showDetails3() {
-                let detail = document.getElementById('detail-3');
-                let projectItem = document.getElementById('project-item-3');
-                projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideDetails3() {
-                let detail = document.getElementById('detail-3');
-                let projectItem = document.getElementById('project-item-3');
-                projectItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-            function showDetails4() {
-                let detail = document.getElementById('detail-4');
-                let projectItem = document.getElementById('project-item-4');
-                projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideDetails4() {
-                let detail = document.getElementById('detail-4');
-                let projectItem = document.getElementById('project-item-4');
-                projectItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-            function showDetails5() {
-                let detail = document.getElementById('detail-5');
-                let projectItem = document.getElementById('project-item-5');
-                projectItem.style.borderBottom = "none";
-                detail.style.borderBottom = "1px solid #4e545a";
-                detail.style.display = "flex";
-            }
-            function hideDetails5() {
-                let detail = document.getElementById('detail-5');
-                let projectItem = document.getElementById('project-item-5');
-                projectItem.style.borderBottom = "1px solid #4e545a";
-                detail.style.borderBottom = "none";
-                detail.style.display = "none";
-            }
-        </script>
     </head>
 
     <body>
@@ -244,12 +114,13 @@
                                 <div class="more-info">
                                     <div class="btn-1">
                                         <a id="scramble-1" class="scramble" type="button">
-                                            <span onclick="showDetails1()" id="scrambleSpan-1">EXPLORE</span>
+                                            <span id="scrambleSpan-1">EXPLORE</span>
                                         </a>
                                     </div>
                                     <div class="btn-2">
-                                        <a id="scramble-2" class="scramble" type="button" onclick="showDetails1()"><span
-                                                id="scrambleSpan-2">EXPLORE</span></a>
+                                        <a id="scramble-2" class="scramble" type="button">
+                                            <span id="scrambleSpan-2">EXPLORE</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -272,7 +143,6 @@
                                         <a target="_blank" href="https://innovision2023.com"
                                             class="visit-button"><span>Visit</span></a>
                                     </div>
-                                    <i onclick="hideDetails1()" id="cross-1" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
 
@@ -290,12 +160,13 @@
                                 <div class="more-info">
                                     <div class="btn-1">
                                         <a id="scramble-3" class="scramble" type="button">
-                                            <span onclick="showDetails2()" id="scrambleSpan-3">EXPLORE</span>
+                                            <span id="scrambleSpan-3">EXPLORE</span>
                                         </a>
                                     </div>
                                     <div class="btn-2">
-                                        <a id="scramble-4" class="scramble" type="button" onclick="showDetails2()"><span
-                                                id="scrambleSpan-4">EXPLORE</span></a>
+                                        <a id="scramble-4" class="scramble" type="button">
+                                            <span id="scrambleSpan-4">EXPLORE</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -306,7 +177,7 @@
                                                 class="project-image" src="./images/trinity.png" alt="img"></a>
                                     </div>
                                     <div class="project-details-right">
-                                        <p class="full-description">Description: I have created the website for
+                                        <p class="full-description">Description: <br> I have created the website for
                                             Trinity 2023, an event organized by ACM RSCOE, with the aim of educating our
                                             juniors about the three stages of web development: design, development, and
                                             version control. The website features interactive elements, Blender models,
@@ -317,7 +188,6 @@
                                         <a target="_blank" href="https://trinity-2023.vercel.app"
                                             class="visit-button"><span>Visit</span></a>
                                     </div>
-                                    <i onclick="hideDetails2()" id="cross-2" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
 
@@ -334,12 +204,13 @@
                                 <div class="more-info">
                                     <div class="btn-1">
                                         <a id="scramble-5" class="scramble" type="button">
-                                            <span onclick="showDetails3()" id="scrambleSpan-5">EXPLORE</span>
+                                            <span id="scrambleSpan-5">EXPLORE</span>
                                         </a>
                                     </div>
                                     <div class="btn-2">
-                                        <a id="scramble-6" class="scramble" type="button" onclick="showDetails3()"><span
-                                                id="scrambleSpan-6">EXPLORE</span></a>
+                                        <a id="scramble-6" class="scramble" type="button">
+                                            <span id="scrambleSpan-6">EXPLORE</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -350,7 +221,7 @@
                                                 class="project-image" src="./images/coAttainment.png" alt="img"></a>
                                     </div>
                                     <div class="project-details-right">
-                                        <p class="full-description">Description: It is build on top of the React JS,
+                                        <p class="full-description">Description: <br> It is build on top of the React JS,
                                             with scss. It is a web app that will automatically find all the computation
                                             results for course outcome attainments of students of particular
                                             division.<br></p>
@@ -361,7 +232,6 @@
                                         <a target="_blank" href="https://github.com/AmitP-027/CO_Attainment"
                                             class="visit-button"><span>Code</span></a>
                                     </div>
-                                    <i onclick="hideDetails3()" id="cross-3" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
 
@@ -378,12 +248,13 @@
                                 <div class="more-info">
                                     <div class="btn-1">
                                         <a id="scramble-7" class="scramble" type="button">
-                                            <span onclick="showDetails4()" id="scrambleSpan-7">EXPLORE</span>
+                                            <span id="scrambleSpan-7">EXPLORE</span>
                                         </a>
                                     </div>
                                     <div class="btn-2">
-                                        <a id="scramble-8" class="scramble" type="button" onclick="showDetails4()"><span
-                                                id="scrambleSpan-8">EXPLORE</span></a>
+                                        <a id="scramble-8" class="scramble" type="button">
+                                            <span id="scrambleSpan-8">EXPLORE</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -395,7 +266,7 @@
                                         </a>
                                     </div>
                                     <div class="project-details-right">
-                                        <p class="full-description">Description:
+                                        <p class="full-description">Description: <br>
                                             I developed a PACMAN game using vanilla JavaScript. The enemy in the game
                                             features random artificial intelligence, providing unpredictable movement
                                             patterns. This random AI creates an element of surprise as the enemy pursues
@@ -407,7 +278,6 @@
                                         <a target="_blank" href="https://amitp-027-pacmam.netlify.app/"
                                             class="visit-button"><span>Visit</span></a>
                                     </div>
-                                    <i onclick="hideDetails4()" id="cross-4" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
 
@@ -424,12 +294,13 @@
                                 <div class="more-info">
                                     <div class="btn-1">
                                         <a id="scramble-9" class="scramble" type="button">
-                                            <span onclick="showDetails5()" id="scrambleSpan-9">EXPLORE</span>
+                                            <span id="scrambleSpan-9">EXPLORE</span>
                                         </a>
                                     </div>
                                     <div class="btn-2">
-                                        <a id="scramble-10" class="scramble" type="button"
-                                            onclick="showDetails5()"><span id="scrambleSpan-10">EXPLORE</span></a>
+                                        <a id="scramble-10" class="scramble" type="button">
+                                            <span id="scrambleSpan-10">EXPLORE</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -441,7 +312,7 @@
                                         </a>
                                     </div>
                                     <div class="project-details-right">
-                                        <p class="full-description">Description: Castle-Battle is an exciting and
+                                        <p class="full-description">Description: <br> Castle-Battle is an exciting and
                                             engaging two-player fighting game built entirely in vanilla JavaScript. The
                                             game is designed to provide an immersive gaming experience, complete with
                                             captivating sound effects and impressive sprite animations.<br>
@@ -452,7 +323,6 @@
                                         <a target="_blank" href="https://amitp-027-castle-battle.netlify.app/"
                                             class="visit-button"><span>Visit</span></a>
                                     </div>
-                                    <i onclick="hideDetails5()" id="cross-5" class="fa-solid fa-xmark cross"></i>
                                 </div>
                             </div>
 
@@ -470,181 +340,51 @@
                                 <span class="hollow">SKILLS</span>
                             </div>
                         </div>
-
                         <div class="stripes">
-                            <div class="tech-icons">
+                            <div class="skill-group">
+                                <h3 class="skill-group-title">Languages</h3>
+                                <ul class="skill-list-alt">
+                                    <li class="skill-item-alt"><i class="devicon-java-plain skill-icon-alt"></i> Java</li>
+                                    <li class="skill-item-alt"><i class="devicon-python-plain skill-icon-alt"></i> Python</li>
+                                    <li class="skill-item-alt"><i class="devicon-cplusplus-plain skill-icon-alt"></i> C/C++</li>
+                                    <li class="skill-item-alt"><i class="devicon-javascript-plain skill-icon-alt"></i> JavaScript</li>
+                                    <li class="skill-item-alt"><i class="devicon-html5-plain skill-icon-alt"></i> HTML</li>
+                                    <li class="skill-item-alt"><i class="devicon-r-plain skill-icon-alt"></i> R</li>
+                                    <li class="skill-item-alt"><i class="devicon-go-plain skill-icon-alt"></i> Go</li>
+                                    <li class="skill-item-alt"><i class="devicon-php-plain skill-icon-alt"></i> PHP</li>
+                                </ul>
                             </div>
-
-                            <li id="skill-item-1" class="project-item">
-                                <div class="info">
-                                    <span class="no">1.</span>
-                                    <span class="project-title">Languages</span>
-                                </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="skill-scramble-1" class="scramble" type="button">
-                                            <span onclick="showSkills1()" id="skillScrambleSpan-1">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                    <div class="btn-2">
-                                        <a id="skill-scramble-2" class="scramble" type="button" onclick="showSkills1()"><span id="skillScrambleSpan-2">EXPLORE</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <div id="skill-detail-1" class="details">
-                                <div class="skill-detail-content">
-                                    <div class="skill-icons">
-                                        <div class="skill-icon">
-                                            <i class="fab fa-java"></i>
-                                            <span>Java</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-python"></i>
-                                            <span>Python</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-js"></i>
-                                            <span>JavaScript</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fas fa-database"></i>
-                                            <span>SQL</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-html5"></i>
-                                            <span>HTML/CSS</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-php"></i>
-                                            <span>PHP</span>
-                                        </div>
-                                    </div>
-                                    <i onclick="hideSkills1()" class="fa-solid fa-xmark cross"></i>
-                                </div>
+                            <div class="skill-group">
+                                <h3 class="skill-group-title">Frameworks & Libraries</h3>
+                                <ul class="skill-list-alt">
+                                    <li class="skill-item-alt"><i class="devicon-react-original skill-icon-alt"></i> React</li>
+                                    <li class="skill-item-alt"><i class="devicon-nodejs-plain skill-icon-alt"></i> Node.js</li>
+                                    <li class="skill-item-alt"><i class="devicon-flask-original skill-icon-alt"></i> Flask</li>
+                                    <li class="skill-item-alt"><i class="devicon-junit-plain skill-icon-alt"></i> JUnit</li>
+                                    <li class="skill-item-alt"><i class="devicon-wordpress-plain skill-icon-alt"></i> WordPress</li>
+                                    <li class="skill-item-alt"><i class="devicon-materialui-plain skill-icon-alt"></i> Material-UI</li>
+                                    <li class="skill-item-alt"><i class="devicon-fastapi-plain skill-icon-alt"></i> FastAPI</li>
+                                    <li class="skill-item-alt"><i class="devicon-pandas-original skill-icon-alt"></i> Pandas</li>
+                                    <li class="skill-item-alt"><i class="devicon-numpy-original skill-icon-alt"></i> NumPy</li>
+                                    <li class="skill-item-alt"><i class="fa-solid fa-chart-line skill-icon-alt"></i> Matplotlib</li>
+                                </ul>
                             </div>
-
-                            <li id="skill-item-2" class="project-item">
-                                <div class="info">
-                                    <span class="no">2.</span>
-                                    <span class="project-title">Frameworks</span>
-                                </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="skill-scramble-3" class="scramble" type="button">
-                                            <span onclick="showSkills2()" id="skillScrambleSpan-3">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                    <div class="btn-2">
-                                        <a id="skill-scramble-4" class="scramble" type="button" onclick="showSkills2()"><span id="skillScrambleSpan-4">EXPLORE</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <div id="skill-detail-2" class="details">
-                                <div class="skill-detail-content">
-                                    <div class="skill-icons">
-                                        <div class="skill-icon">
-                                            <i class="fab fa-react"></i>
-                                            <span>React</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-node"></i>
-                                            <span>Node.js</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-python"></i>
-                                            <span>Flask</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-wordpress"></i>
-                                            <span>WordPress</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fas fa-layer-group"></i>
-                                            <span>Material-UI</span>
-                                        </div>
-                                    </div>
-                                    <i onclick="hideSkills2()" class="fa-solid fa-xmark cross"></i>
-                                </div>
-                            </div>
-
-                            <li id="skill-item-3" class="project-item">
-                                <div class="info">
-                                    <span class="no">3.</span>
-                                    <span class="project-title">Developer Tools</span>
-                                </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="skill-scramble-5" class="scramble" type="button">
-                                            <span onclick="showSkills3()" id="skillScrambleSpan-5">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                    <div class="btn-2">
-                                        <a id="skill-scramble-6" class="scramble" type="button" onclick="showSkills3()"><span id="skillScrambleSpan-6">EXPLORE</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <div id="skill-detail-3" class="details">
-                                <div class="skill-detail-content">
-                                    <div class="skill-icons">
-                                        <div class="skill-icon">
-                                            <i class="fab fa-git-alt"></i>
-                                            <span>Git</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-docker"></i>
-                                            <span>Docker</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-google"></i>
-                                            <span>GCP</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fas fa-code"></i>
-                                            <span>VS Code</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fab fa-windows"></i>
-                                            <span>Visual Studio</span>
-                                        </div>
-                                    </div>
-                                    <i onclick="hideSkills3()" class="fa-solid fa-xmark cross"></i>
-                                </div>
-                            </div>
-
-                            <li id="skill-item-4" class="project-item">
-                                <div class="info">
-                                    <span class="no">4.</span>
-                                    <span class="project-title">Libraries</span>
-                                </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="skill-scramble-7" class="scramble" type="button">
-                                            <span onclick="showSkills4()" id="skillScrambleSpan-7">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                    <div class="btn-2">
-                                        <a id="skill-scramble-8" class="scramble" type="button" onclick="showSkills4()"><span id="skillScrambleSpan-8">EXPLORE</span></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <div id="skill-detail-4" class="details">
-                                <div class="skill-detail-content">
-                                    <div class="skill-icons">
-                                        <div class="skill-icon">
-                                            <i class="fas fa-table"></i>
-                                            <span>pandas</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fas fa-calculator"></i>
-                                            <span>NumPy</span>
-                                        </div>
-                                        <div class="skill-icon">
-                                            <i class="fas fa-chart-bar"></i>
-                                            <span>Matplotlib</span>
-                                        </div>
-                                    </div>
-                                    <i onclick="hideSkills4()" class="fa-solid fa-xmark cross"></i>
-                                </div>
+                            <div class="skill-group">
+                                <h3 class="skill-group-title">Databases & Tools</h3>
+                                <ul class="skill-list-alt">
+                                    <li class="skill-item-alt"><i class="devicon-mysql-plain skill-icon-alt"></i> SQL</li>
+                                    <li class="skill-item-alt"><i class="devicon-postgresql-plain skill-icon-alt"></i> PostgreSQL</li>
+                                    <li class="skill-item-alt"><i class="devicon-supabase-plain skill-icon-alt"></i> Supabase</li>
+                                    <li class="skill-item-alt"><i class="devicon-mongodb-plain skill-icon-alt"></i> MongoDB</li>
+                                    <li class="skill-item-alt"><i class="devicon-git-plain skill-icon-alt"></i> Git</li>
+                                    <li class="skill-item-alt"><i class="devicon-docker-plain skill-icon-alt"></i> Docker</li>
+                                    <li class="skill-item-alt"><i class="devicon-travis-plain skill-icon-alt"></i> Travis CI</li>
+                                    <li class="skill-item-alt"><i class="devicon-googlecloud-plain skill-icon-alt"></i> Google Cloud Platform</li>
+                                    <li class="skill-item-alt"><i class="devicon-vscode-plain skill-icon-alt"></i> VS Code</li>
+                                    <li class="skill-item-alt"><i class="devicon-visualstudio-plain skill-icon-alt"></i> Visual Studio</li>
+                                    <li class="skill-item-alt"><i class="devicon-pycharm-plain skill-icon-alt"></i> PyCharm</li>
+                                    <li class="skill-item-alt"><i class="devicon-clion-plain skill-icon-alt"></i> CLion</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

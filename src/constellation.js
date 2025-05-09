@@ -1,18 +1,18 @@
 // Constellation background effect
-const canvas = document.getElementById('constellation-bg');
-const ctx = canvas.getContext('2d');
+const constellationCanvas = document.getElementById('constellation-bg');
+const constellationCtx = constellationCanvas.getContext('2d');
 
 // Set canvas size
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+function resizeConstellationCanvas() {
+    constellationCanvas.width = window.innerWidth;
+    constellationCanvas.height = window.innerHeight;
 }
 
 // Initial resize
-resizeCanvas();
+resizeConstellationCanvas();
 
 // Handle window resize
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', resizeConstellationCanvas);
 
 // Mouse position
 let mouse = {
@@ -55,8 +55,8 @@ class Star {
     }
 
     reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * constellationCanvas.width;
+        this.y = Math.random() * constellationCanvas.height;
         this.vx = (Math.random() - 0.5) * starSpeed;  // More volatile movement
         this.vy = (Math.random() - 0.5) * starSpeed;
         this.radius = Math.random() * starSize;
@@ -92,21 +92,21 @@ class Star {
         this.y += this.vy;
 
         // Bounce off edges with random velocity change
-        if (this.x < 0 || this.x > canvas.width) {
+        if (this.x < 0 || this.x > constellationCanvas.width) {
             this.vx = -this.vx * Math.random();
-            this.x = Math.max(0, Math.min(this.x, canvas.width));
+            this.x = Math.max(0, Math.min(this.x, constellationCanvas.width));
         }
-        if (this.y < 0 || this.y > canvas.height) {
+        if (this.y < 0 || this.y > constellationCanvas.height) {
             this.vy = -this.vy * Math.random();
-            this.y = Math.max(0, Math.min(this.y, canvas.height));
+            this.y = Math.max(0, Math.min(this.y, constellationCanvas.height));
         }
     }
 
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = getStarColor(0.8);
-        ctx.fill();
+        constellationCtx.beginPath();
+        constellationCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        constellationCtx.fillStyle = getStarColor(0.8);
+        constellationCtx.fill();
     }
 }
 
@@ -117,8 +117,8 @@ for (let i = 0; i < numStars; i++) {
 
 // Draw connections between stars
 function drawConnections() {
-    ctx.strokeStyle = getConnectionColor(0.15);
-    ctx.lineWidth = 0.5;
+    constellationCtx.strokeStyle = getConnectionColor(0.15);
+    constellationCtx.lineWidth = 0.5;
 
     for (let i = 0; i < stars.length; i++) {
         for (let j = i + 1; j < stars.length; j++) {
@@ -128,11 +128,11 @@ function drawConnections() {
 
             if (distance < connectionDistance) {
                 const opacity = (1 - distance / connectionDistance) * 0.15;
-                ctx.strokeStyle = getConnectionColor(opacity);
-                ctx.beginPath();
-                ctx.moveTo(stars[i].x, stars[i].y);
-                ctx.lineTo(stars[j].x, stars[j].y);
-                ctx.stroke();
+                constellationCtx.strokeStyle = getConnectionColor(opacity);
+                constellationCtx.beginPath();
+                constellationCtx.moveTo(stars[i].x, stars[i].y);
+                constellationCtx.lineTo(stars[j].x, stars[j].y);
+                constellationCtx.stroke();
             }
         }
     }
@@ -140,7 +140,7 @@ function drawConnections() {
 
 // Animation loop
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    constellationCtx.clearRect(0, 0, constellationCanvas.width, constellationCanvas.height);
 
     // Update and draw stars
     for (const star of stars) {
