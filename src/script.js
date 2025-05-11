@@ -9,7 +9,7 @@ import hover from '../static/Audio/hover.mp3';
 import bg from '../static/Audio/bg.mp3';
 import imageDark from '../static/textures/6.png';
 import imageLight from '../static/textures/8.png';
-import logo from '../static/images/logo.png';
+import logo from '../static/images/logo_no_bg.png';
 import pacman from '../static/images/pacman.png';
 import castlebt from '../static/images/castleBattle.png';
 import innovision from '../static/images/innovision.png';
