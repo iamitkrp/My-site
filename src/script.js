@@ -20,16 +20,6 @@ import coattain from '../static/images/coAttainment.png';
 /** ===========================================================================================
  * *                                    DOM Manipulation
 =========================================================================================== */
-console.log(`    
-You are browsing:
-
-mmmmmm  mmmm  m      mmmmm   mmmm          mmmm   mmmm   mmmm   mmmm 
-#      m"  "m #        #    m"  "m        "   "# m"  "m "   "# "   "#
-#mmmmm #    # #        #    #    #            m" #  m #     m"   mmm"
-#      #    # #        #    #    #  """     m"   #    #   m"       "#
-#       #mm#  #mmmmm mm#mm   #mm#         m#mmmm  #mm#  m#mmmm "mmm#"         -By SK027
-
-`);
 
 const mobile = window.matchMedia("(max-width: 985px)").matches;
 const myText = new SplitType('.my-text');

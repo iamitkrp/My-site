@@ -24,7 +24,8 @@ body:not(.dark) {
 
 /* Skills Section - Alternative Approach */
 .skills {
-    padding: 4rem 0;
+    margin-top: 80px;
+    margin-bottom: 80px;
     position: relative;
     color: var(--skills-text-primary);
 }
@@ -48,7 +49,7 @@ body:not(.dark) {
 
 .skill-group-title {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.8rem; /* Larger title for groups */
+    font-size: 1.5rem; /* Reduced from 1.8rem */
     color: var(--skills-text-primary); /* Use CSS variable */
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -82,7 +83,7 @@ body:not(.dark) {
 
 .skill-item-alt {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1rem; /* Standardize font size */
+    font-size: 0.85rem; /* Reduced from 1rem */
     color: var(--skills-text-secondary); /* Use CSS variable */
     background-color: var(--skills-background-secondary); /* Use CSS variable */
     padding: 0.75rem 1.25rem;
@@ -103,7 +104,7 @@ body:not(.dark) {
 }
 
 .skill-icon-alt {
-    font-size: 1.5rem; /* Slightly larger icons */
+    font-size: 1.3rem; /* Reduced from 1.5rem */
     color: var(--skills-accent-color); /* Use CSS variable */
     transition: transform 0.3s ease;
 }
@@ -119,16 +120,16 @@ body:not(.dark) {
     }
 
     .skill-group-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* Reduced from 1.5rem */
     }
 
     .skill-item-alt {
-        font-size: 0.9rem;
+        font-size: 0.8rem; /* Reduced from 0.9rem */
         padding: 0.6rem 1rem;
     }
 
     .skill-icon-alt {
-        font-size: 1.3rem;
+        font-size: 1.1rem; /* Reduced from 1.3rem */
     }
 }
 
