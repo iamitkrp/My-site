@@ -353,7 +353,7 @@ body.dark a {
   background: white;
   box-sizing: border-box;
   transform: rotate(90deg);
-  color: black;
+  color: black !important; /* Force black text */
   pointer-events: auto;
   cursor: pointer;
   font-family: "Roboto Mono", monospace;
@@ -362,7 +362,35 @@ body.dark a {
 
 .resume-box > i {
   transform: rotate(-90deg);
+  color: black !important; /* Force black icon */
 }
+
+.resume-box a {
+  color: black !important; /* Force black link text */
+}
+
+.resume-box p {
+  color: black !important; /* Force black paragraph text */
+  margin: 0;
+}
+
+/* Ensure resume box text stays black in dark mode */
+body.dark .resume-box {
+  color: black !important;
+}
+
+body.dark .resume-box > i {
+  color: black !important;
+}
+
+body.dark .resume-box a {
+  color: black !important;
+}
+
+body.dark .resume-box p {
+  color: black !important;
+}
+
 .mail {
   display: flex;
   justify-content: center;
@@ -2735,7 +2763,7 @@ body.dark .education-item .no {
 
 .institute-title {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.8em;
+    font-size: 1.5em; /* Reduced from 1.8em to match skills */
     color: var(--text-color-light);
     font-weight: 600;
     letter-spacing: 1px;
@@ -2755,7 +2783,7 @@ body.dark .institute-title {
 
 .education-details .degree {
     color: var(--text-color-light);
-    font-size: 1.2em;
+    font-size: 1.0em; /* Reduced from 1.2em */
     margin: 0;
     margin-bottom: 8px;
     font-weight: normal;
@@ -2768,7 +2796,7 @@ body.dark .education-details .degree {
 .education-details .duration {
     color: var(--text-color-light);
     opacity: 0.7;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Reduced from 0.9em */
     margin: 0;
     font-family: 'Roboto Mono', monospace;
 }
@@ -2828,11 +2856,15 @@ body.dark .highlights p::before {
     }
     
     .institute-title {
-        font-size: 1.4em;
+        font-size: 1.3em; /* Reduced from 1.4em */
     }
     
     .education-item {
         padding: 20px;
+    }
+    
+    .company-title {
+        font-size: 1.3em; /* Reduced from 1.4em */
     }
 }
 
@@ -2876,7 +2908,7 @@ body.dark .experience-item .no {
 
 .company-title {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1.8em;
+    font-size: 1.5em; /* Reduced from 1.8em to match skills */
     color: var(--text-color-light);
     font-weight: 600;
     letter-spacing: 1px;
@@ -2896,7 +2928,7 @@ body.dark .company-title {
 
 .experience-details .position {
     color: var(--text-color-light);
-    font-size: 1.2em;
+    font-size: 1.0em; /* Reduced from 1.2em */
     margin: 0;
     margin-bottom: 8px;
     font-weight: normal;
@@ -2909,7 +2941,7 @@ body.dark .experience-details .position {
 .experience-details .duration {
     color: var(--text-color-light);
     opacity: 0.7;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Reduced from 0.9em */
     margin: 0;
     font-family: 'Roboto Mono', monospace;
 }
@@ -2954,7 +2986,7 @@ body.dark .experience-details .responsibilities p::before {
     }
     
     .company-title {
-        font-size: 1.4em;
+        font-size: 1.3em; /* Reduced from 1.4em */
     }
     
     .experience-item {
