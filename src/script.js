@@ -10,11 +10,6 @@ import bg from '../static/Audio/bg.mp3';
 import imageDark from '../static/textures/6.png';
 import imageLight from '../static/textures/8.png';
 import logo from '../static/images/logo_no_bg.png';
-import pacman from '../static/images/pacman.png';
-import castlebt from '../static/images/castleBattle.png';
-import innovision from '../static/images/innovision.png';
-import trinity from '../static/images/trinity.png';
-import coattain from '../static/images/coAttainment.png';
 
 
 /** ===========================================================================================
@@ -297,11 +292,6 @@ const textureLoader = new THREE.TextureLoader(loadingManager);
 
 textureLoader.load(imageDark);
 textureLoader.load(imageLight);
-textureLoader.load(castlebt);
-textureLoader.load(coattain);
-textureLoader.load(innovision);
-textureLoader.load(pacman);
-textureLoader.load(trinity);
 textureLoader.load(logo);
 
 
