@@ -770,6 +770,9 @@ body.dark .cross:hover {
     width: 16vw;
     padding-bottom: 90px;
     padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
   }
   .side-bar > .logo > img {
     width: 50px;
@@ -839,6 +842,9 @@ body.dark .cross:hover {
     height: 100vh;
     width: 15vw;
     padding: 20px 0;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
   .checkbox {
     opacity: 0;

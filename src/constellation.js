@@ -26,26 +26,26 @@ document.addEventListener('mousemove', (e) => {
     mouse.y = e.clientY;
 });
 
-// Star properties
+// Star properties - reduced for minimal density
 const stars = [];
-const numStars = 200;  // Increased from default
-const starSize = 2;  // Smaller particles for denser look
-const connectionDistance = 150;  // Increased connection distance
-const starSpeed = 1.5;  // Increased movement speed
-const mouseRadius = 200;  // Radius of mouse influence
-const mouseForce = 0.05;  // Strength of mouse attraction
+const numStars = 20;  // Reduced from 200 for very minimal density
+const starSize = 1;  // Smaller particles
+const connectionDistance = 120;  // Reduced connection distance
+const starSpeed = 0.5;  // Slower movement speed
+const mouseRadius = 150;  // Smaller radius of mouse influence
+const mouseForce = 0.02;  // Weaker mouse attraction
 
-// Orange color palette
+// Subtle color palette matching background
 function getStarColor(opacity = 1) {
     return document.body.classList.contains('dark') 
-        ? `rgba(255, 140, 0, ${opacity})` // Dark mode: darker orange
-        : `rgba(255, 165, 0, ${opacity})`; // Light mode: brighter orange
+        ? `rgba(25, 25, 25, ${opacity * 0.3})` // Very subtle dark gray for dark mode
+        : `rgba(240, 240, 240, ${opacity * 0.4})`; // Very subtle light gray for light mode
 }
 
 function getConnectionColor(opacity = 1) {
     return document.body.classList.contains('dark')
-        ? `rgba(255, 127, 80, ${opacity})` // Dark mode: coral orange
-        : `rgba(255, 99, 71, ${opacity})`; // Light mode: tomato orange
+        ? `rgba(30, 30, 30, ${opacity * 0.2})` // Extremely subtle for dark mode
+        : `rgba(230, 230, 230, ${opacity * 0.3})`; // Extremely subtle for light mode
 }
 
 // Create stars
@@ -105,7 +105,7 @@ class Star {
     draw() {
         constellationCtx.beginPath();
         constellationCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        constellationCtx.fillStyle = getStarColor(0.8);
+        constellationCtx.fillStyle = getStarColor(0.2); // Much lower opacity for very subtle stars
         constellationCtx.fill();
     }
 }
@@ -117,8 +117,8 @@ for (let i = 0; i < numStars; i++) {
 
 // Draw connections between stars
 function drawConnections() {
-    constellationCtx.strokeStyle = getConnectionColor(0.15);
-    constellationCtx.lineWidth = 0.5;
+    constellationCtx.strokeStyle = getConnectionColor(0.05); // Very low opacity
+    constellationCtx.lineWidth = 0.3; // Thinner lines
 
     for (let i = 0; i < stars.length; i++) {
         for (let j = i + 1; j < stars.length; j++) {
@@ -127,7 +127,7 @@ function drawConnections() {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < connectionDistance) {
-                const opacity = (1 - distance / connectionDistance) * 0.15;
+                const opacity = (1 - distance / connectionDistance) * 0.03; // Much lower opacity
                 constellationCtx.strokeStyle = getConnectionColor(opacity);
                 constellationCtx.beginPath();
                 constellationCtx.moveTo(stars[i].x, stars[i].y);
