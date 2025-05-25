@@ -142,14 +142,24 @@ body.dark a {
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   pointer-events: none;
   padding: 50px 0;
 }
+.side-bar > .logo {
+  position: relative;
+  top: 0;
+}
 .side-bar > .logo > img {
   width: 100px;
   pointer-events: none;
+}
+.folio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .folio > p {
   transform: rotate(-90deg);
@@ -205,6 +215,10 @@ body.dark a {
   animation-delay: 0s;
 }
 .bottom-box {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -773,14 +787,34 @@ body.dark .cross:hover {
     position: fixed;
     left: 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .side-bar > .logo {
+    position: relative;
+    top: 0;
   }
   .side-bar > .logo > img {
     width: 50px;
     pointer-events: none;
   }
+  .folio {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .folio > p {
     font-size: 12px;
     width: 200px;
+  }
+  .bottom-box {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .scrollable {
     z-index: 1;
@@ -3100,5 +3134,329 @@ body.dark .footer-separator {
     
     .footer-separator {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .skill-icon {
+        padding: 8px;
+    }
+
+    .skill-icon i {
+        font-size: 22px;
+    }
+
+    .skill-icon span {
+        font-size: 10px;
+    }
+    
+    /* Mobile sidebar positioning fixes */
+    .side-bar {
+        height: 100vh;
+        width: 20vw;
+        padding-bottom: 60px;
+        padding-top: 15px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .side-bar > .logo {
+        position: relative;
+        top: 0;
+    }
+    
+    .side-bar > .logo > img {
+        width: 40px;
+        pointer-events: none;
+    }
+    
+    .folio {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .folio > p {
+        font-size: 10px;
+        width: 150px;
+    }
+    
+    .bottom-box {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .social-media {
+        margin-bottom: 20px;
+    }
+    
+    .social-media > a > i {
+        font-size: 16px;
+        margin: 8px;
+    }
+    
+    .music-bars {
+        height: 12px;
+        width: 30px;
+    }
+    
+    .stroke {
+        width: 1.5px;
+        margin: 0 2px;
+    }
+    
+    .scrollable {
+        z-index: 1;
+        padding: 60px 3px;
+        padding-right: 15px;
+        width: 70vw;
+        height: 100%;
+        margin-left: 20vw;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+    }
+    
+    .skill-category {
+        min-width: 100%;
+    }
+    
+    /* Tablet/Medium mobile sidebar positioning fixes */
+    .side-bar {
+        height: 100vh;
+        width: 18vw;
+        padding-bottom: 70px;
+        padding-top: 18px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .side-bar > .logo {
+        position: relative;
+        top: 0;
+    }
+    
+    .side-bar > .logo > img {
+        width: 45px;
+        pointer-events: none;
+    }
+    
+    .folio {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .folio > p {
+        font-size: 11px;
+        width: 180px;
+    }
+    
+    .bottom-box {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .social-media {
+        margin-bottom: 25px;
+    }
+    
+    .social-media > a > i {
+        font-size: 18px;
+        margin: 9px;
+    }
+    
+    .music-bars {
+        height: 13px;
+        width: 35px;
+    }
+    
+    .stroke {
+        width: 1.8px;
+        margin: 0 2.5px;
+    }
+    
+    .scrollable {
+        z-index: 1;
+        padding: 65px 4px;
+        padding-right: 18px;
+        width: 72vw;
+        height: 100%;
+        margin-left: 18vw;
+        pointer-events: auto;
+    }
+}
+
+/* Mobile section spacing standardization */
+@media (max-width: 768px) {
+    /* Standardize all section spacing to 60px for consistent mobile layout */
+    .projects {
+        margin-top: 60px !important;
+    }
+    
+    .skills {
+        margin-top: 60px !important;
+        margin-bottom: 60px !important;
+    }
+    
+    .experience {
+        margin-top: 60px !important;
+        margin-bottom: 60px !important;
+    }
+    
+    .education {
+        margin-top: 60px !important;
+        margin-bottom: 60px !important;
+    }
+    
+    /* Reduce hero section bottom margin for better flow */
+    .hero {
+        margin-bottom: 40px;
+    }
+    
+    /* Ensure footer has consistent spacing */
+    .site-footer {
+        margin-top: 40px !important;
+    }
+}
+
+/* Even more compact spacing for very small screens */
+@media (max-width: 480px) {
+    .projects {
+        margin-top: 50px !important;
+    }
+    
+    .skills {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+    
+    .experience {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+    
+    .education {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+    }
+    
+    .hero {
+        margin-bottom: 30px;
+    }
+    
+    .site-footer {
+        margin-top: 30px !important;
+    }
+}
+
+/* Mobile-specific adjustments for sidebar elements */
+@media (max-width: 768px) {
+    /* Smaller dark mode toggle for mobile */
+    .checkbox-label {
+        width: 40px; /* Reduced from 52px */
+        height: 22px; /* Reduced from 29px */
+        padding: 3px; /* Reduced from 5px */
+    }
+    
+    .checkbox-label .ball {
+        width: 16px; /* Reduced from 22px */
+        height: 16px; /* Reduced from 22px */
+        left: 1px; /* Adjusted for smaller size */
+        top: 1px; /* Adjusted for smaller size */
+    }
+    
+    .checkbox:checked + .checkbox-label .ball {
+        transform: translateX(18px); /* Adjusted from 24px */
+    }
+    
+    .fa-moon, .fa-sun {
+        font-size: 12px; /* Smaller icons */
+    }
+    
+    /* Smaller resume button for mobile */
+    .resume-box {
+        width: 90px; /* Reduced from 120px */
+        height: 38px; /* Reduced from 50px */
+        font-size: 11px; /* Smaller font */
+    }
+    
+    .resume-box > i {
+        font-size: 12px; /* Smaller icon */
+    }
+    
+    .resume-box p {
+        font-size: 11px; /* Smaller text */
+    }
+}
+
+/* Even smaller for very small screens */
+@media (max-width: 480px) {
+    .checkbox-label {
+        width: 35px; /* Even smaller */
+        height: 20px;
+        padding: 2px;
+    }
+    
+    .checkbox-label .ball {
+        width: 14px;
+        height: 14px;
+        left: 1px;
+        top: 1px;
+    }
+    
+    .checkbox:checked + .checkbox-label .ball {
+        transform: translateX(15px);
+    }
+    
+    .fa-moon, .fa-sun {
+        font-size: 10px;
+    }
+    
+    .resume-box {
+        width: 80px;
+        height: 35px;
+        font-size: 10px;
+    }
+    
+    .resume-box > i {
+        font-size: 11px;
+    }
+    
+    .resume-box p {
+        font-size: 10px;
     }
 }

@@ -42,7 +42,7 @@ body:not(.dark) {
 }
 
 .skill-group {
-    border-left: 3px solid var(--skills-accent-color); /* Use CSS variable */
+    border-left: 1px solid rgba(0, 0, 0, 0.2); /* Lighter and thinner border for mobile */
     padding-left: 1.5rem;
     position: relative; /* For potential pseudo-elements or animations */
 }
@@ -55,6 +55,7 @@ body:not(.dark) {
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+    font-weight: 300; /* Lighter font weight for desktop as well */
 }
 
 .skill-group-title::after {
@@ -115,33 +116,221 @@ body:not(.dark) {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .skills {
+        margin-top: 40px; /* Reduced from 80px */
+        margin-bottom: 40px; /* Reduced from 80px */
+    }
+
     .skills .stripes {
-        padding: 2rem 3%;
+        padding: 1rem 3%; /* Reduced padding significantly */
+        gap: 1.5rem; /* Reduced gap between groups */
     }
 
     .skill-group-title {
-        font-size: 1.3rem; /* Reduced from 1.5rem */
+        font-size: 1.1rem; /* Smaller title */
+        margin-bottom: 0.8rem; /* Reduced margin */
+        text-align: center; /* Center align titles */
+        font-weight: 300; /* Lighter font weight for mobile */
+        letter-spacing: 1.5px; /* Slightly more spacing for readability */
+    }
+
+    /* Lighter underline for mobile */
+    .skill-group-title::after {
+        opacity: 0.4; /* Make underline lighter */
+        height: 1px; /* Thinner line */
+    }
+
+    /* Complete mobile redesign: Horizontal scrollable skill cards */
+    .skill-list-alt {
+        display: flex;
+        flex-wrap: nowrap; /* No wrapping - horizontal scroll */
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        scroll-behavior: smooth;
+    }
+
+    /* Hide scrollbar for Chrome/Safari */
+    .skill-list-alt::-webkit-scrollbar {
+        display: none;
     }
 
     .skill-item-alt {
-        font-size: 0.8rem; /* Reduced from 0.9rem */
-        padding: 0.6rem 1rem;
+        flex: 0 0 auto; /* Don't grow or shrink */
+        width: 40px; /* Smaller, more compact icons */
+        height: 40px;
+        padding: 0;
+        border-radius: 8px; /* Rounded but not circular */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: var(--skills-background-secondary);
+        border: 1px solid var(--skills-border-primary);
+        font-size: 0; /* Hide text completely */
+        transition: all 0.3s ease;
     }
-
+    
     .skill-icon-alt {
-        font-size: 1.1rem; /* Reduced from 1.3rem */
+        font-size: 1.1rem; /* Slightly smaller icons */
+        color: var(--skills-accent-color);
+        margin: 0;
+        transition: all 0.3s ease;
+    }
+    
+    /* Compact hover effects */
+    .skill-item-alt:hover {
+        transform: translateY(-2px) scale(1.05); /* Subtle lift */
+        box-shadow: 0 4px 12px var(--skills-shadow-accent);
+        border-color: var(--skills-border-accent);
+    }
+    
+    .skill-item-alt:hover .skill-icon-alt {
+        transform: scale(1.1);
+    }
+    
+    /* Minimal tooltip design */
+    .skill-item-alt::before {
+        content: attr(title);
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 4px 8px; /* Smaller padding */
+        border-radius: 4px;
+        font-size: 10px; /* Smaller font */
+        font-family: 'Roboto Mono', monospace;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+    
+    .skill-item-alt::after {
+        content: '';
+        position: absolute;
+        bottom: 105%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 3px solid transparent; /* Smaller arrow */
+        border-top-color: rgba(0, 0, 0, 0.9);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+    
+    .skill-item-alt:hover::before,
+    .skill-item-alt:hover::after {
+        opacity: 1;
+    }
+    
+    /* Dark mode tooltip adjustments */
+    body.dark .skill-item-alt::before {
+        background: rgba(255, 255, 255, 0.95);
+        color: #000;
+    }
+    
+    body.dark .skill-item-alt::after {
+        border-top-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    /* Skill groups with minimal spacing */
+    .skill-group {
+        border-left: 1px solid rgba(0, 0, 0, 0.2); /* Lighter and thinner border for mobile */
+        padding-left: 1rem; /* Reduced padding */
+        margin-bottom: 1.5rem; /* Reduced margin */
+    }
+    
+    /* Dark mode lighter border */
+    body.dark .skill-group {
+        border-left: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border for dark mode */
+    }
+    
+    .skill-group:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Add scroll hint indicator */
+    .skill-list-alt::after {
+        content: '→';
+        flex: 0 0 auto;
+        width: 20px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--skills-text-secondary);
+        font-size: 12px;
+        opacity: 0.6;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
+    
+    /* Remove the subtle pulse animation from individual items */
+    .skill-item-alt {
+        animation: none;
     }
 }
 
+/* Even more compact for very small screens */
 @media (max-width: 480px) {
-    .skill-list-alt {
-        flex-direction: column; /* Stack skills vertically on very small screens */
-        align-items: flex-start;
+    .skills {
+        margin-top: 30px; /* Even more reduced */
+        margin-bottom: 30px;
     }
-
+    
+    .skills .stripes {
+        gap: 1rem; /* Minimal gap */
+        padding: 0.8rem 3%;
+    }
+    
     .skill-item-alt {
-        width: 100%; /* Make skill items full width */
-        justify-content: flex-start;
+        width: 35px; /* Even smaller for tiny screens */
+        height: 35px;
+    }
+    
+    .skill-icon-alt {
+        font-size: 1rem;
+    }
+    
+    .skill-group-title {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        font-weight: 300; /* Lighter font weight for small screens */
+        letter-spacing: 1px; /* Adjusted spacing for small screens */
+    }
+    
+    /* Even lighter underline for very small screens */
+    .skill-group-title::after {
+        opacity: 0.3; /* Even more subtle */
+        height: 1px; /* Keep thin line */
+    }
+    
+    .skill-group {
+        margin-bottom: 1rem;
+        padding-left: 0.8rem;
+        border-left: 1px solid rgba(0, 0, 0, 0.15); /* Even lighter border for small screens */
+    }
+    
+    /* Smaller tooltip for tiny screens */
+    .skill-item-alt::before {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+    
+    /* Dark mode lighter border for small screens */
+    body.dark .skill-group {
+        border-left: 1px solid rgba(255, 255, 255, 0.15); /* Even lighter for dark mode */
     }
 }
 
