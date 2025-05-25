@@ -2247,7 +2247,7 @@ body.dark .info-item span {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    border-top: 0.01rem solid var(--text-color-dark);
+    border-top: none; /* Removed border-top */
     font-family: "st";
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 10px 0;
@@ -2281,7 +2281,7 @@ body.dark .skill-item:hover {
 }
 
 .skill-item:last-child {
-    border-bottom: 0.01rem solid var(--text-color-dark);
+    border-bottom: none; /* Removed border-bottom */
 }
 
 .skill-item .info {
@@ -2769,6 +2769,11 @@ body.dark .info-item span {
     position: relative;
 }
 
+/* Add gap between education header and content */
+.education .marquee {
+    margin-bottom: 60px; /* Increased gap between header and content */
+}
+
 .education-item {
     padding: 30px;
     border-bottom: 1px solid var(--text-color-light);
@@ -2950,8 +2955,9 @@ body.dark .experience-item .no {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.5em; /* Reduced from 1.8em to match skills */
     color: var(--text-color-light);
-    font-weight: 600;
+    font-weight: 300; /* Changed from 600 to 300 to match skill-group-title */
     letter-spacing: 1px;
+    text-transform: uppercase; /* Added to match skill-group-title */
 }
 
 body.dark .company-title {
@@ -3031,6 +3037,70 @@ body.dark .experience-details .responsibilities p::before {
     
     .experience-item {
         padding: 20px;
+    }
+    
+    /* Additional mobile optimizations for experience section */
+    .experience-item {
+        padding: 15px 10px; /* Much more compact */
+        margin-bottom: 10px; /* Reduce space between items */
+    }
+    
+    .experience-item .info {
+        gap: 15px; /* Reduce gap from 20px */
+        margin-bottom: 15px; /* Reduce from 25px */
+    }
+    
+    .experience-item .no {
+        font-size: 1em; /* Reduce from 1.2em */
+        min-width: 25px; /* Ensure consistent width */
+    }
+    
+    .company-title {
+        font-size: 1.1em; /* Further reduce for mobile */
+        line-height: 1.2;
+    }
+    
+    .experience-details {
+        padding-left: 15px; /* Reduce from 20px */
+    }
+    
+    .role-info {
+        margin-bottom: 12px; /* Reduce from 20px */
+    }
+    
+    .experience-details .position {
+        font-size: 0.9em; /* Reduce from 1.0em */
+        margin-bottom: 5px; /* Reduce from 8px */
+        line-height: 1.3;
+    }
+    
+    .experience-details .duration {
+        font-size: 0.8em; /* Reduce from 0.85em */
+        margin-bottom: 10px; /* Add some space before responsibilities */
+    }
+    
+    .experience-details .responsibilities {
+        gap: 8px; /* Reduce from 10px */
+    }
+    
+    .experience-details .responsibilities p {
+        padding-left: 20px; /* Reduce from 25px */
+        line-height: 1.4; /* Reduce from 1.5 */
+        font-size: 0.75em; /* Make text same size as location (Chandigarh) */
+    }
+    
+    /* Make location text smaller on mobile */
+    .experience-details .location {
+        font-size: 0.75em; /* Smaller than duration */
+        opacity: 0.7;
+        margin: 0;
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    /* Make "Skills Used" heading smaller on mobile */
+    .job-skills h4 {
+        font-size: 0.85em; /* Smaller than default */
+        margin-bottom: 8px; /* Reduce margin */
     }
 }
 
@@ -3155,6 +3225,69 @@ body.dark .footer-separator {
         font-size: 10px;
     }
     
+    /* Ultra-compact education section for very small screens */
+    .education-item {
+        padding: 12px 8px; /* Even more compact */
+        margin-bottom: 8px;
+    }
+    
+    .education-item .info {
+        gap: 6px; /* Match experience section */
+        margin-bottom: 12px;
+        align-items: flex-start; /* Align items to start for better alignment */
+    }
+    
+    .education-item .no {
+        font-size: 0.9em;
+        margin-right: 6px; /* Consistent with experience */
+    }
+    
+    .institute-title {
+        font-size: 1em; /* Even smaller for very small screens */
+        font-weight: 300; /* Light weight like company-title */
+        line-height: 1.1;
+        text-align: left; /* Ensure left alignment */
+    }
+    
+    .education-details {
+        padding-left: 0px; /* Remove left padding for better alignment */
+    }
+    
+    .course-info {
+        margin-bottom: 10px;
+    }
+    
+    .education-details .degree {
+        font-size: 0.85em; /* Smaller */
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    
+    .education-details .duration {
+        font-size: 0.75em; /* Match experience duration */
+        margin-bottom: 8px;
+    }
+    
+    .additional-info {
+        gap: 6px;
+    }
+    
+    .additional-info p {
+        font-size: 0.75em; /* Match experience text size */
+        line-height: 1.3;
+    }
+    
+    .highlights {
+        margin-top: 10px; /* Reduce from 15px */
+        gap: 6px; /* Reduce from 10px */
+    }
+    
+    .highlights p {
+        font-size: 0.75em;
+        line-height: 1.3;
+        padding-left: 15px; /* Reduce from 20px */
+    }
+    
     /* Mobile sidebar positioning fixes */
     .side-bar {
         height: 100vh;
@@ -3168,68 +3301,6 @@ body.dark .footer-separator {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-    }
-    
-    .side-bar > .logo {
-        position: relative;
-        top: 0;
-    }
-    
-    .side-bar > .logo > img {
-        width: 40px;
-        pointer-events: none;
-    }
-    
-    .folio {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .folio > p {
-        font-size: 10px;
-        width: 150px;
-    }
-    
-    .bottom-box {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .social-media {
-        margin-bottom: 20px;
-    }
-    
-    .social-media > a > i {
-        font-size: 16px;
-        margin: 8px;
-    }
-    
-    .music-bars {
-        height: 12px;
-        width: 30px;
-    }
-    
-    .stroke {
-        width: 1.5px;
-        margin: 0 2px;
-    }
-    
-    .scrollable {
-        z-index: 1;
-        padding: 60px 3px;
-        padding-right: 15px;
-        width: 70vw;
-        height: 100%;
-        margin-left: 20vw;
-        pointer-events: auto;
     }
 }
 
@@ -3381,6 +3452,73 @@ body.dark .footer-separator {
     .site-footer {
         margin-top: 30px !important;
     }
+    
+    /* Ultra-compact experience section for very small screens */
+    .experience-item {
+        padding: 12px 8px; /* Even more compact */
+        margin-bottom: 8px;
+    }
+    
+    .experience-item .info {
+        gap: 6px; /* Reduced from 12px for tighter spacing */
+        margin-bottom: 12px;
+        flex-direction: row; /* Changed from column to row to keep number and title on same line */
+        align-items: center; /* Changed from flex-start to center for better alignment */
+    }
+    
+    .experience-item .no {
+        font-size: 0.9em;
+        margin-bottom: 0; /* Removed margin-bottom since they're now on same line */
+        margin-right: 6px; /* Reduced from 10px for tighter spacing */
+    }
+    
+    .company-title {
+        font-size: 1em; /* Even smaller for very small screens */
+        line-height: 1.1;
+    }
+    
+    .experience-details {
+        padding-left: 10px; /* Minimal left padding */
+    }
+    
+    .role-info {
+        margin-bottom: 10px;
+    }
+    
+    .experience-details .position {
+        font-size: 0.85em;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    
+    .experience-details .duration {
+        font-size: 0.75em;
+        margin-bottom: 8px;
+    }
+    
+    .experience-details .responsibilities {
+        gap: 6px;
+    }
+    
+    .experience-details .responsibilities p {
+        padding-left: 15px;
+        line-height: 1.3;
+        font-size: 0.75em; /* Make text same size as location (Chandigarh) */
+    }
+    
+    /* Make location text smaller on mobile */
+    .experience-details .location {
+        font-size: 0.75em; /* Smaller than duration */
+        opacity: 0.7;
+        margin: 0;
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    /* Make "Skills Used" heading smaller on mobile */
+    .job-skills h4 {
+        font-size: 0.85em; /* Smaller than default */
+        margin-bottom: 8px; /* Reduce margin */
+    }
 }
 
 /* Mobile-specific adjustments for sidebar elements */
@@ -3458,5 +3596,285 @@ body.dark .footer-separator {
     
     .resume-box p {
         font-size: 10px;
+    }
+}
+
+/* Mobile device styles - disable all skill hover effects */
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  /* Completely disable all skill icon hover effects */
+  .skill-icon:hover,
+  .skill-icon:active,
+  .skill-icon:focus {
+    transform: none !important;
+    background: inherit !important;
+    box-shadow: none !important;
+  }
+  
+  .skill-icon:hover i,
+  .skill-icon:active i,
+  .skill-icon:focus i {
+    transform: none !important;
+    color: inherit !important;
+    filter: none !important;
+    animation: none !important;
+  }
+  
+  .skill-icon:hover span,
+  .skill-icon:active span,
+  .skill-icon:focus span {
+    transform: none !important;
+    opacity: inherit !important;
+  }
+  
+  /* Remove ALL pseudo-elements that could create lines or visual artifacts */
+  .skill-icon::before,
+  .skill-icon::after,
+  .skill-item::before,
+  .skill-item::after,
+  .single-icon::before,
+  .single-icon::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  /* Disable all transitions and animations */
+  .skill-icon,
+  .skill-icon i,
+  .skill-icon span,
+  .skill-item,
+  .single-icon,
+  .single-icon i {
+    transition: none !important;
+    animation: none !important;
+    animation-play-state: paused !important;
+  }
+  
+  /* Remove hover effects from skill items */
+  .skill-item:hover {
+    transform: none !important;
+    background: inherit !important;
+  }
+  
+  /* Disable icon circle hover effects */
+  .icon-circle:hover {
+    transform: none !important;
+    background: inherit !important;
+  }
+  
+  /* Remove any border or line effects */
+  .skill-item:hover::before {
+    transform: none !important;
+    opacity: 0 !important;
+  }
+}
+
+/* Touch device specific overrides */
+@media (hover: none) and (pointer: coarse) {
+  /* Force disable all skill-related interactive states */
+  .skill-icon *,
+  .skill-item * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* Remove all pseudo-element content */
+  .skill-icon *::before,
+  .skill-icon *::after,
+  .skill-item *::before,
+  .skill-item *::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .experience-details {
+        padding-left: 20px;
+    }
+    
+    .company-title {
+        font-size: 1.3em; /* Reduced from 1.4em */
+    }
+    
+    .experience-item {
+        padding: 20px;
+    }
+    
+    /* Additional mobile optimizations for experience section */
+    .experience-item {
+        padding: 15px 10px; /* Much more compact */
+        margin-bottom: 10px; /* Reduce space between items */
+    }
+    
+    .experience-item .info {
+        gap: 15px; /* Reduce gap from 20px */
+        margin-bottom: 15px; /* Reduce from 25px */
+    }
+    
+    .experience-item .no {
+        font-size: 1em; /* Reduce from 1.2em */
+        min-width: 25px; /* Ensure consistent width */
+    }
+    
+    .company-title {
+        font-size: 1.1em; /* Further reduce for mobile */
+        line-height: 1.2;
+    }
+    
+    .experience-details {
+        padding-left: 15px; /* Reduce from 20px */
+    }
+    
+    .role-info {
+        margin-bottom: 12px; /* Reduce from 20px */
+    }
+    
+    .experience-details .position {
+        font-size: 0.9em; /* Reduce from 1.0em */
+        margin-bottom: 5px; /* Reduce from 8px */
+        line-height: 1.3;
+    }
+    
+    .experience-details .duration {
+        font-size: 0.8em; /* Reduce from 0.85em */
+        margin-bottom: 10px; /* Add some space before responsibilities */
+    }
+    
+    /* Make location text smaller on mobile */
+    .experience-details .location {
+        font-size: 0.75em; /* Smaller than duration */
+        opacity: 0.7;
+        margin: 0;
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    .experience-details .responsibilities {
+        gap: 8px; /* Reduce from 10px */
+    }
+    
+    .experience-details .responsibilities p {
+        padding-left: 20px; /* Reduce from 25px */
+        line-height: 1.4; /* Reduce from 1.5 */
+        font-size: 0.75em; /* Make text same size as location (Chandigarh) */
+    }
+    
+    /* Make location text smaller on mobile */
+    .experience-details .location {
+        font-size: 0.75em; /* Smaller than duration */
+        opacity: 0.7;
+        margin: 0;
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    /* Make "Skills Used" heading smaller on mobile */
+    .job-skills h4 {
+        font-size: 0.85em; /* Smaller than default */
+        margin-bottom: 8px; /* Reduce margin */
+    }
+}
+
+/* Add slide indicator for job-skills sections - MOBILE ONLY */
+@media screen and (max-width: 768px) {
+    .job-skills {
+        position: relative;
+    }
+
+    .job-skills::after {
+        content: 'SLIDE →';
+        display: block;
+        text-align: center;
+        color: var(--skills-text-secondary, rgba(0, 0, 0, 0.5));
+        font-size: 9px;
+        font-family: 'Roboto Mono', monospace;
+        opacity: 0.5;
+        margin-top: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Dark mode support for job-skills slide indicator */
+    body.dark .job-skills::after {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Pulse animation for job-skills slide indicator */
+    @keyframes pulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 0.8; }
+    }
+}
+
+/* Desktop layout for education section - side by side with divider */
+@media screen and (min-width: 769px) {
+    .education .stripes {
+        display: flex;
+        gap: 0;
+        position: relative;
+        min-height: 200px; /* Ensure minimum height for the divider */
+        padding: 0; /* Remove container padding to control spacing better */
+    }
+    
+    .education .stripes::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--text-color-light);
+        transform: translateX(-50%);
+        z-index: 1;
+        opacity: 0.3; /* Make the divider subtle */
+    }
+    
+    body.dark .education .stripes::before {
+        background: var(--text-color-dark);
+        opacity: 0.3;
+    }
+    
+    .education .education-item {
+        flex: 1;
+        border-bottom: none; /* Remove border-bottom in desktop mode */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 30px; /* Base padding for both items */
+    }
+    
+    .education .education-item:first-child {
+        padding-right: 40px; /* Distance from divider */
+        padding-left: 40px; /* Outer margin */
+        text-align: right; /* Right align the left side content */
+        border-right: none;
+    }
+    
+    .education .education-item:first-child .info {
+        justify-content: flex-end; /* Right align the info section */
+    }
+    
+    .education .education-item:last-child {
+        padding-left: 40px; /* Distance from divider */
+        padding-right: 40px; /* Outer margin */
+        text-align: left; /* Keep left side content left-aligned */
+        border-left: none;
+    }
+    
+    .education .education-item:last-child .info {
+        justify-content: flex-start; /* Left align the info section */
+    }
+    
+    /* Ensure equal height for both education items */
+    .education .education-item .info {
+        margin-bottom: 25px;
+        display: flex; /* Make sure it's flex for justify-content to work */
+    }
+    
+    .education .education-item .education-details {
+        flex-grow: 1;
+        padding-left: 0; /* Remove default left padding in desktop mode */
     }
 }

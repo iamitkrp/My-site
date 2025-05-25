@@ -593,4 +593,53 @@ body.dark-mode .aero-cursor.hover .aero-ring {
 
 .aero-cursor.hover .aero-ring {
   animation: aero-pulse 1.2s infinite;
+}
+
+/* Mobile device styles - disable custom cursor */
+@media (max-width: 768px), (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  
+  .gravity-cursor,
+  .pixel-cursor,
+  .cursor-dot,
+  .cursor-ring,
+  .line-cursor,
+  .cursor-container,
+  .aero-cursor {
+    display: none !important;
+  }
+  
+  /* Ensure all cursor-related elements are hidden */
+  .gravity-field,
+  .gravity-particle,
+  .pixel-trail,
+  .pixel-explosion {
+    display: none !important;
+  }
+}
+
+/* Touch device detection */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  
+  .gravity-cursor,
+  .pixel-cursor,
+  .cursor-dot,
+  .cursor-ring,
+  .line-cursor,
+  .cursor-container,
+  .aero-cursor {
+    display: none !important;
+  }
+  
+  .gravity-field,
+  .gravity-particle,
+  .pixel-trail,
+  .pixel-explosion {
+    display: none !important;
+  }
 } 

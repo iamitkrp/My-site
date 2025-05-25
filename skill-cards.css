@@ -813,3 +813,74 @@ body.dark #skill-detail-1 .single-icon:nth-child(3) .skill-card-content::after {
 body.dark #skill-detail-1 .single-icon:nth-child(4) .skill-card-content::after { background: linear-gradient(to top, rgba(0, 116, 143, 0.8), rgba(0, 116, 143, 0.5)); }
 body.dark #skill-detail-1 .single-icon:nth-child(5) .skill-card-content::after { background: linear-gradient(to top, rgba(227, 79, 38, 0.8), rgba(227, 79, 38, 0.5)); }
 body.dark #skill-detail-1 .single-icon:nth-child(6) .skill-card-content::after { background: linear-gradient(to top, rgba(119, 123, 179, 0.8), rgba(119, 123, 179, 0.5)); } 
+
+/* ULTIMATE MOBILE FIX - Completely disable all interactions */
+@media (max-width: 768px) {
+  .single-icon {
+    pointer-events: auto !important;
+  }
+  
+  .single-icon * {
+    pointer-events: auto !important;
+  }
+}
+
+/* Simple and effective mobile-disabled class */
+.mobile-disabled,
+.mobile-disabled:hover,
+.mobile-disabled:active,
+.mobile-disabled:focus {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+.mobile-disabled *,
+.mobile-disabled *:hover,
+.mobile-disabled *:active,
+.mobile-disabled *:focus {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: inherit !important;
+  background: inherit !important;
+  border: inherit !important;
+  opacity: inherit !important;
+}
+
+.mobile-disabled::before,
+.mobile-disabled::after,
+.mobile-disabled *::before,
+.mobile-disabled *::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Additional mobile blur fix */
+@media (max-width: 768px), (pointer: coarse), (hover: none) {
+  .single-icon .skill-card-content,
+  .single-icon .skill-name,
+  .mobile-disabled .skill-card-content,
+  .mobile-disabled .skill-name {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+  
+  /* Remove all blur effects that could cause visual artifacts */
+  .single-icon *,
+  .mobile-disabled * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+} 

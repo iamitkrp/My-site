@@ -1,8 +1,8 @@
 /* Dark Mode */
 body.dark {
-    --skills-text-primary: #fff;
-    --skills-text-secondary: #ccc;
-    --skills-accent-color: #fff;
+    --skills-text-primary: #ccc;
+    --skills-text-secondary: #999;
+    --skills-accent-color: #b3b3b3;
     --skills-background-secondary: rgba(255, 255, 255, 0.05);
     --skills-border-primary: rgba(255, 255, 255, 0.1);
     --skills-border-accent: rgba(255, 255, 255, 0.3);
@@ -357,14 +357,14 @@ body:not(.dark) .skill-icon-alt {
 
 /* Direct overrides for dark mode */
 body.dark .skill-group-title {
-    color: #fff !important;
+    color: #ccc !important;
 }
 
 body.dark .skill-item-alt {
-    color: #ccc !important;
+    color: #999 !important;
     background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 body.dark .skill-icon-alt {
-    color: #fff !important;
+    color: #b3b3b3 !important;
 } 

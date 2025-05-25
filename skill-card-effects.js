@@ -1,5 +1,51 @@
 // Advanced card hover effects
 document.addEventListener('DOMContentLoaded', function() {
+  // Enhanced mobile device detection
+  function isMobileDevice() {
+    const userAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const touchPoints = (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+    const screenWidth = window.innerWidth <= 768;
+    const touchStart = ('ontouchstart' in window);
+    const maxTouch = (navigator.maxTouchPoints > 0);
+    const msTouch = (navigator.msMaxTouchPoints > 0);
+    
+    console.log('Mobile Detection:', {
+      userAgent,
+      touchPoints,
+      screenWidth,
+      touchStart,
+      maxTouch,
+      msTouch,
+      windowWidth: window.innerWidth
+    });
+    
+    return userAgent || touchPoints || screenWidth || touchStart || maxTouch || msTouch;
+  }
+
+  // Check if mobile
+  const isMobile = isMobileDevice();
+  console.log('Is Mobile Device:', isMobile);
+
+  // Exit early for mobile devices and add mobile-specific handlers
+  if (isMobile) {
+    // Add CSS class to body for mobile-specific styling
+    document.body.classList.add('mobile-device');
+    console.log('Added mobile-device class to body');
+    
+    // Simple approach - just add a class and let CSS handle everything
+    const skillCards = document.querySelectorAll('.single-icon');
+    console.log('Found skill cards for mobile:', skillCards.length);
+    
+    skillCards.forEach((card, index) => {
+      card.classList.add('mobile-disabled');
+      console.log(`Added mobile-disabled class to card ${index + 1}`);
+    });
+    
+    return; // Exit completely for mobile devices
+  }
+
+  console.log('Desktop mode - initializing hover effects');
+
   // Wait a bit to ensure DOM is fully rendered
   setTimeout(() => {
     const cards = document.querySelectorAll('.single-icon');
@@ -209,4 +255,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Skill card effects initialized');
   }, 500); // Small delay to ensure DOM is ready
-}); 
+});

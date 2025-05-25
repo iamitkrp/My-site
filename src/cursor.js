@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile device detection
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+               (navigator.maxTouchPoints && navigator.maxTouchPoints > 2) ||
+               window.innerWidth <= 768;
+    }
+
+    // Only initialize cursor on non-mobile devices
+    if (isMobileDevice()) {
+        // Restore default cursor on mobile devices
+        document.body.style.cursor = 'auto';
+        return; // Exit early for mobile devices
+    }
+
     // Create Frutiger Aero cursor elements
     const aeroCursor = document.createElement('div');
     aeroCursor.className = 'aero-cursor';
