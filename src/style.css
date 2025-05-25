@@ -2767,6 +2767,7 @@ body.dark .info-item span {
     margin-top: 80px;
     margin-bottom: 40px; /* Reduced from 80px */
     position: relative;
+    /* border-top: none;  Remove any border-top here */
 }
 
 /* Add gap between education header and content */
@@ -3777,34 +3778,34 @@ body.dark .footer-separator {
 
 /* Add slide indicator for job-skills sections - MOBILE ONLY */
 @media screen and (max-width: 768px) {
-    .job-skills {
-        position: relative;
-    }
+.job-skills {
+    position: relative;
+}
 
-    .job-skills::after {
-        content: 'SLIDE →';
-        display: block;
-        text-align: center;
-        color: var(--skills-text-secondary, rgba(0, 0, 0, 0.5));
-        font-size: 9px;
-        font-family: 'Roboto Mono', monospace;
-        opacity: 0.5;
-        margin-top: 8px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        animation: pulse 2s ease-in-out infinite;
-    }
+.job-skills::after {
+    content: 'SLIDE →';
+    display: block;
+    text-align: center;
+    color: var(--skills-text-secondary, rgba(0, 0, 0, 0.5));
+    font-size: 9px;
+    font-family: 'Roboto Mono', monospace;
+    opacity: 0.5;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulse 2s ease-in-out infinite;
+}
 
-    /* Dark mode support for job-skills slide indicator */
-    body.dark .job-skills::after {
-        color: rgba(255, 255, 255, 0.5);
-    }
+/* Dark mode support for job-skills slide indicator */
+body.dark .job-skills::after {
+    color: rgba(255, 255, 255, 0.5);
+}
 
-    /* Pulse animation for job-skills slide indicator */
-    @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 0.8; }
-    }
+/* Pulse animation for job-skills slide indicator */
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
 }
 
 /* Desktop layout for education section - side by side with divider */

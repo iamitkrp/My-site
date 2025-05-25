@@ -1,8 +1,15 @@
-# Amit Pandey Portfolio 2023
-<img width="1440" alt="Screenshot 2024-08-25 at 6 34 50 PM" src="https://github.com/user-attachments/assets/b692e0bb-fd6d-46d0-b6c1-da061273876c">
+# My Portfolio Site
+
+## Screenshots
+
+### Light Mode
+![Light Mode](static/images/ss-light.png)
+
+### Dark Mode
+![Dark Mode](static/images/ss-dark.png)
 
 ## Live
-[Visit](https://your-portfolio-url.vercel.app)
+[Visit](https://my-site-three-dusky.vercel.app/)
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
