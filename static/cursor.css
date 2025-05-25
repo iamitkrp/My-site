@@ -4,6 +4,25 @@ body {
   overflow-x: hidden;
 }
 
+/* Hide default cursor on all interactive elements */
+a, button, input, textarea, select, 
+[role="button"], [tabindex]:not([tabindex="-1"]),
+.clickable, .interactive,
+/* Specific elements that were still showing default cursor */
+.checkbox, .checkbox-label, #checkbox,
+.resume-box, .resume-box *, 
+.social-media, .social-media a, .social-media i,
+.music-bars, .music-bars *,
+.theme, .theme *,
+.btn-1, .btn-2, .btn-1 *, .btn-2 *,
+i, .fa-brands, .fa-solid, .fas, .fa-regular,
+/* Project buttons and links */
+.scramble, .visit-button, .project-item,
+/* Footer links */
+.footer-link, .mail a {
+  cursor: none !important;
+}
+
 .gravity-cursor {
   position: fixed;
   width: 15px;
