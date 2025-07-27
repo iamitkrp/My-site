@@ -485,17 +485,46 @@ function toggleDetails(projectNumber) {
     let currentTextState = exploreText; 
 
     if (detailDiv.style.display === "flex") {
-        // Hiding
-        projectItemDiv.style.borderBottom = "1px solid #4e545a";
-        detailDiv.style.borderBottom = "none";
-        detailDiv.style.display = "none";
+        // Hiding with animation
+        const projectContent = detailDiv.querySelector('.project-content');
+        if (projectContent) {
+            projectContent.classList.add('closing');
+            
+            setTimeout(() => {
+                projectItemDiv.style.borderBottom = "1px solid #4e545a";
+                detailDiv.style.borderBottom = "none";
+                detailDiv.style.display = "none";
+                projectContent.classList.remove('closing');
+                projectItemDiv.classList.remove('active');
+            }, 400); // Match the animation duration
+        } else {
+            projectItemDiv.style.borderBottom = "1px solid #4e545a";
+            detailDiv.style.borderBottom = "none";
+            detailDiv.style.display = "none";
+            projectItemDiv.classList.remove('active');
+        }
         currentTextState = exploreText;
     } else {
-        // Showing
+        // Showing with animation
         projectItemDiv.style.borderBottom = "none";
         detailDiv.style.borderBottom = "1px solid #4e545a";
         detailDiv.style.display = "flex";
         currentTextState = closeText;
+        
+        // Add active class to project item
+        projectItemDiv.classList.add('active');
+        
+        // Reset animations for new content
+        const projectContent = detailDiv.querySelector('.project-content');
+        if (projectContent) {
+            // Remove any existing animation classes
+            projectContent.classList.remove('closing');
+            
+            // Force reflow to restart animations
+            projectContent.style.animation = 'none';
+            projectContent.offsetHeight; // Trigger reflow
+            projectContent.style.animation = null;
+        }
     }
     
     // Update text and dataset
@@ -522,3 +551,14 @@ if (projectsContainer) {
         }
     });
 }
+
+// Ensure project links work properly
+document.addEventListener('DOMContentLoaded', function() {
+    const projectLinks = document.querySelectorAll('.project-link');
+    projectLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Allow the link to work normally
+            console.log('Project link clicked:', this.href);
+        });
+    });
+});
