@@ -17,7 +17,7 @@ import logo from '../static/images/logo_no_bg.png';
 =========================================================================================== */
 
 const mobile = window.matchMedia("(max-width: 985px)").matches;
-const myText = new SplitType('.my-text');
+const myText = new SplitType('.my-text:not(.loves)');
 
 function Ticker(elem) {
     elem.lettering();
