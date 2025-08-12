@@ -477,7 +477,7 @@ body.dark .resume-box p {
   grid-auto-columns: 100%; /* One card per viewport width */
   gap: 28px;
   overflow-x: auto;
-  padding: 16px 8px 28px 8px;
+  padding: 56px 8px 28px 8px; /* increased top padding for better spacing from header */
   scroll-snap-type: x mandatory;
   -ms-overflow-style: none; /* IE/Edge */
   scrollbar-width: none;     /* Firefox */
@@ -578,11 +578,17 @@ body.dark .project-card-desc { color: #ddd; }
 .project-card-features ul {
   margin: 0 0 4px 18px;
   padding: 0;
+  font-family: "Roboto Mono", monospace; /* match site theme */
 }
 
 .project-card-features li {
   margin: 2px 0;
+  font-family: "Roboto Mono", monospace; /* match site theme */
+  color: #333;
+  line-height: 1.6;
 }
+
+body.dark .project-card-features li { color: #ddd; }
 
 .project-card-tags {
   font-family: "Roboto Mono", monospace;
@@ -660,7 +666,7 @@ body.dark .project-nav-btn {
 
 /* Responsive adjustments for gallery */
 @media (max-width: 985px) {
-  .project-gallery { grid-auto-columns: 100%; gap: 16px; padding: 8px 4px 18px; }
+  .project-gallery { grid-auto-columns: 100%; gap: 16px; padding: 28px 4px 18px; }
   .project-nav .prev { margin-left: -8px; }
   .project-nav .next { margin-right: -8px; }
 }
