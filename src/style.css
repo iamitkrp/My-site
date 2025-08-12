@@ -425,6 +425,7 @@ body.dark .resume-box p {
 
 .projects {
   margin-top: 80px;
+  position: relative;
 }
 .marquee {
   position: relative;
@@ -467,6 +468,206 @@ body.dark .resume-box p {
 
 .stripes {
   font-family: "Roboto Mono", monospace;
+}
+
+/* Horizontal project gallery */
+.project-gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%; /* One card per viewport width */
+  gap: 28px;
+  overflow-x: auto;
+  padding: 16px 8px 28px 8px;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+  pointer-events: auto;
+  perspective: 1200px;
+  justify-items: center; /* center cards within each 100% track */
+}
+
+.project-gallery::-webkit-scrollbar { /* Chrome/Safari/Edge */
+  display: none;
+}
+
+.project-card {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  /* Balanced shadow without heavy base band */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  height: auto;
+  pointer-events: auto;
+  width: min(880px, 88%);
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translateY(var(--ty2, 0)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  position: relative;
+}
+
+body.dark .project-card {
+  background: linear-gradient(180deg, rgba(25,25,25,0.6) 0%, rgba(25,25,25,0.45) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover {
+  --ty2: -6px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(650px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.28), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.project-card.is-tilting::after { opacity: 0.5; }
+
+/* Removed media/icon block to keep text-only cards */
+
+.project-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 24px 24px 24px;
+}
+
+.project-card-title {
+  font-family: "stx", "Roboto Mono", monospace;
+  font-size: 26px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  letter-spacing: 0.4px;
+}
+
+body.dark .project-card-title { color: #fff; }
+
+.project-card-desc {
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+body.dark .project-card-desc { color: #ddd; }
+
+.project-card-features h4,
+.project-card-tech h4 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 6px;
+  opacity: 0.75;
+}
+
+.project-card-features ul {
+  margin: 0 0 4px 18px;
+  padding: 0;
+}
+
+.project-card-features li {
+  margin: 2px 0;
+}
+
+.project-card-tags {
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card-tag {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+}
+
+body.dark .project-card-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.project-card-actions {
+  font-family: "Roboto Mono", monospace;
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.project-card-link { /* inherits .project-link styles */
+  pointer-events: auto;
+}
+
+/* Nav buttons */
+.project-nav {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.project-nav-btn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+body.dark .project-nav-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.project-nav-btn:hover { transform: scale(1.06); }
+.project-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.project-nav .prev { margin-left: -16px; }
+.project-nav .next { margin-right: -16px; }
+
+/* Ensure interactivity in container with pointer-events disabled by default */
+.project-gallery *, .project-nav * { pointer-events: auto; }
+
+/* Hide legacy vertical list by default to prioritize the new gallery */
+.projects .stripes { display: none; }
+
+/* Responsive adjustments for gallery */
+@media (max-width: 985px) {
+  .project-gallery { grid-auto-columns: 100%; gap: 16px; padding: 8px 4px 18px; }
+  .project-nav .prev { margin-left: -8px; }
+  .project-nav .next { margin-right: -8px; }
+}
+
+@media (max-width: 600px) {
+  .project-card-title { font-size: 18px; }
+  .project-card-desc { font-size: 13px; }
 }
 
 .project-item {

@@ -561,4 +561,147 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Project link clicked:', this.href);
         });
     });
+
+    // Horizontal gallery interactions
+    const gallery = document.getElementById('project-gallery');
+    const prevBtn = document.querySelector('.project-nav .prev');
+    const nextBtn = document.querySelector('.project-nav .next');
+
+    if (gallery) {
+        // 3D tilt effect on hover/move
+        const enableTilt = (card) => {
+            const handleMove = (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const cx = rect.width / 2;
+                const cy = rect.height / 2;
+                const rotX = ((y - cy) / cy) * -6; // tilt up/down
+                const rotY = ((x - cx) / cx) * 6;  // tilt left/right
+                card.style.setProperty('--rx', rotX + 'deg');
+                card.style.setProperty('--ry', rotY + 'deg');
+                card.style.setProperty('--mx', (x / rect.width) * 100 + '%');
+                card.style.setProperty('--my', (y / rect.height) * 100 + '%');
+            };
+            const resetMove = () => {
+                card.style.setProperty('--rx', '0deg');
+                card.style.setProperty('--ry', '0deg');
+                card.classList.remove('is-tilting');
+            };
+            card.addEventListener('mouseenter', () => card.classList.add('is-tilting'));
+            card.addEventListener('mousemove', handleMove);
+            card.addEventListener('mouseleave', resetMove);
+        };
+
+        const cards = Array.from(gallery.querySelectorAll('.project-card'));
+        cards.forEach(enableTilt);
+
+        // Update nav button disabled state
+        const updateNav = () => {
+            if (!prevBtn || !nextBtn) return;
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth - 1; // tolerance
+            prevBtn.disabled = gallery.scrollLeft <= 0;
+            nextBtn.disabled = gallery.scrollLeft >= maxScroll;
+        };
+
+        // Smooth scroll helper
+        const smoothScrollBy = (delta) => {
+            gallery.scrollBy({ left: delta, behavior: 'smooth' });
+        };
+
+        // Step-to-card helper
+        let isSnapping = false;
+        const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+        const getIndex = () => Math.round(gallery.scrollLeft / gallery.clientWidth);
+        const snapToIndex = (index) => {
+            isSnapping = true;
+            gallery.scrollTo({ left: index * gallery.clientWidth, behavior: 'smooth' });
+            setTimeout(() => { isSnapping = false; }, 420);
+        };
+
+        // Click navigation
+        if (prevBtn) prevBtn.addEventListener('click', () => smoothScrollBy(-gallery.clientWidth * 0.8));
+        if (nextBtn) nextBtn.addEventListener('click', () => smoothScrollBy(gallery.clientWidth * 0.8));
+
+        // Wheel to horizontal (step exactly one card) with vertical passthrough at edges
+        let lastWheelTs = 0;
+        gallery.addEventListener('wheel', (e) => {
+            const verticalIntent = Math.abs(e.deltaY) > Math.abs(e.deltaX);
+            if (!verticalIntent) return; // do not hijack precision horizontal scrolls
+
+            const index = getIndex();
+            const lastIndex = Math.max(0, cards.length - 1);
+
+            // If we are animating a snap, consume the event to avoid jitter
+            if (isSnapping) { e.preventDefault(); return; }
+
+            // Debounce multiple wheel events in the same frame burst
+            const now = performance.now();
+            if (now - lastWheelTs < 180) { e.preventDefault(); return; }
+
+            if (e.deltaY > 0) { // next card
+                if (index < lastIndex) { e.preventDefault(); snapToIndex(clamp(index + 1, 0, lastIndex)); }
+                // else let page scroll normally
+            } else if (e.deltaY < 0) { // previous card
+                if (index > 0) { e.preventDefault(); snapToIndex(clamp(index - 1, 0, lastIndex)); }
+                // else let page scroll normally
+            }
+            lastWheelTs = now;
+        }, { passive: false });
+
+        // Drag to scroll (mouse) with boundary passthrough
+        let isDown = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+            gallery.classList.add('dragging');
+        });
+        gallery.addEventListener('mouseleave', () => { isDown = false; gallery.classList.remove('dragging'); });
+        gallery.addEventListener('mouseup', () => { isDown = false; gallery.classList.remove('dragging'); });
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX);
+            const nextLeft = scrollLeft - walk;
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+            if (nextLeft <= 0 || nextLeft >= maxScroll) {
+                // let page scroll if trying to go beyond bounds
+                isDown = false;
+                return;
+            }
+            e.preventDefault();
+            gallery.scrollLeft = nextLeft;
+            updateNav();
+        });
+
+        // Touch swipe with boundary passthrough
+        let touchStartX = 0;
+        gallery.addEventListener('touchstart', (e) => {
+            if (!e.touches || e.touches.length === 0) return;
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        gallery.addEventListener('touchmove', (e) => {
+            if (!e.touches || e.touches.length === 0) return;
+            const currentX = e.touches[0].clientX;
+            const dx = touchStartX - currentX;
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+            if ((dx < 0 && gallery.scrollLeft <= 0) || (dx > 0 && gallery.scrollLeft >= maxScroll)) {
+                // allow default vertical scroll to transition sections
+                return;
+            }
+            gallery.scrollLeft += dx;
+            touchStartX = currentX;
+            updateNav();
+        }, { passive: true });
+
+        // Keep nav state fresh; avoid extra snapping here
+        gallery.addEventListener('scroll', updateNav);
+
+        // Initialize
+        updateNav();
+        window.addEventListener('resize', updateNav);
+    }
 });
