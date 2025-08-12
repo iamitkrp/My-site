@@ -621,6 +621,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, { passive: false });
 
+        // Prevent horizontal swipe on touch devices while allowing vertical page scroll
+        let touchStartX = 0;
+        let touchStartY = 0;
+        gallery.addEventListener('touchstart', (e) => {
+            if (!e.touches || e.touches.length === 0) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        gallery.addEventListener('touchmove', (e) => {
+            if (!e.touches || e.touches.length === 0) return;
+            const dx = Math.abs(e.touches[0].clientX - touchStartX);
+            const dy = Math.abs(e.touches[0].clientY - touchStartY);
+            if (dx > dy) {
+                // horizontal intent → block
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // Keep nav state fresh
         gallery.addEventListener('scroll', updateNav);
 
