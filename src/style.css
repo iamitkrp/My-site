@@ -490,6 +490,29 @@ body.dark .resume-box p {
   display: none;
 }
 
+/* Old mobile list (now unused). Keep hidden by default */
+.project-list-mobile { display: none; }
+.project-list-mobile * { pointer-events: auto; }
+
+/* Mobile accordion */
+.project-accordion-mobile { display: none; }
+.project-accordion-item { border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; background: rgba(255,255,255,0.7); overflow: hidden; }
+body.dark .project-accordion-item { border-color: rgba(255,255,255,0.15); background: rgba(20,20,20,0.35); }
+.accordion-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; background: transparent; border: 0; font-family: "Roboto Mono", monospace; font-weight: 600; font-size: 17px; letter-spacing: 0; line-height: 1.2; cursor: pointer; color: inherit; text-align: left; }
+.accordion-trigger .title { display: block; white-space: normal; }
+.accordion-trigger .chevron { width: 14px; height: 14px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform 0.2s ease; }
+.accordion-trigger[aria-expanded="true"] .chevron { transform: rotate(45deg); }
+.accordion-panel { padding: 0 16px 14px; }
+.accordion-panel .desc { font-family: "Roboto Mono", monospace; font-size: 13px; line-height: 1.6; margin: 6px 0 10px; }
+.accordion-panel .mini-list { margin: 0 0 8px 18px; font-family: "Roboto Mono", monospace; }
+.accordion-panel .mini-list li { margin: 2px 0; font-size: 13px; }
+.accordion-panel .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.accordion-panel .tags span { padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.15); font-size: 11px; }
+body.dark .accordion-panel .tags span { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); }
+.accordion-panel .actions { margin-top: 10px; }
+.accordion-panel .project-link { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.2); background: transparent; }
+body.dark .accordion-panel .project-link { border-color: rgba(255,255,255,0.25); }
+
 .project-card {
   scroll-snap-align: center;
   scroll-snap-stop: always;
@@ -674,6 +697,15 @@ body.dark .project-nav-btn {
 @media (max-width: 600px) {
   .project-card-title { font-size: 18px; }
   .project-card-desc { font-size: 13px; }
+}
+
+/* Mobile vertical list swap-in */
+@media (max-width: 985px) {
+  .project-gallery { display: none !important; }
+  .project-nav { display: none !important; }
+  .project-accordion-mobile { display: flex; flex-direction: column; gap: 10px; padding: 10px 8px 0; }
+  /* Increase gap between header and first project */
+  .projects .marquee { margin-bottom: 28px !important; }
 }
 
 .project-item {

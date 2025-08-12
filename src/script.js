@@ -646,4 +646,24 @@ document.addEventListener('DOMContentLoaded', function() {
         updateNav();
         window.addEventListener('resize', updateNav);
     }
+
+    // Mobile accordion behavior
+    const accordion = document.querySelector('.project-accordion-mobile');
+    if (accordion) {
+        accordion.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.accordion-trigger');
+            if (!trigger) return;
+            const item = trigger.closest('.project-accordion-item');
+            const panel = item.querySelector('.accordion-panel');
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            // close all others for compactness
+            accordion.querySelectorAll('.accordion-trigger[aria-expanded="true"]').forEach(t => {
+                t.setAttribute('aria-expanded', 'false');
+            });
+            accordion.querySelectorAll('.accordion-panel').forEach(p => p.hidden = true);
+            // toggle current
+            trigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            panel.hidden = expanded;
+        });
+    }
 });
