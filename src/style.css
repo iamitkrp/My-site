@@ -510,8 +510,10 @@ body.dark .project-accordion-item { border-color: rgba(255,255,255,0.15); backgr
 .accordion-panel .tags span { padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.15); font-size: 11px; }
 body.dark .accordion-panel .tags span { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); }
 .accordion-panel .actions { margin-top: 10px; }
-.accordion-panel .project-link { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.2); background: transparent; }
-body.dark .accordion-panel .project-link { border-color: rgba(255,255,255,0.25); }
+.accordion-panel .project-link { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.35); background: #333; color: #fff; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+.accordion-panel .project-link:hover { background: #555; color: #fff; transform: translateY(-1px); }
+body.dark .accordion-panel .project-link { border-color: rgba(255,255,255,0.35); background: #fff; color: #333; }
+body.dark .accordion-panel .project-link:hover { background: #f0f0f0; color: #333; }
 
 .project-card {
   scroll-snap-align: center;
