@@ -708,6 +708,8 @@ body.dark .project-nav-btn {
   .project-accordion-mobile { display: flex; flex-direction: column; gap: 10px; padding: 10px 8px 0; }
   /* Increase gap between header and first project */
   .projects .marquee { margin-bottom: 28px !important; }
+  /* Lighter titles for mobile readability */
+  .accordion-trigger { font-weight: 500; }
 }
 
 .project-item {
