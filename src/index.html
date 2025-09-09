@@ -894,6 +894,24 @@
         <script type="module" src="./script.js"></script>
         <script src="/background-effects.js"></script>
         <script src="/constellation.js"></script>
+        <div id="chat-launcher" class="chat-launcher" aria-label="Open chat" title="Chat">
+            <i class="fa-regular fa-comment-dots"></i>
+        </div>
+        <div id="chat-window" class="chat-window" role="dialog" aria-modal="true" style="display:none;">
+            <div class="chat-header">
+                <span>Chat with Amit</span>
+                <a href="./admin.html" class="chat-admin-link" title="Admin login" aria-label="Admin login">Admin</a>
+                <button id="chat-close" class="chat-icon-btn" aria-label="Close chat">×</button>
+            </div>
+            <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+            <div class="chat-input-row">
+                <textarea id="chat-input" class="chat-input" placeholder="Type your message..." rows="1"></textarea>
+                <button id="chat-send" class="chat-send" aria-label="Send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <script type="module" src="./chat.js"></script>
     </body>
 
 </html>

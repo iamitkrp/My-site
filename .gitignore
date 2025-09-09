@@ -1,3 +1,10 @@
+# Vite/Supabase env files
+.env*
+
+# Node
+node_modules
+dist
+
 # Dependencies
 /node_modules
 /.pnp

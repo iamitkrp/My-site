@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin · Messages</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body { font-family: "Roboto Mono", monospace; padding: 18px; }
+      .auth { max-width: 360px; margin: 40px auto; display: grid; gap: 10px; }
+      .auth input { padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+      .auth button { padding: 10px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
+      .layout { display: grid; grid-template-columns: 280px 1fr; gap: 12px; height: 80vh; }
+      .panel { border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+      .panel h3 { margin: 0; padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+      .list { overflow: auto; flex: 1; }
+      .visitor { padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.08); cursor: pointer; }
+      .visitor.active { background: rgba(0,0,0,0.06); }
+      .messages { overflow: auto; flex: 1; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+      .row { display: flex; }
+      .row.admin { justify-content: flex-end; }
+      .bubble { max-width: 70%; padding: 8px 12px; border-radius: 12px; background: #efefef; }
+      .row.admin .bubble { background: #333; color: #fff; }
+      .composer { display: flex; gap: 8px; padding: 10px; border-top: 1px solid rgba(0,0,0,0.1); }
+      .composer textarea { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 8px; resize: none; }
+      .composer button { padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="./admin.js"></script>
+  </body>
+  </html>
+
+

@@ -4,6 +4,8 @@ const isCodeSandbox = 'SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in proc
 
 export default {
     root: 'src/',
+    // Load env from project root where .env.local lives
+    envDir: '../',
     publicDir: '../static/',
     base: './',
     server:
@@ -18,7 +20,8 @@ export default {
         sourcemap: true,
         rollupOptions: {
             input: {
-                main: 'src/index.html'
+                main: 'src/index.html',
+                admin: 'src/admin.html'
             }
         }
     },
