@@ -74,7 +74,7 @@ function renderMessages() {
     els.list.scrollTop = els.list.scrollHeight
 }
 
-async function saveNameIfPresent() {
+async function saveNameIfPresent(showFeedback = true) {
     const name = (els.nameInput?.value || '').trim()
     console.log('[ChatName] saveNameIfPresent invoked', { name })
     if (!name) return
@@ -94,8 +94,10 @@ async function saveNameIfPresent() {
         } else {
             console.log('[ChatName] upsert success', data)
         }
-        if (els.nameSave) { els.nameSave.classList.add('saved'); setTimeout(() => els.nameSave.classList.remove('saved'), 1200) }
-        if (els.nameStatus) { els.nameStatus.textContent = 'Saved'; setTimeout(() => els.nameStatus.textContent = '', 1500) }
+        if (showFeedback) {
+            if (els.nameSave) { els.nameSave.classList.add('saved'); setTimeout(() => els.nameSave.classList.remove('saved'), 1200) }
+            if (els.nameStatus) { els.nameStatus.textContent = 'Saved'; setTimeout(() => els.nameStatus.textContent = '', 1500) }
+        }
     } catch (_) {}
 }
 
@@ -109,7 +111,7 @@ async function sendMessage(text) {
     renderMessages()
 
     try {
-        await saveNameIfPresent()
+        await saveNameIfPresent(false)
         await supabase.from('messages').insert({ visitor_id: visitorId, sender: 'visitor', content: trimmed })
     } catch (_) {
         // ignore; local message still shown
@@ -137,7 +139,7 @@ function wireUi() {
     els.nameSave?.addEventListener('click', async (e) => { 
         e.preventDefault(); 
         console.log('[ChatName] save icon clicked')
-        await saveNameIfPresent() 
+        await saveNameIfPresent(true) 
     })
     els.clearBtn?.addEventListener('click', async () => {
         try {
@@ -147,9 +149,9 @@ function wireUi() {
             renderMessages()
         } catch (err) { console.error('clear chat error', err) }
     })
-    els.nameInput?.addEventListener('blur', async () => { await saveNameIfPresent() })
+    els.nameInput?.addEventListener('blur', async () => { await saveNameIfPresent(true) })
     els.nameInput?.addEventListener('keydown', async (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); await saveNameIfPresent() }
+        if (e.key === 'Enter') { e.preventDefault(); await saveNameIfPresent(true) }
     })
     els.close?.addEventListener('click', () => {
         els.window.style.display = 'none'
