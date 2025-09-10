@@ -52,6 +52,7 @@ const els = {
     nameRow: document.getElementById('chat-name-row'),
     nameInput: document.getElementById('chat-name-input'),
     nameSave: document.getElementById('chat-name-save'),
+    clearBtn: document.getElementById('chat-clear'),
     nameStatus: document.getElementById('chat-name-status'),
     input: document.getElementById('chat-input'),
     send: document.getElementById('chat-send'),
@@ -137,6 +138,14 @@ function wireUi() {
         e.preventDefault(); 
         console.log('[ChatName] save icon clicked')
         await saveNameIfPresent() 
+    })
+    els.clearBtn?.addEventListener('click', async () => {
+        try {
+            await supabase.from('messages').delete().eq('visitor_id', visitorId)
+            messages = []
+            saveLocalMessages(messages)
+            renderMessages()
+        } catch (err) { console.error('clear chat error', err) }
     })
     els.nameInput?.addEventListener('blur', async () => { await saveNameIfPresent() })
     els.nameInput?.addEventListener('keydown', async (e) => {
