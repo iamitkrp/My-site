@@ -3899,6 +3899,7 @@ body.dark .footer-separator {
   top: 22px;
   width: 52px;
   height: 52px;
+  display: grid;
   place-items: center;
   background: #333;
   color: #fff;
@@ -3912,6 +3913,19 @@ body.dark .footer-separator {
 /* shown once main page is ready */
 .chat-launcher.ready { display: grid; opacity: 1; pointer-events: auto; }
 body.dark .chat-launcher { background: #fff; color: #333; }
+
+/* New animated chat bubble icon */
+.chat-icon-hero { position: relative; width: 26px; height: 26px; display: inline-grid; place-items: center; }
+.chat-icon-hero .ci { width: 26px; height: 26px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
+.chat-icon-hero .bubble { fill: #fff; }
+.chat-icon-hero .dot { fill: #111; opacity:.9; }
+.chat-icon-hero .d1{ animation: dotUp 1.4s infinite ease-in-out; }
+.chat-icon-hero .d2{ animation: dotUp 1.4s infinite ease-in-out .15s; }
+.chat-icon-hero .d3{ animation: dotUp 1.4s infinite ease-in-out .3s; }
+@keyframes dotUp { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-1.5px) } }
+/* gentle float on the whole button */
+.chat-launcher:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.28) }
+.chat-launcher { transition: transform .18s ease, box-shadow .25s ease }
 
 .chat-window {
   position: fixed;

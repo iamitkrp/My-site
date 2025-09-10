@@ -153,6 +153,12 @@ function wireUi() {
     els.nameInput?.addEventListener('keydown', async (e) => {
         if (e.key === 'Enter') { e.preventDefault(); await saveNameIfPresent(true) }
     })
+    // silent autosave while typing (debounced)
+    let nameDebounce
+    els.nameInput?.addEventListener('input', () => {
+        clearTimeout(nameDebounce)
+        nameDebounce = setTimeout(() => { saveNameIfPresent(false) }, 600)
+    })
     els.close?.addEventListener('click', () => {
         els.window.style.display = 'none'
         els.launcher.style.display = 'grid'
