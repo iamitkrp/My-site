@@ -10,6 +10,7 @@ function generateUuid() {
 }
 
 const VISITOR_KEY = 'chat_visitor_id'
+const VISITOR_NAME_KEY = 'chat_visitor_name'
 const MESSAGES_KEY_PREFIX = 'chat_messages_'
 
 let visitorId = localStorage.getItem(VISITOR_KEY)
@@ -48,6 +49,10 @@ const els = {
     launcher: document.getElementById('chat-launcher'),
     window: document.getElementById('chat-window'),
     list: document.getElementById('chat-messages'),
+    nameRow: document.getElementById('chat-name-row'),
+    nameInput: document.getElementById('chat-name-input'),
+    nameSave: document.getElementById('chat-name-save'),
+    nameStatus: document.getElementById('chat-name-status'),
     input: document.getElementById('chat-input'),
     send: document.getElementById('chat-send'),
     close: document.getElementById('chat-close')
@@ -68,6 +73,31 @@ function renderMessages() {
     els.list.scrollTop = els.list.scrollHeight
 }
 
+async function saveNameIfPresent() {
+    const name = (els.nameInput?.value || '').trim()
+    console.log('[ChatName] saveNameIfPresent invoked', { name })
+    if (!name) return
+    try {
+        const existing = localStorage.getItem(VISITOR_NAME_KEY) || ''
+        if (existing !== name) {
+            console.log('[ChatName] writing to localStorage', { previous: existing })
+            localStorage.setItem(VISITOR_NAME_KEY, name)
+        }
+        console.log('[ChatName] upserting to visitor_profiles', { visitorId, name })
+        const { data, error } = await supabase
+            .from('visitor_profiles')
+            .upsert({ visitor_id: visitorId, name }, { onConflict: 'visitor_id' })
+            .select()
+        if (error) {
+            console.error('[ChatName] upsert error', error)
+        } else {
+            console.log('[ChatName] upsert success', data)
+        }
+        if (els.nameSave) { els.nameSave.classList.add('saved'); setTimeout(() => els.nameSave.classList.remove('saved'), 1200) }
+        if (els.nameStatus) { els.nameStatus.textContent = 'Saved'; setTimeout(() => els.nameStatus.textContent = '', 1500) }
+    } catch (_) {}
+}
+
 async function sendMessage(text) {
     const trimmed = (text || '').trim()
     if (!trimmed) return
@@ -78,6 +108,7 @@ async function sendMessage(text) {
     renderMessages()
 
     try {
+        await saveNameIfPresent()
         await supabase.from('messages').insert({ visitor_id: visitorId, sender: 'visitor', content: trimmed })
     } catch (_) {
         // ignore; local message still shown
@@ -91,6 +122,25 @@ function wireUi() {
         els.launcher.style.display = 'none'
         renderMessages()
         els.input?.focus()
+    })
+    // name capture
+    try {
+        const savedName = localStorage.getItem(VISITOR_NAME_KEY)
+        if (els.nameRow) {
+            els.nameRow.style.display = 'flex'
+        }
+        if (savedName && els.nameInput) {
+            els.nameInput.value = savedName
+        }
+    } catch (_) {}
+    els.nameSave?.addEventListener('click', async (e) => { 
+        e.preventDefault(); 
+        console.log('[ChatName] save icon clicked')
+        await saveNameIfPresent() 
+    })
+    els.nameInput?.addEventListener('blur', async () => { await saveNameIfPresent() })
+    els.nameInput?.addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); await saveNameIfPresent() }
     })
     els.close?.addEventListener('click', () => {
         els.window.style.display = 'none'

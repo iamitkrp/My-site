@@ -245,6 +245,12 @@ const loadingManager = new THREE.LoadingManager(
         window.setTimeout(() => {
             // Update loadingBarElement
             document.getElementById('main-page').style.display = "flex";
+            // Show chat launcher now that UI is ready
+            const launcher = document.getElementById('chat-launcher');
+            if (launcher) {
+                launcher.style.display = 'grid';
+                launcher.classList.add('ready');
+            }
             gsap.to("#loader-page",
                 {
                     duration: 0.5,

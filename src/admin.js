@@ -8,6 +8,16 @@ let visitors = []
 let messages = []
 let channel = null
 
+function upsertVisitorNameInList(visitorId, name) {
+  const idx = visitors.findIndex(v => (typeof v === 'string' ? v : v.id) === visitorId)
+  if (idx >= 0) {
+    const existing = visitors[idx]
+    visitors[idx] = { id: (typeof existing === 'string' ? existing : existing.id), name: name || null }
+  } else {
+    visitors.unshift({ id: visitorId, name: name || null })
+  }
+}
+
 function el(tag, attrs = {}, children = []) {
   const e = document.createElement(tag)
   Object.entries(attrs).forEach(([k, v]) => {
@@ -51,14 +61,32 @@ function renderAuth() {
 }
 
 async function fetchVisitors() {
-  const { data, error } = await supabase.from('messages').select('visitor_id').order('created_at', { ascending: false })
-  if (error) return []
+  // Step 1: pull recent visitor_ids from messages
+  const { data: msgs, error } = await supabase
+    .from('messages')
+    .select('visitor_id, created_at')
+    .order('created_at', { ascending: false })
+  if (error || !Array.isArray(msgs)) return []
   const seen = new Set()
-  const list = []
-  for (const row of data) {
-    if (!seen.has(row.visitor_id)) { seen.add(row.visitor_id); list.push(row.visitor_id) }
+  const ids = []
+  for (const row of msgs) {
+    if (row?.visitor_id && !seen.has(row.visitor_id)) {
+      seen.add(row.visitor_id)
+      ids.push(row.visitor_id)
+    }
   }
-  return list
+  if (ids.length === 0) return []
+
+  // Step 2: fetch names for those ids
+  const { data: profiles } = await supabase
+    .from('visitor_profiles')
+    .select('visitor_id, name')
+    .in('visitor_id', ids)
+  const idToName = new Map()
+  if (Array.isArray(profiles)) {
+    for (const p of profiles) idToName.set(p.visitor_id, p.name)
+  }
+  return ids.map(id => ({ id, name: idToName.get(id) || null }))
 }
 
 async function fetchMessages(visitorId) {
@@ -81,14 +109,21 @@ function renderLayout() {
   const visitorsPanel = el('div', { class: 'panel' }, [ el('h3', { text: 'Conversations' }) ])
   const visitorList = el('div', { class: 'list' })
   visitors.forEach(v => {
-    const item = el('div', { class: 'visitor' + (v === selectedVisitorId ? ' active' : ''), text: v.slice(0, 8) + '…' + v.slice(-4) })
-    item.addEventListener('click', async () => { selectedVisitorId = v; messages = await fetchMessages(v); renderLayout() })
+    const id = typeof v === 'string' ? v : v?.id
+    const name = typeof v === 'object' && v ? v.name : null
+    if (!id) return
+    const idShort = id.slice(0,8) + '…' + id.slice(-4)
+    const display = name ? name : idShort
+    const item = el('div', { class: 'visitor' + (id === selectedVisitorId ? ' active' : ''), text: display })
+    item.addEventListener('click', async () => { selectedVisitorId = id; messages = await fetchMessages(id); renderLayout() })
     visitorList.appendChild(item)
   })
   visitorsPanel.appendChild(visitorList)
 
   const threadPanel = el('div', { class: 'panel' })
-  threadPanel.appendChild(el('h3', { text: selectedVisitorId ? ('Chat · ' + selectedVisitorId.slice(0, 8) + '…') : 'Select a chat' }))
+  const sel = visitors.find(v => (typeof v === 'object' && v && v.id === selectedVisitorId))
+  const selDisplay = sel?.name ? sel.name : (selectedVisitorId ? (selectedVisitorId.slice ? selectedVisitorId.slice(0,8) + '…' : '') : '')
+  threadPanel.appendChild(el('h3', { text: selectedVisitorId ? ('Chat · ' + selDisplay) : 'Select a chat' }))
   const thread = el('div', { class: 'messages' })
   messages.forEach(m => {
     const row = el('div', { class: 'row ' + (m.sender === 'admin' ? 'admin' : '') })
@@ -131,15 +166,23 @@ async function renderApp() {
         const row = payload.new
         if (!row) return
         // update visitor list to show newest first
-        const idx = visitors.indexOf(row.visitor_id)
+        const idx = visitors.findIndex(v => (typeof v === 'string' ? v : v.id) === row.visitor_id)
         if (idx !== -1) visitors.splice(idx, 1)
-        visitors.unshift(row.visitor_id)
+        const existing = visitors.find(v => (typeof v === 'object' && v && v.id === row.visitor_id))
+        visitors.unshift({ id: row.visitor_id, name: existing?.name || null })
         if (selectedVisitorId === row.visitor_id) {
           messages.push(row)
           renderLayout()
         } else {
           renderLayout()
         }
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'visitor_profiles' }, (payload) => {
+        const vId = payload?.new?.visitor_id || payload?.old?.visitor_id
+        const name = payload?.new?.name || null
+        if (!vId) return
+        upsertVisitorNameInList(vId, name)
+        renderLayout()
       })
       .subscribe()
   } catch (_) {}
