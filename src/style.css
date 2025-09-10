@@ -3927,6 +3927,9 @@ body.dark .chat-launcher { background: #fff; color: #333; }
 .chat-launcher:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.28) }
 .chat-launcher { transition: transform .18s ease, box-shadow .25s ease }
 
+.chat-launcher-text { position: absolute; left: 60px; top: 50%; transform: translateY(-50%); font-family: "Roboto Mono", monospace; font-size: 14px; color: #333; background: rgba(255,255,255,0.85); padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 8px 18px rgba(0,0,0,0.12); white-space: nowrap; }
+body.dark .chat-launcher-text { color: #111; }
+
 .chat-window {
   position: fixed;
   left: 22px;
