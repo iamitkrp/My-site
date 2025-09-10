@@ -117,6 +117,7 @@ function renderLayout() {
   app.innerHTML = ''
   const top = el('div', { class: 'topbar' }, [
     el('h2', { text: 'Inbox' }),
+    (() => { const m = el('button', { class: 'mode-toggle', text: 'Toggle theme' }); m.addEventListener('click', () => { document.body.classList.toggle('dark') }); return m })(),
     (() => { const b = el('button', { text: 'Sign out' }); b.addEventListener('click', async () => { await supabase.auth.signOut(); session = null; renderAuth() }); return b })()
   ])
 
