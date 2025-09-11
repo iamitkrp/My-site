@@ -31,11 +31,13 @@ function el(tag, attrs = {}, children = []) {
 
 function renderAuth() {
   app.innerHTML = ''
-  // ensure any previous session is cleared to allow switching accounts
-  try { supabase.auth.signOut() } catch(_) {}
+  const wrap = el('div', { class: 'auth-wrap' })
   const box = el('div', { class: 'auth' })
+  box.appendChild(el('h1', { text: 'Welcome, Admin' }))
+  box.appendChild(el('p', { text: 'Sign in to view all conversations' }))
   const email = el('input', { type: 'email', placeholder: 'Admin email' })
   const pass = el('input', { type: 'password', placeholder: 'Password' })
+  const inputs = el('div', { class: 'inputs' }, [ email, pass ])
   const login = el('button', { text: 'Sign in' })
   const note = el('small', { text: 'Sign in with your Supabase admin credentials.' })
   login.addEventListener('click', async () => {
@@ -44,8 +46,11 @@ function renderAuth() {
     session = data.session
     await renderApp()
   })
-  ;[email, pass, login, note].forEach(n => box.appendChild(n))
-  app.appendChild(box)
+  box.appendChild(inputs)
+  box.appendChild(login)
+  box.appendChild(note)
+  wrap.appendChild(box)
+  app.appendChild(wrap)
 }
 
 async function fetchVisitors() {

@@ -6,16 +6,39 @@
     <title>Admin · Messages</title>
     <link rel="stylesheet" href="./style.css" />
     <style>
-      :root { --panel-bg: rgba(255,255,255,0.65); --panel-border: rgba(0,0,0,0.12); --text: #1a1a1a; --muted: rgba(0,0,0,0.6); --accent: #ff8a65; --accent2: #ffd166; --accent3: #a7f0ba; --accent4: #8ecae6; }
-      .dark { --panel-bg: rgba(20,20,20,0.55); --panel-border: rgba(255,255,255,0.15); --text: #eaeaea; --muted: rgba(255,255,255,0.72); --accent: #ffb703; --accent2: #fb6f92; --accent3: #80ed99; --accent4: #90cdf4; }
-      body { font-family: "Roboto Mono", monospace; padding: 18px; color: var(--text); background: radial-gradient(900px 700px at -10% -20%, rgba(255, 214, 102, 0.25), transparent 60%), radial-gradient(900px 700px at 110% 120%, rgba(142, 202, 230, 0.25), transparent 60%), linear-gradient(135deg, #fff6e9 0%, #fff 40%, #f3f7ff 100%); }
-      body.dark { background: radial-gradient(800px 600px at -10% -10%, rgba(255, 111, 145, 0.18), transparent 60%), radial-gradient(800px 600px at 110% 110%, rgba(142, 202, 230, 0.14), transparent 60%), linear-gradient(120deg, #0e0e12, #121218); }
-      .auth { max-width: 360px; margin: 40px auto; display: grid; gap: 10px; }
-      .auth input { padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
-      .auth button { padding: 10px; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
+      :root { --panel-bg: rgba(255,255,255,0.38); --panel-border: rgba(255,255,255,0.45); --text: #1a1a1a; --muted: rgba(0,0,0,0.6); --accent: #ff8a65; --accent2: #ffd166; --accent3: #a7f0ba; --accent4: #8ecae6; }
+      .dark { --panel-bg: rgba(18,18,22,0.35); --panel-border: rgba(255,255,255,0.14); --text: #eaeaea; --muted: rgba(255,255,255,0.72); --accent: #ffb703; --accent2: #fb6f92; --accent3: #80ed99; --accent4: #90cdf4; }
+      body {
+        font-family: "Roboto Mono", monospace; padding: 18px; color: var(--text);
+        background:
+          radial-gradient(900px 700px at -10% -20%, rgba(255, 214, 102, 0.25), transparent 60%),
+          radial-gradient(900px 700px at 110% 120%, rgba(142, 202, 230, 0.25), transparent 60%),
+          url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop') center/cover fixed no-repeat;
+      }
+      body.dark {
+        background:
+          radial-gradient(800px 600px at -10% -10%, rgba(255, 111, 145, 0.18), transparent 60%),
+          radial-gradient(800px 600px at 110% 110%, rgba(142, 202, 230, 0.14), transparent 60%),
+          url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop') center/cover fixed no-repeat;
+      }
+      .auth-wrap { height: 80vh; display: grid; place-items: center; }
+      .auth {
+        width: min(420px, 92vw);
+        display: grid; gap: 14px; padding: 28px;
+        background: var(--panel-bg); border: 1px solid var(--panel-border);
+        border-radius: 16px; box-shadow: 0 18px 40px rgba(0,0,0,.18);
+        text-align: center;
+      }
+      .auth h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
+      .auth p { margin: 0; font-size: 13px; opacity: .8; }
+      .auth .inputs { display: grid; gap: 10px; margin-top: 6px; }
+      .auth input { padding: 12px; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(255,255,255,.6); color: var(--text); }
+      .dark .auth input { background: rgba(0,0,0,.35); }
+      .auth button { padding: 12px; border-radius: 10px; cursor: pointer; border: 1px solid var(--panel-border); background: var(--accent); color: #fff; transition: transform .12s ease, box-shadow .2s ease; }
+      .auth button:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.18); }
       .layout { display: grid; grid-template-columns: 320px 1fr; gap: 12px; height: 82vh; }
-      .panel { border: 1px solid var(--panel-border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; background: var(--panel-bg); backdrop-filter: blur(8px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
-      .panel h3 { margin: 0; padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+      .panel { border: 1px solid var(--panel-border); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; background: var(--panel-bg); backdrop-filter: blur(14px) saturate(150%); box-shadow: 0 18px 42px rgba(0,0,0,0.18); }
+      .panel h3 { margin: 0; padding: 10px; border-bottom: 1px solid var(--panel-border); }
       .list { overflow: auto; flex: 1; }
       .search { padding: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; gap: 8px; }
       .search input { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 8px; }
