@@ -31,32 +31,20 @@ function el(tag, attrs = {}, children = []) {
 
 function renderAuth() {
   app.innerHTML = ''
+  // ensure any previous session is cleared to allow switching accounts
+  try { supabase.auth.signOut() } catch(_) {}
   const box = el('div', { class: 'auth' })
   const email = el('input', { type: 'email', placeholder: 'Admin email' })
   const pass = el('input', { type: 'password', placeholder: 'Password' })
-  // Prefill dev credentials (do not use in production)
-  email.value = 'admin@email.com'
-  pass.value = 'pass123'
   const login = el('button', { text: 'Sign in' })
-  const signup = el('button', { text: 'Create dev admin (if missing)' })
-  const note = el('small', { text: 'Dev defaults prefilled: admin@email.com / pass123' })
+  const note = el('small', { text: 'Sign in with your Supabase admin credentials.' })
   login.addEventListener('click', async () => {
     const { data, error } = await supabase.auth.signInWithPassword({ email: email.value, password: pass.value })
     if (error) { alert(error.message + "\nIf this is a fresh project, click 'Create dev admin (if missing)'."); return }
     session = data.session
     await renderApp()
   })
-  signup.addEventListener('click', async () => {
-    const { data, error } = await supabase.auth.signUp({ email: email.value, password: pass.value })
-    if (error) { alert(error.message); return }
-    if (data.session) {
-      session = data.session
-      await renderApp()
-    } else {
-      alert('Dev admin created. Please disable email confirmations or confirm the email, then sign in.')
-    }
-  })
-  ;[email, pass, login, signup, note].forEach(n => box.appendChild(n))
+  ;[email, pass, login, note].forEach(n => box.appendChild(n))
   app.appendChild(box)
 }
 
