@@ -151,7 +151,12 @@ function wireUi() {
     })
     els.nameInput?.addEventListener('blur', async () => { await saveNameIfPresent(true) })
     els.nameInput?.addEventListener('keydown', async (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); await saveNameIfPresent(true) }
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            await saveNameIfPresent(true)
+            // After saving name, move focus to the message box so Enter sends next time
+            els.input?.focus()
+        }
     })
     // silent autosave while typing (debounced)
     let nameDebounce
