@@ -252,6 +252,10 @@ body.dark a {
   font-size: 12px;
   padding: 3px 0;
 }
+.loves.my-text {
+  font-size: 14px;
+  line-height: 1.7;
+}
 .name {
   margin-top: 80px;
   letter-spacing: 7px;
@@ -1460,6 +1464,10 @@ body.dark .cross:hover {
     font-family: "Roboto Mono", monospace;
     font-size: 12px;
     padding: 3px 0;
+  }
+  .loves.my-text {
+    font-size: 13px;
+    line-height: 1.6;
   }
   .name {
     margin-top: 80px;
