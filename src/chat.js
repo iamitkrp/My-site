@@ -45,6 +45,15 @@ async function loadHistory() {
     } catch (_) {}
 }
 
+// Ensure a profile row exists for this visitor so name updates always succeed
+async function ensureProfileRow() {
+    try {
+        await supabase
+            .from('visitor_profiles')
+            .upsert({ visitor_id: visitorId }, { onConflict: 'visitor_id' })
+    } catch (_) {}
+}
+
 const els = {
     launcher: document.getElementById('chat-launcher'),
     window: document.getElementById('chat-window'),
@@ -190,6 +199,7 @@ function wireUi() {
 wireUi()
 renderMessages()
 loadHistory()
+ensureProfileRow()
 
 // Realtime subscription
 try {
