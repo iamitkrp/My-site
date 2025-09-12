@@ -4,6 +4,9 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
+export const SUPABASE_URL = supabaseUrl
+export const SUPABASE_ANON_KEY = supabaseAnonKey
+
 function generateUuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         const r = (crypto.getRandomValues(new Uint8Array(1))[0] & 0xf) >> 0
@@ -50,8 +53,21 @@ try {
             const vId = localStorage.getItem(VISITOR_KEY)
             if (vId) {
                 const opts = options ? { ...options } : {}
-                const prev = (opts && opts.headers) ? opts.headers : {}
-                opts.headers = { ...(prev || {}), 'x-visitor-id': vId }
+                let headers = opts.headers || {}
+                // Preserve existing headers from different shapes (Headers, array, or object)
+                if (headers instanceof Headers) {
+                    const obj = {}
+                    headers.forEach((value, key) => { obj[key] = value })
+                    headers = obj
+                } else if (Array.isArray(headers)) {
+                    const obj = {}
+                    headers.forEach(([key, value]) => { obj[key] = value })
+                    headers = obj
+                } else {
+                    headers = { ...headers }
+                }
+                headers['x-visitor-id'] = vId
+                opts.headers = headers
                 return _origFetch(resource, opts)
             }
         } catch (_) {}
