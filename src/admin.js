@@ -53,7 +53,7 @@ function renderAuth() {
   const pass = el('input', { type: 'password', placeholder: 'Password' })
   const inputs = el('div', { class: 'inputs' }, [ email, pass ])
   const login = el('button', { text: 'Sign in' })
-  const note = el('small', { text: 'Sign in with your Supabase admin credentials.' })
+  const note = el('small', { text: 'Use your admin email and password.' })
   login.addEventListener('click', async () => {
     const { data, error } = await supabase.auth.signInWithPassword({ email: email.value, password: pass.value })
     if (error) { alert(error.message + "\nIf this is a fresh project, click 'Create dev admin (if missing)'."); return }
