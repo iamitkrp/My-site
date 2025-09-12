@@ -8,19 +8,8 @@
     <style>
       :root { --panel-bg: rgba(255,255,255,0.38); --panel-border: rgba(255,255,255,0.45); --text: #1a1a1a; --muted: rgba(0,0,0,0.6); --accent: #ff8a65; --accent2: #ffd166; --accent3: #a7f0ba; --accent4: #8ecae6; }
       .dark { --panel-bg: rgba(18,18,22,0.35); --panel-border: rgba(255,255,255,0.14); --text: #eaeaea; --muted: rgba(255,255,255,0.72); --accent: #ffb703; --accent2: #fb6f92; --accent3: #80ed99; --accent4: #90cdf4; }
-      body {
-        font-family: "Roboto Mono", monospace; padding: 18px; color: var(--text);
-        background:
-          radial-gradient(900px 700px at -10% -20%, rgba(255, 214, 102, 0.25), transparent 60%),
-          radial-gradient(900px 700px at 110% 120%, rgba(142, 202, 230, 0.25), transparent 60%),
-          url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop') center/cover fixed no-repeat;
-      }
-      body.dark {
-        background:
-          radial-gradient(800px 600px at -10% -10%, rgba(255, 111, 145, 0.18), transparent 60%),
-          radial-gradient(800px 600px at 110% 110%, rgba(142, 202, 230, 0.14), transparent 60%),
-          url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1920&auto=format&fit=crop') center/cover fixed no-repeat;
-      }
+      body { font-family: "Roboto Mono", monospace; padding: 18px; color: var(--text); background: #f6f6f8; }
+      body.dark { background: #0f1115; }
       .auth-wrap { height: 80vh; display: grid; place-items: center; }
       .auth {
         width: min(420px, 92vw);
@@ -69,12 +58,19 @@
 
       /* topbar */
       .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-      .mode-toggle { border: 1px solid var(--panel-border); background: var(--panel-bg); padding: 6px 10px; border-radius: 10px; cursor: pointer; }
+      .mode-toggle { border: 1px solid var(--panel-border); background: var(--panel-bg); padding: 8px 12px; border-radius: 12px; cursor: pointer; }
+      .btn { padding: 8px 12px; border: 1px solid var(--panel-border); border-radius: 12px; background: rgba(0,0,0,0.06); color: var(--text); transition: transform .12s ease, box-shadow .2s ease, background .2s ease; }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(0,0,0,.18); }
+      .btn.primary { background: var(--accent); color: #fff; border-color: transparent; }
+      .btn.danger { background: rgba(198,40,40,.12); color: #c62828; border-color: rgba(198,40,40,.35); }
+      #app { position: relative; z-index: 2; }
     </style>
   </head>
   <body>
+    <!-- background effects removed -->
     <div id="app"></div>
     <script type="module" src="./admin.js"></script>
+    <!-- effects script removed -->
   </body>
   </html>
 

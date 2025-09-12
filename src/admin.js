@@ -110,8 +110,8 @@ function renderLayout() {
   app.innerHTML = ''
   const top = el('div', { class: 'topbar' }, [
     el('h2', { text: 'Inbox' }),
-    (() => { const m = el('button', { class: 'mode-toggle', text: 'Toggle theme' }); m.addEventListener('click', () => { document.body.classList.toggle('dark') }); return m })(),
-    (() => { const b = el('button', { text: 'Sign out' }); b.addEventListener('click', async () => { await supabase.auth.signOut(); session = null; renderAuth() }); return b })()
+    (() => { const m = el('button', { class: 'mode-toggle btn', text: 'Toggle theme' }); m.addEventListener('click', () => { document.body.classList.toggle('dark') }); return m })(),
+    (() => { const b = el('button', { class: 'btn danger', text: 'Sign out' }); b.addEventListener('click', async () => { await supabase.auth.signOut(); session = null; renderAuth() }); return b })()
   ])
 
   const visitorsPanel = el('div', { class: 'panel' }, [ el('h3', { text: 'Conversations' }) ])
@@ -157,9 +157,9 @@ function renderLayout() {
   if (selectedVisitorId) {
     const actions = el('div', { class: 'actions' })
     const renameInput = el('input', { value: sel?.name || '', placeholder: 'Set name' })
-    const renameBtn = el('button', { text: 'Rename' })
-    const clearBtn = el('button', { class: 'danger', text: 'Clear chat' })
-    const delBtn = el('button', { class: 'danger', text: 'Delete user' })
+    const renameBtn = el('button', { class: 'btn', text: 'Rename' })
+    const clearBtn = el('button', { class: 'btn danger', text: 'Clear chat' })
+    const delBtn = el('button', { class: 'btn danger', text: 'Delete user' })
 
     renameBtn.addEventListener('click', async () => {
       const newName = (renameInput.value || '').trim()
