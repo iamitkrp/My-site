@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient.js'
+import { supabase, SUPABASE_URL } from './supabaseClient.js'
 
 const app = document.getElementById('app')
 
@@ -284,7 +284,41 @@ async function renderApp() {
   } catch (_) {}
 }
 
-supabase.auth.getSession().then(({ data }) => { session = data.session; renderApp() })
+// Robust rehydration across tabs: read the stored Supabase session if needed
+async function hydrateSessionFromStorage() {
+  try {
+    const ref = new URL(SUPABASE_URL).host.split('.')[0]
+    const key = `sb-${ref}-auth-token`
+    const raw = localStorage.getItem(key)
+    if (!raw) return null
+    const obj = JSON.parse(raw)
+    const s = obj?.currentSession || obj?.session || null
+    const access_token = s?.access_token || obj?.access_token
+    const refresh_token = s?.refresh_token || obj?.refresh_token
+    if (access_token && refresh_token) {
+      const { data } = await supabase.auth.setSession({ access_token, refresh_token })
+      return data?.session || null
+    }
+  } catch (_) {}
+  return null
+}
+
+supabase.auth.getSession().then(async ({ data }) => {
+  session = data.session
+  if (!session) {
+    session = await hydrateSessionFromStorage()
+  }
+  renderApp()
+})
 supabase.auth.onAuthStateChange((_e, s) => { session = s?.session ?? null; renderApp() })
+
+// When returning to the tab, ensure session is re-checked and rehydrated if needed
+document.addEventListener('visibilitychange', async () => {
+  if (!document.hidden && !session) {
+    const { data } = await supabase.auth.getSession()
+    session = data.session ?? (await hydrateSessionFromStorage())
+    renderApp()
+  }
+})
 
 
