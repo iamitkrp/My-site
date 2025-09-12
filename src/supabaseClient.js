@@ -25,6 +25,9 @@ try {
     // localStorage might be unavailable in some contexts; header will be omitted
 }
 
+// Export the resolved visitor id so the rest of the app uses the exact same value
+export const CURRENT_VISITOR_ID = visitorId
+
 if (!supabaseUrl || !supabaseAnonKey) {
     console.error('Missing Supabase env. Ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in .env.local')
 }

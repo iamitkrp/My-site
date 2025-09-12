@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient.js'
+import { supabase, CURRENT_VISITOR_ID } from './supabaseClient.js'
 
 function generateUuid() {
     // RFC4122 v4
@@ -13,7 +13,10 @@ const VISITOR_KEY = 'chat_visitor_id'
 const VISITOR_NAME_KEY = 'chat_visitor_name'
 const MESSAGES_KEY_PREFIX = 'chat_messages_'
 
-let visitorId = localStorage.getItem(VISITOR_KEY)
+let visitorId = CURRENT_VISITOR_ID
+if (!visitorId) {
+    visitorId = localStorage.getItem(VISITOR_KEY)
+}
 if (!visitorId) {
     visitorId = generateUuid()
     localStorage.setItem(VISITOR_KEY, visitorId)
@@ -97,7 +100,6 @@ async function saveNameIfPresent(showFeedback = true) {
         const { data, error } = await supabase
             .from('visitor_profiles')
             .upsert({ visitor_id: visitorId, name }, { onConflict: 'visitor_id' })
-            .select()
         if (error) {
             console.error('[ChatName] upsert error', error)
         } else {

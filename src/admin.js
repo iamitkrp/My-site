@@ -8,6 +8,20 @@ let visitors = []
 let messages = []
 let channel = null
 
+async function fetchVisitorName(visitorId) {
+  try {
+    const { data, error } = await supabase
+      .from('visitor_profiles')
+      .select('name')
+      .eq('visitor_id', visitorId)
+      .maybeSingle()
+    if (error) return null
+    return data?.name || null
+  } catch (_) {
+    return null
+  }
+}
+
 function upsertVisitorNameInList(visitorId, name) {
   const idx = visitors.findIndex(v => (typeof v === 'string' ? v : v.id) === visitorId)
   if (idx >= 0) {
@@ -238,7 +252,12 @@ async function renderApp() {
         const idx = visitors.findIndex(v => (typeof v === 'string' ? v : v.id) === row.visitor_id)
         if (idx !== -1) visitors.splice(idx, 1)
         const existing = visitors.find(v => (typeof v === 'object' && v && v.id === row.visitor_id))
-        visitors.unshift({ id: row.visitor_id, name: existing?.name ?? null })
+        let vName = existing?.name ?? null
+        if (!vName) {
+          // opportunistically fetch name for this visitor in case profile was set moments ago
+          vName = await fetchVisitorName(row.visitor_id)
+        }
+        visitors.unshift({ id: row.visitor_id, name: vName ?? null })
         if (selectedVisitorId === row.visitor_id) {
           messages.push(row)
           const t = document.querySelector('.messages')
