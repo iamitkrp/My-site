@@ -66,8 +66,12 @@ try {
                 } else {
                     headers = { ...headers }
                 }
-                headers['x-visitor-id'] = vId
-                opts.headers = headers
+                // Only add header for Supabase API calls
+                const url = typeof resource === 'string' ? resource : (resource?.url || '')
+                if (url.startsWith(supabaseUrl)) {
+                    headers['x-visitor-id'] = vId
+                    opts.headers = headers
+                }
                 return _origFetch(resource, opts)
             }
         } catch (_) {}

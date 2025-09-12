@@ -88,23 +88,17 @@ function renderMessages() {
 
 async function saveNameIfPresent(showFeedback = true) {
     const name = (els.nameInput?.value || '').trim()
-    console.log('[ChatName] saveNameIfPresent invoked', { name })
+    // production: no noisy logs
     if (!name) return
     try {
         const existing = localStorage.getItem(VISITOR_NAME_KEY) || ''
         if (existing !== name) {
-            console.log('[ChatName] writing to localStorage', { previous: existing })
             localStorage.setItem(VISITOR_NAME_KEY, name)
         }
-        console.log('[ChatName] upserting to visitor_profiles', { visitorId, name })
         const { data, error } = await supabase
             .from('visitor_profiles')
             .upsert({ visitor_id: visitorId, name }, { onConflict: 'visitor_id' })
-        if (error) {
-            console.error('[ChatName] upsert error', error)
-        } else {
-            console.log('[ChatName] upsert success', data)
-        }
+        if (error) { /* silently ignore for UX; admin view still works once allowed by RLS */ }
         if (showFeedback) {
             if (els.nameSave) { els.nameSave.classList.add('saved'); setTimeout(() => els.nameSave.classList.remove('saved'), 1200) }
             if (els.nameStatus) { els.nameStatus.textContent = 'Saved'; setTimeout(() => els.nameStatus.textContent = '', 1500) }
