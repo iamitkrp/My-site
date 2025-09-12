@@ -39,4 +39,21 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     }
 })
 
+// Ensure every network request carries the visitor header (helps in incognito/new sessions)
+try {
+    const _origFetch = window.fetch
+    window.fetch = async function(resource, options) {
+        try {
+            const vId = localStorage.getItem(VISITOR_KEY)
+            if (vId) {
+                const opts = options ? { ...options } : {}
+                const prev = (opts && opts.headers) ? opts.headers : {}
+                opts.headers = { ...(prev || {}), 'x-visitor-id': vId }
+                return _origFetch(resource, opts)
+            }
+        } catch (_) {}
+        return _origFetch(resource, options)
+    }
+} catch (_) {}
+
 
