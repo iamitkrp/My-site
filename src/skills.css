@@ -41,6 +41,12 @@ body:not(.dark) {
     gap: 3rem; /* Space between skill groups */
 }
 
+/* Ensure hover events work even though the main container disables pointer events */
+.skills .skill-list-alt,
+.skills .skill-item-alt,
+.experience .skill-list-alt,
+.experience .skill-item-alt { pointer-events: auto; }
+
 .skill-group {
     border-left: 1px solid rgba(0, 0, 0, 0.2); /* Lighter and thinner border for mobile */
     padding-left: 1.5rem;
@@ -94,14 +100,16 @@ body:not(.dark) {
     align-items: center;
     gap: 0.75rem; /* Space between icon and text */
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .skill-item-alt:hover {
     color: var(--skills-text-primary); /* Use CSS variable */
     background-color: var(--skills-hover-background-accent); /* Use CSS variable */
     border-color: var(--skills-border-accent); /* Use CSS variable */
-    transform: translateY(-3px); /* Slight lift effect */
-    box-shadow: 0 5px 15px var(--skills-shadow-accent); /* Use CSS variable */
+    transform: translateY(-4px) scale(1.02); /* Slight lift + scale */
+    box-shadow: 0 8px 18px var(--skills-shadow-accent); /* Use CSS variable */
 }
 
 .skill-icon-alt {
@@ -111,7 +119,25 @@ body:not(.dark) {
 }
 
 .skill-item-alt:hover .skill-icon-alt {
-    transform: scale(1.1); /* Icon zoom on hover */
+    transform: scale(1.15) rotate(-3deg); /* Icon zoom and tilt */
+}
+
+/* Sweeping shine effect (desktop only) */
+.skill-item-alt::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+    pointer-events: none;
+}
+
+.skill-item-alt:hover::after {
+    left: 120%;
 }
 
 /* Responsive adjustments */
