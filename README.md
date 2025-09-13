@@ -8,6 +8,9 @@
 ### Dark Mode
 ![Dark Mode](static/images/ss-dark.png)
 
+### Notes
+- Favicon is `/favicon.png`. Remove unused `/favi.png` if unreferenced.
+
 ## Live
 [Visit](https://my-site-three-dusky.vercel.app/)
 

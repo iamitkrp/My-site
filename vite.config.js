@@ -17,7 +17,8 @@ export default {
     {
         outDir: '../dist',
         emptyOutDir: true,
-        sourcemap: true,
+        // Keep sourcemaps in dev only to avoid leaking source in prod
+        sourcemap: process.env.NODE_ENV !== 'production',
         rollupOptions: {
             input: {
                 main: 'src/index.html',

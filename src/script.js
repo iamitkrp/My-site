@@ -95,7 +95,9 @@ $words.each(function () {
 let time = document.getElementById('time');
 
 setInterval(() => {
-    time.innerHTML = getTime();
+    if (time) {
+        time.textContent = String(getTime());
+    }
 }, 1000)
 
 
@@ -222,7 +224,10 @@ console.log(musicBars);
 const progressBar = document.querySelector('.loading-progress');
 let SoundPlaying = false;
 musicBarsDiv.addEventListener('click', () => {
-    ctx.resume();
+    if (!ctx) {
+        try { ctx = new (window.AudioContext)(); } catch (_) {}
+    }
+    try { ctx && ctx.resume && ctx.resume(); } catch (_) {}
     if (!SoundPlaying) {
         for (let i = 0; i < 5; i++) {
             musicBars[i].style.animationPlayState = 'running'
@@ -307,7 +312,7 @@ textureLoader.load(logo);
 // instantiate a listener
 const audioListener = new THREE.AudioListener();
 camera.add(audioListener);
-const ctx = new (window.AudioContext)();
+let ctx = null;
 
 // instantiate audio object
 const hoverSound = new THREE.Audio(audioListener);
