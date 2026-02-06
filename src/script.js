@@ -1,5 +1,5 @@
-import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import VertexShader from './shaders/test/vertex.glsl'
 import FragmentShader from './shaders/test/fragment.glsl'
 import { gsap } from 'gsap';
@@ -163,24 +163,24 @@ const scrambleText = text => {
 
 // Attach scramble listeners using delegation OR keep individual listeners
 // Let's refine the individual listeners slightly
-const projectLinks = document.querySelectorAll('.projects .stripes a.scramble'); 
+const projectLinks = document.querySelectorAll('.projects .stripes a.scramble');
 
 projectLinks.forEach(link => {
     let scrambleInterval; // Use local interval per link
-    link.addEventListener('mouseover', function() {
+    link.addEventListener('mouseover', function () {
         const span = this.querySelector('span');
         if (!span) return;
         const currentText = span.innerText;
         this.dataset.originalText = currentText; // Store current text ("EXPLORE" or "CLOSE")
-        clearInterval(scrambleInterval); 
+        clearInterval(scrambleInterval);
         scrambleInterval = setInterval(() => {
             span.innerText = scrambleText(currentText);
         }, 100);
     });
-    link.addEventListener('mouseout', function() {
+    link.addEventListener('mouseout', function () {
         clearInterval(scrambleInterval);
         const span = this.querySelector('span');
-         if (!span) return;
+        if (!span) return;
         if (this.dataset.originalText) {
             span.innerText = this.dataset.originalText;
         }
@@ -210,7 +210,7 @@ const scene = new THREE.Scene();
 =========================================================================================== */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
 camera.position.set(0.0, 0.0, 4.0);
-if(mobile){
+if (mobile) {
     camera.position.set(0.0, 0.0, 5.0);
 }
 scene.add(camera);
@@ -225,9 +225,9 @@ const progressBar = document.querySelector('.loading-progress');
 let SoundPlaying = false;
 musicBarsDiv.addEventListener('click', () => {
     if (!ctx) {
-        try { ctx = new (window.AudioContext)(); } catch (_) {}
+        try { ctx = new (window.AudioContext)(); } catch (_) { }
     }
-    try { ctx && ctx.resume && ctx.resume(); } catch (_) {}
+    try { ctx && ctx.resume && ctx.resume(); } catch (_) { }
     if (!SoundPlaying) {
         for (let i = 0; i < 5; i++) {
             musicBars[i].style.animationPlayState = 'running'
@@ -243,25 +243,40 @@ musicBarsDiv.addEventListener('click', () => {
         SoundPlaying = false;
     }
 })
+const forceShowUI = () => {
+    if (document.getElementById('loader-page').style.display !== "none") {
+        console.warn("Loading hang detected. Forcing UI display.");
+        document.getElementById('main-page').style.display = "flex";
+        gsap.to("#loader-page", {
+            duration: 0.5,
+            yPercent: -300,
+            ease: 'power2.out',
+            onComplete: () => {
+                document.getElementById('loader-page').style.display = "none";
+            }
+        });
+    }
+};
+
+const showUITimeout = window.setTimeout(forceShowUI, 10000);
+
 const loadingManager = new THREE.LoadingManager(
     // Loaded
     () => {
+        window.clearTimeout(showUITimeout);
         // Wait a little
         window.setTimeout(() => {
             // Update loadingBarElement
             document.getElementById('main-page').style.display = "flex";
-            // Show chat launcher now that UI is ready
-            const launcher = document.getElementById('chat-launcher');
-            if (launcher) {
-                launcher.style.display = 'grid';
-                launcher.classList.add('ready');
-            }
             gsap.to("#loader-page",
                 {
                     duration: 0.5,
                     stagger: 0.1,
                     ease: 'power2.out',
-                    yPercent: -300
+                    yPercent: -300,
+                    onComplete: () => {
+                        document.getElementById('loader-page').style.display = "none";
+                    }
                 }
             );
             gsap.to(
@@ -290,6 +305,7 @@ const loadingManager = new THREE.LoadingManager(
 
     // Progress
     (itemUrl, itemsLoaded, itemsTotal) => {
+        console.log(`Loading: ${itemUrl} (${itemsLoaded}/${itemsTotal})`);
         const progressRatio = (itemsLoaded / itemsTotal) * 300;
         progressBar.style.width = `${progressRatio}px`;
     }
@@ -364,8 +380,8 @@ let isDark = false;
 const moreInfoBtnDark = document.querySelectorAll('.btn-2');
 const moreInfoBtnLight = document.querySelectorAll('.btn-1');
 
-if(!isDark){
-    moreInfoBtnDark.forEach((btn)=>{
+if (!isDark) {
+    moreInfoBtnDark.forEach((btn) => {
         btn.style.display = "none";
     })
 }
@@ -376,19 +392,19 @@ checkbox.addEventListener("change", () => {
     document.body.classList.toggle("dark");
     isDark = !isDark;
     material.uniforms.uTexture.value = isDark ? textureDark : textureLight;
-    if(isDark){
-        moreInfoBtnLight.forEach((btn)=>{
+    if (isDark) {
+        moreInfoBtnLight.forEach((btn) => {
             btn.style.display = "none";
         })
-        moreInfoBtnDark.forEach((btn)=>{
+        moreInfoBtnDark.forEach((btn) => {
             btn.style.display = "flex";
         })
     }
-    else{
-        moreInfoBtnDark.forEach((btn)=>{
+    else {
+        moreInfoBtnDark.forEach((btn) => {
             btn.style.display = "none";
         })
-        moreInfoBtnLight.forEach((btn)=>{
+        moreInfoBtnLight.forEach((btn) => {
             btn.style.display = "flex";
         })
     }
@@ -479,9 +495,9 @@ tick()
 function toggleDetails(projectNumber) {
     let detailDiv = document.getElementById(`detail-${projectNumber}`);
     let projectItemDiv = document.getElementById(`project-item-${projectNumber}`);
-    
+
     if (!detailDiv || !projectItemDiv) {
-        return; 
+        return;
     }
 
     let spanId1 = `scrambleSpan-${(projectNumber * 2) - 1}`;
@@ -493,14 +509,14 @@ function toggleDetails(projectNumber) {
 
     const exploreText = "EXPLORE";
     const closeText = "CLOSE";
-    let currentTextState = exploreText; 
+    let currentTextState = exploreText;
 
     if (detailDiv.style.display === "flex") {
         // Hiding with animation
         const projectContent = detailDiv.querySelector('.project-content');
         if (projectContent) {
             projectContent.classList.add('closing');
-            
+
             setTimeout(() => {
                 projectItemDiv.style.borderBottom = "1px solid #4e545a";
                 detailDiv.style.borderBottom = "none";
@@ -521,23 +537,23 @@ function toggleDetails(projectNumber) {
         detailDiv.style.borderBottom = "1px solid #4e545a";
         detailDiv.style.display = "flex";
         currentTextState = closeText;
-        
+
         // Add active class to project item
         projectItemDiv.classList.add('active');
-        
+
         // Reset animations for new content
         const projectContent = detailDiv.querySelector('.project-content');
         if (projectContent) {
             // Remove any existing animation classes
             projectContent.classList.remove('closing');
-            
+
             // Force reflow to restart animations
             projectContent.style.animation = 'none';
             projectContent.offsetHeight; // Trigger reflow
             projectContent.style.animation = null;
         }
     }
-    
+
     // Update text and dataset
     if (span1) span1.innerText = currentTextState;
     if (span2) span2.innerText = currentTextState;
@@ -546,28 +562,28 @@ function toggleDetails(projectNumber) {
 }
 
 // --- Click Event Delegation --- 
-const projectsContainer = document.querySelector('.projects .stripes'); 
+const projectsContainer = document.querySelector('.projects .stripes');
 if (projectsContainer) {
-    projectsContainer.addEventListener('click', function(event) {
+    projectsContainer.addEventListener('click', function (event) {
         const clickedLink = event.target.closest('a.scramble');
-        
-        if (!clickedLink || !clickedLink.id.startsWith('scramble-')) return; 
+
+        if (!clickedLink || !clickedLink.id.startsWith('scramble-')) return;
 
         const linkIdNum = parseInt(clickedLink.id.split('-')[1]);
         const projectNumber = Math.ceil(linkIdNum / 2);
 
-        if (projectNumber >= 1 && projectNumber <= 5) { 
-             event.preventDefault(); 
-             toggleDetails(projectNumber);
+        if (projectNumber >= 1 && projectNumber <= 5) {
+            event.preventDefault();
+            toggleDetails(projectNumber);
         }
     });
 }
 
 // Ensure project links work properly
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const projectLinks = document.querySelectorAll('.project-link');
     projectLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             // Allow the link to work normally
             console.log('Project link clicked:', this.href);
         });

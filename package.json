@@ -10,7 +10,7 @@
     "host": "vite --host"
   },
   "devDependencies": {
-    "vite": "^4.3.9",
+    "vite": "^7.3.1",
     "vite-plugin-glsl": "^1.1.2"
   },
   "dependencies": {

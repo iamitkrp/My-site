@@ -1,899 +1,1078 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Amit Pandey | Software Developer</title>
-        <meta name="description" content="Amit Pandey is a creative web developer and 3D experience designer with a passion for building innovative and interactive experiences.">
-        <meta name="keywords" content="Amit Pandey, web developer, 3D experience designer, creative, innovative, interactive">
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="./skill-grid.css">
-        <link rel="stylesheet" href="./skills.css">
-        <link rel="icon" href="/favicon.png" type="image/png">
-        <link rel="apple-touch-icon" href="/favicon.png">
-        
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-        <style>
-            /* Force mobile projects to use accordion and hide gallery */
-            @media (max-width: 985px) {
-                #project-gallery, .project-nav { display: none !important; }
-                .project-accordion-mobile { display: flex !important; }
-            }
-        </style>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLJN3MWC1B"></script>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Pandey | Software Developer</title>
+    <meta name="description"
+        content="Amit Pandey is a creative web developer and 3D experience designer with a passion for building innovative and interactive experiences.">
+    <meta name="keywords"
+        content="Amit Pandey, web developer, 3D experience designer, creative, innovative, interactive">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./skill-grid.css">
+    <link rel="stylesheet" href="./skills.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
-            gtag('config', 'G-SLJN3MWC1B');
-        </script>
-        <!--============================================================================================
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        /* Force mobile projects to use accordion and hide gallery */
+        @media (max-width: 985px) {
+
+            #project-gallery,
+            .project-nav {
+                display: none !important;
+            }
+
+            .project-accordion-mobile {
+                display: flex !important;
+            }
+        }
+
+        /* Hide Resume and Chat for now */
+        .resume,
+        #chat-launcher,
+        #chat-window {
+            display: none !important;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLJN3MWC1B"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-SLJN3MWC1B');
+    </script>
+    <!--============================================================================================
             *** MY-SCRIPT ***
          ============================================================================================ -->
-    </head>
+</head>
 
-    <body>
-        <canvas id="constellation-bg"></canvas>
-        <script type="module" src="./lockdown.js"></script>
-        <div id="app">
-            <div id="loader-page">
-                <div class="word">LOADING...</div>
-                <div class="temp"></div>
-                <div class="loading-container">
-                    <div class="loading-progress"></div>
-                </div>
+<body>
+    <canvas id="constellation-bg"></canvas>
+    <!-- <script type="module" src="./lockdown.js"></script> -->
+    <div id="app">
+        <div id="loader-page">
+            <div class="word">LOADING...</div>
+            <div class="temp"></div>
+            <div class="loading-container">
+                <div class="loading-progress"></div>
             </div>
-            <div id="main-page">
-                <!--=======================================================================================
+        </div>
+        <div id="main-page">
+            <!--=======================================================================================
                     SIDEBAR-LEFT
                 =======================================================================================  -->
-                <div class="side-bar">
-                    <div class="folio">
-                        <p>GREETINGS</p>
+            <div class="side-bar">
+                <div class="folio">
+                    <p>GREETINGS</p>
+                </div>
+                <div class="bottom-box">
+                    <div class="social-media">
+                        <a target="_blank" rel="noopener" href="https://github.com/iamitkrp"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a target="_blank" rel="noopener" href="https://linkedin.com/in/theamit"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a target="_blank" rel="noopener" href="https://x.com/amit_FSD"><i
+                                class="fa-brands fa-twitter"></i></a>
                     </div>
-                    <div class="bottom-box">
-                        <div class="social-media">
-                           <a target="_blank" rel="noopener" href="https://github.com/iamitkrp"><i class="fa-brands fa-github"></i></a> 
-                           <a target="_blank" rel="noopener" href="https://linkedin.com/in/theamit"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a target="_blank" rel="noopener" href="https://x.com/amit_FSD"><i class="fa-brands fa-twitter"></i></a>
-                        </div>
-                        <div class="music-bars">
-                            <span class="stroke"></span>
-                            <span class="stroke"></span>
-                            <span class="stroke"></span>
-                            <span class="stroke"></span>
-                            <span class="stroke"></span>
-                        </div>
+                    <div class="music-bars">
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
                     </div>
                 </div>
-                <!--=======================================================================================
+            </div>
+            <!--=======================================================================================
                     MAIN CONTENT
                 =======================================================================================  -->
-                <div class="scrollable">
-                    <div class="hero">
-                        <div class="hero-top">
-                            <p class="my-text">LOCATION: INDIA, VARANASI.</p>
-                            <p class="my-text">CURRENT TIME: <span class="my-text" id="time"></span> </p>
+            <div class="scrollable">
+                <div class="hero">
+                    <div class="hero-top">
+                        <p class="my-text">LOCATION: INDIA, VARANASI.</p>
+                        <p class="my-text">CURRENT TIME: <span class="my-text" id="time"></span> </p>
+                    </div>
+                    <div class="hero-mid">
+                        <h1 class="name my-text">AMIT</h1>
+                        <h1 class="surname my-text">PANDEY</h1>
+                        <h1 class="creative my-text">( SOFTWARE <span class="developer my-text"> DEVELOPER)
+                            </span>
+                        </h1>
+                        <div>
+                            -------------------------------------------------------------------------------------------------------------------------------
                         </div>
-                        <div class="hero-mid">
-                            <h1 class="name my-text">AMIT</h1>
-                            <h1 class="surname my-text">PANDEY</h1>
-                            <h1 class="creative my-text">( SOFTWARE <span class="developer my-text"> DEVELOPER)
-                                </span>
-                            </h1>
-                            <div>
-                                -------------------------------------------------------------------------------------------------------------------------------
-                            </div>
-                           
-                        </div>
-                        <div class="hero-bottom">
-                            <p class="loves my-text">A detail-oriented and driven professional with a strong foundation in Software Development. Passionate about leveraging Artificial Intelligence to solve real-world problems and deliver impactful solutions. Known for adaptability, continuous learning, and a commitment to excellence in every project undertaken.</p>
+
+                    </div>
+                    <div class="hero-bottom">
+                        <p class="loves my-text">A detail-oriented and driven professional with a strong foundation in
+                            Software Development. Passionate about leveraging Artificial Intelligence to solve
+                            real-world problems and deliver impactful solutions. Known for adaptability, continuous
+                            learning, and a commitment to excellence in every project undertaken.</p>
+                    </div>
+                </div>
+                <div class="projects">
+                    <div class="marquee">
+                        <div class="marquee__inner" aria-hidden="true">
+                            <span>PROJECTS</span>
+                            <span class="hollow">PROJECTS</span>
+                            <span>PROJECTS</span>
+                            <span class="hollow">PROJECTS</span>
                         </div>
                     </div>
-                    <div class="projects">
-                        <div class="marquee">
-                            <div class="marquee__inner" aria-hidden="true">
-                                <span>PROJECTS</span>
-                                <span class="hollow">PROJECTS</span>
-                                <span>PROJECTS</span>
-                                <span class="hollow">PROJECTS</span>
-                            </div>
-                        </div>
 
-                        <!-- New horizontally scrolling project gallery -->
-                        <div id="project-gallery" class="project-gallery">
-                            <!-- Card 1: Media Scraper -->
-                            <article class="project-card" data-project="1">
-                                <div class="project-card-content">
-                                    <h3 class="project-card-title">Media Scraper</h3>
-                                    <p class="project-card-desc">A powerful command-line tool designed for seamless downloading of Anime, Movies & TV Shows. Built with efficiency and user experience in mind, this tool streamlines the content acquisition process through intelligent automation and robust error handling.</p>
-                                    <div class="project-card-features"><h4>Key Features</h4><ul><li>Multi-source support for diverse content availability</li><li>Batch downloads with parallel processing</li><li>Resolution selection 360p–1080p</li><li>HLS/M3U8 stream downloading with progress</li></ul></div>
-                                    <div class="project-card-tech"><h4>Technologies Used</h4></div>
-                                    <div class="project-card-tags">
-                                        <span class="project-card-tag">Python</span>
-                                        <span class="project-card-tag">CLI</span>
-                                        <span class="project-card-tag">Web Scraping</span>
-                                        <span class="project-card-tag">Parallel Processing</span>
-                                        <span class="project-card-tag">HTTP</span>
-                                        <span class="project-card-tag">File I/O</span>
-                                    </div>
-                                    <div class="project-card-actions">
-                                        <a class="project-card-link project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/CLI_DOWNLOADER">
-                                            <i class="fa-brands fa-github"></i> View Code
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Card 2: Writio - AI-Powered Code Tools -->
-                            <article class="project-card" data-project="2">
-                                <div class="project-card-content">
-                                    <h3 class="project-card-title">Writio - AI-Powered Code Tools</h3>
-                                    <p class="project-card-desc">An innovative suite of AI-powered coding tools that bridges natural language and code using Google's Gemini AI. Designed to accelerate workflows with intuitive UX and robust analysis.</p>
-                                    <div class="project-card-features"><h4>Key Features</h4><ul><li>Natural language → code generation with context</li><li>Code translation across 18+ languages</li><li>Intelligent code analysis with error suggestions</li><li>Dark/light theme and responsive UI</li></ul></div>
-                                    <div class="project-card-tech"><h4>Technologies Used</h4></div>
-                                    <div class="project-card-tags">
-                                        <span class="project-card-tag">JavaScript</span>
-                                        <span class="project-card-tag">Gemini AI</span>
-                                        <span class="project-card-tag">Monaco</span>
-                                        <span class="project-card-tag">REST API</span>
-                                    </div>
-                                    <div class="project-card-actions">
-                                        <a class="project-card-link project-link" target="_blank" rel="noopener" href="https://iamitkrp.github.io/code-checker/">
-                                            <i class="fa-solid fa-external-link-alt"></i> Live Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Card 3: DistroSync -->
-                            <article class="project-card" data-project="3">
-                                <div class="project-card-content">
-                                    <h3 class="project-card-title">DistroSync</h3>
-                                    <p class="project-card-desc">A CLI utility to maintain consistent software environments across Linux distributions by synchronizing packages, resolving conflicts, and simplifying migration.</p>
-                                    <div class="project-card-features"><h4>Key Features</h4><ul><li>Cross-distro package synchronization and migration</li><li>Supports apt, dnf, pacman, zypper</li><li>Automated export/import with backups</li><li>Detailed logging and dependency handling</li></ul></div>
-                                    <div class="project-card-tech"><h4>Technologies Used</h4></div>
-                                    <div class="project-card-tags">
-                                        <span class="project-card-tag">Python</span>
-                                        <span class="project-card-tag">Linux</span>
-                                        <span class="project-card-tag">Package Mgmt</span>
-                                        <span class="project-card-tag">CLI</span>
-                                    </div>
-                                    <div class="project-card-actions">
-                                        <a class="project-card-link project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/DISTRO_SYNC">
-                                            <i class="fa-brands fa-github"></i> View Code
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Card 4: DSA Visualizer -->
-                            <article class="project-card" data-project="4">
-                                <div class="project-card-content">
-                                    <h3 class="project-card-title">DSA Visualizer</h3>
-                                    <p class="project-card-desc">Interactive visualizations that turn data structures and algorithms into intuitive animations. Great for learning, teaching, and exploration.</p>
-                                    <div class="project-card-features"><h4>Key Features</h4><ul><li>Visualize Stack, Queue, Linked List, BST</li><li>Step-by-step algorithm animations with speed control</li><li>Multiple sorting algorithms</li><li>Real-time data manipulation</li></ul></div>
-                                    <div class="project-card-tech"><h4>Technologies Used</h4></div>
-                                    <div class="project-card-tags">
-                                        <span class="project-card-tag">JavaScript</span>
-                                        <span class="project-card-tag">Canvas</span>
-                                        <span class="project-card-tag">Education</span>
-                                    </div>
-                                    <div class="project-card-actions">
-                                        <a class="project-card-link project-link" target="_blank" rel="noopener" href="https://iamitkrp.github.io/dsa_visualizer/">
-                                            <i class="fa-solid fa-external-link-alt"></i> Live Demo
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Card 5: Temp-Folio -->
-                            <article class="project-card" data-project="5">
-                                <div class="project-card-content">
-                                    <h3 class="project-card-title">Temp-Folio</h3>
-                                    <p class="project-card-desc">A modern, responsive portfolio template focused on performance, typography, and a professional presentation layer that’s easy to adapt.</p>
-                                    <div class="project-card-features"><h4>Key Features</h4><ul><li>Responsive layout with smooth interactions</li><li>Accessible, clean visual hierarchy</li><li>Optimized for performance</li><li>Cross-browser compatible</li></ul></div>
-                                    <div class="project-card-tech"><h4>Technologies Used</h4></div>
-                                    <div class="project-card-tags">
-                                        <span class="project-card-tag">HTML</span>
-                                        <span class="project-card-tag">CSS</span>
-                                        <span class="project-card-tag">JavaScript</span>
-                                    </div>
-                                    <div class="project-card-actions">
-                                        <a class="project-card-link project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/temp-folio">
-                                            <i class="fa-brands fa-github"></i> View Code
-                                        </a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Mobile-friendly accordion (cards removed) -->
-                        <div class="project-accordion-mobile">
-                            <!-- Item 1 -->
-                            <div class="project-accordion-item" data-project="1">
-                                <button class="accordion-trigger" aria-expanded="false">
-                                    <span class="title">Media Scraper</span>
-                                    <span class="chevron" aria-hidden="true"></span>
-                                </button>
-                                <div class="accordion-panel" hidden>
-                                    <p class="desc">A powerful command-line tool designed for seamless downloading of Anime, Movies & TV Shows. Built with efficiency and user experience in mind, this tool streamlines the content acquisition process through intelligent automation and robust error handling.</p>
-                                    <ul class="mini-list">
-                                        <li>Multi-source support</li>
-                                        <li>Parallel batch downloads</li>
-                                        <li>360p–1080p resolution</li>
-                                        <li>HLS/M3U8 download with progress</li>
+                    <!-- New horizontally scrolling project gallery -->
+                    <div id="project-gallery" class="project-gallery">
+                        <!-- Card 1: Media Scraper -->
+                        <article class="project-card" data-project="1">
+                            <div class="project-card-content">
+                                <h3 class="project-card-title">Media Scraper</h3>
+                                <p class="project-card-desc">A powerful command-line tool designed for seamless
+                                    downloading of Anime, Movies & TV Shows. Built with efficiency and user experience
+                                    in mind, this tool streamlines the content acquisition process through intelligent
+                                    automation and robust error handling.</p>
+                                <div class="project-card-features">
+                                    <h4>Key Features</h4>
+                                    <ul>
+                                        <li>Multi-source support for diverse content availability</li>
+                                        <li>Batch downloads with parallel processing</li>
+                                        <li>Resolution selection 360p–1080p</li>
+                                        <li>HLS/M3U8 stream downloading with progress</li>
                                     </ul>
-                                    <div class="tags">
-                                        <span>Python</span><span>CLI</span><span>Scraping</span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/CLI_DOWNLOADER"><i class="fa-brands fa-github"></i> Code</a>
-                                    </div>
+                                </div>
+                                <div class="project-card-tech">
+                                    <h4>Technologies Used</h4>
+                                </div>
+                                <div class="project-card-tags">
+                                    <span class="project-card-tag">Python</span>
+                                    <span class="project-card-tag">CLI</span>
+                                    <span class="project-card-tag">Web Scraping</span>
+                                    <span class="project-card-tag">Parallel Processing</span>
+                                    <span class="project-card-tag">HTTP</span>
+                                    <span class="project-card-tag">File I/O</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <a class="project-card-link project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/CLI_DOWNLOADER">
+                                        <i class="fa-brands fa-github"></i> View Code
+                                    </a>
                                 </div>
                             </div>
+                        </article>
 
-                            <!-- Item 2 -->
-                            <div class="project-accordion-item" data-project="2">
-                                <button class="accordion-trigger" aria-expanded="false">
-                                    <span class="title">Writio - AI-Powered Code Tools</span>
-                                    <span class="chevron" aria-hidden="true"></span>
-                                </button>
-                                <div class="accordion-panel" hidden>
-                                    <p class="desc">AI-powered coding suite connecting natural language to code with Google's Gemini AI.</p>
-                                    <ul class="mini-list">
-                                        <li>NL → Code generation</li>
-                                        <li>18+ language translation</li>
-                                        <li>Smart analysis with errors</li>
+                        <!-- Card 2: Writio - AI-Powered Code Tools -->
+                        <article class="project-card" data-project="2">
+                            <div class="project-card-content">
+                                <h3 class="project-card-title">Writio - AI-Powered Code Tools</h3>
+                                <p class="project-card-desc">An innovative suite of AI-powered coding tools that bridges
+                                    natural language and code using Google's Gemini AI. Designed to accelerate workflows
+                                    with intuitive UX and robust analysis.</p>
+                                <div class="project-card-features">
+                                    <h4>Key Features</h4>
+                                    <ul>
+                                        <li>Natural language → code generation with context</li>
+                                        <li>Code translation across 18+ languages</li>
+                                        <li>Intelligent code analysis with error suggestions</li>
+                                        <li>Dark/light theme and responsive UI</li>
                                     </ul>
-                                    <div class="tags">
-                                        <span>JavaScript</span><span>Gemini AI</span><span>Monaco</span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="project-link" target="_blank" rel="noopener" href="https://iamitkrp.github.io/code-checker/"><i class="fa-solid fa-external-link-alt"></i> Live</a>
-                                    </div>
+                                </div>
+                                <div class="project-card-tech">
+                                    <h4>Technologies Used</h4>
+                                </div>
+                                <div class="project-card-tags">
+                                    <span class="project-card-tag">JavaScript</span>
+                                    <span class="project-card-tag">Gemini AI</span>
+                                    <span class="project-card-tag">Monaco</span>
+                                    <span class="project-card-tag">REST API</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <a class="project-card-link project-link" target="_blank" rel="noopener"
+                                        href="https://iamitkrp.github.io/code-checker/">
+                                        <i class="fa-solid fa-external-link-alt"></i> Live Demo
+                                    </a>
                                 </div>
                             </div>
+                        </article>
 
-                            <!-- Item 3 -->
-                            <div class="project-accordion-item" data-project="3">
-                                <button class="accordion-trigger" aria-expanded="false">
-                                    <span class="title">DistroSync</span>
-                                    <span class="chevron" aria-hidden="true"></span>
-                                </button>
-                                <div class="accordion-panel" hidden>
-                                    <p class="desc">Synchronize and migrate packages across major Linux distributions with conflict handling.</p>
-                                    <ul class="mini-list">
-                                        <li>Cross-distro sync</li>
-                                        <li>apt/dnf/pacman/zypper</li>
-                                        <li>Export/Import with backups</li>
+                        <!-- Card 3: DistroSync -->
+                        <article class="project-card" data-project="3">
+                            <div class="project-card-content">
+                                <h3 class="project-card-title">DistroSync</h3>
+                                <p class="project-card-desc">A CLI utility to maintain consistent software environments
+                                    across Linux distributions by synchronizing packages, resolving conflicts, and
+                                    simplifying migration.</p>
+                                <div class="project-card-features">
+                                    <h4>Key Features</h4>
+                                    <ul>
+                                        <li>Cross-distro package synchronization and migration</li>
+                                        <li>Supports apt, dnf, pacman, zypper</li>
+                                        <li>Automated export/import with backups</li>
+                                        <li>Detailed logging and dependency handling</li>
                                     </ul>
-                                    <div class="tags">
-                                        <span>Python</span><span>Linux</span><span>CLI</span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/DISTRO_SYNC"><i class="fa-brands fa-github"></i> Code</a>
-                                    </div>
+                                </div>
+                                <div class="project-card-tech">
+                                    <h4>Technologies Used</h4>
+                                </div>
+                                <div class="project-card-tags">
+                                    <span class="project-card-tag">Python</span>
+                                    <span class="project-card-tag">Linux</span>
+                                    <span class="project-card-tag">Package Mgmt</span>
+                                    <span class="project-card-tag">CLI</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <a class="project-card-link project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/DISTRO_SYNC">
+                                        <i class="fa-brands fa-github"></i> View Code
+                                    </a>
                                 </div>
                             </div>
+                        </article>
 
-                            <!-- Item 4 -->
-                            <div class="project-accordion-item" data-project="4">
-                                <button class="accordion-trigger" aria-expanded="false">
-                                    <span class="title">DSA Visualizer</span>
-                                    <span class="chevron" aria-hidden="true"></span>
-                                </button>
-                                <div class="accordion-panel" hidden>
-                                    <p class="desc">Interactive visualizations for data structures and algorithms with real-time controls.</p>
-                                    <ul class="mini-list">
-                                        <li>Stack/Queue/Linked List/BST</li>
-                                        <li>Sorting visualizations</li>
-                                        <li>Real-time manipulation</li>
+                        <!-- Card 4: DSA Visualizer -->
+                        <article class="project-card" data-project="4">
+                            <div class="project-card-content">
+                                <h3 class="project-card-title">DSA Visualizer</h3>
+                                <p class="project-card-desc">Interactive visualizations that turn data structures and
+                                    algorithms into intuitive animations. Great for learning, teaching, and exploration.
+                                </p>
+                                <div class="project-card-features">
+                                    <h4>Key Features</h4>
+                                    <ul>
+                                        <li>Visualize Stack, Queue, Linked List, BST</li>
+                                        <li>Step-by-step algorithm animations with speed control</li>
+                                        <li>Multiple sorting algorithms</li>
+                                        <li>Real-time data manipulation</li>
                                     </ul>
-                                    <div class="tags">
-                                        <span>JavaScript</span><span>Canvas</span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="project-link" target="_blank" rel="noopener" href="https://iamitkrp.github.io/dsa_visualizer/"><i class="fa-solid fa-external-link-alt"></i> Live</a>
-                                    </div>
+                                </div>
+                                <div class="project-card-tech">
+                                    <h4>Technologies Used</h4>
+                                </div>
+                                <div class="project-card-tags">
+                                    <span class="project-card-tag">JavaScript</span>
+                                    <span class="project-card-tag">Canvas</span>
+                                    <span class="project-card-tag">Education</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <a class="project-card-link project-link" target="_blank" rel="noopener"
+                                        href="https://iamitkrp.github.io/dsa_visualizer/">
+                                        <i class="fa-solid fa-external-link-alt"></i> Live Demo
+                                    </a>
                                 </div>
                             </div>
+                        </article>
 
-                            <!-- Item 5 -->
-                            <div class="project-accordion-item" data-project="5">
-                                <button class="accordion-trigger" aria-expanded="false">
-                                    <span class="title">Temp-Folio</span>
-                                    <span class="chevron" aria-hidden="true"></span>
-                                </button>
-                                <div class="accordion-panel" hidden>
-                                    <p class="desc">A clean, responsive portfolio template focused on performance and typography.</p>
-                                    <ul class="mini-list">
-                                        <li>Responsive layout</li>
-                                        <li>Accessible UI</li>
-                                        <li>Optimized performance</li>
+                        <!-- Card 5: Temp-Folio -->
+                        <article class="project-card" data-project="5">
+                            <div class="project-card-content">
+                                <h3 class="project-card-title">Temp-Folio</h3>
+                                <p class="project-card-desc">A modern, responsive portfolio template focused on
+                                    performance, typography, and a professional presentation layer that’s easy to adapt.
+                                </p>
+                                <div class="project-card-features">
+                                    <h4>Key Features</h4>
+                                    <ul>
+                                        <li>Responsive layout with smooth interactions</li>
+                                        <li>Accessible, clean visual hierarchy</li>
+                                        <li>Optimized for performance</li>
+                                        <li>Cross-browser compatible</li>
                                     </ul>
-                                    <div class="tags">
-                                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                                    </div>
-                                    <div class="actions">
-                                        <a class="project-link" target="_blank" rel="noopener" href="https://github.com/iamitkrp/temp-folio"><i class="fa-brands fa-github"></i> Code</a>
-                                    </div>
+                                </div>
+                                <div class="project-card-tech">
+                                    <h4>Technologies Used</h4>
+                                </div>
+                                <div class="project-card-tags">
+                                    <span class="project-card-tag">HTML</span>
+                                    <span class="project-card-tag">CSS</span>
+                                    <span class="project-card-tag">JavaScript</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <a class="project-card-link project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/temp-folio">
+                                        <i class="fa-brands fa-github"></i> View Code
+                                    </a>
                                 </div>
                             </div>
-                        </div>
+                        </article>
+                    </div>
 
-                        <div class="project-nav" aria-hidden="false">
-                            <button class="project-nav-btn prev" aria-label="Scroll left">
-                                <i class="fa-solid fa-chevron-left"></i>
+                    <!-- Mobile-friendly accordion (cards removed) -->
+                    <div class="project-accordion-mobile">
+                        <!-- Item 1 -->
+                        <div class="project-accordion-item" data-project="1">
+                            <button class="accordion-trigger" aria-expanded="false">
+                                <span class="title">Media Scraper</span>
+                                <span class="chevron" aria-hidden="true"></span>
                             </button>
-                            <button class="project-nav-btn next" aria-label="Scroll right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
+                            <div class="accordion-panel" hidden>
+                                <p class="desc">A powerful command-line tool designed for seamless downloading of Anime,
+                                    Movies & TV Shows. Built with efficiency and user experience in mind, this tool
+                                    streamlines the content acquisition process through intelligent automation and
+                                    robust error handling.</p>
+                                <ul class="mini-list">
+                                    <li>Multi-source support</li>
+                                    <li>Parallel batch downloads</li>
+                                    <li>360p–1080p resolution</li>
+                                    <li>HLS/M3U8 download with progress</li>
+                                </ul>
+                                <div class="tags">
+                                    <span>Python</span><span>CLI</span><span>Scraping</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/CLI_DOWNLOADER"><i
+                                            class="fa-brands fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="stripes">
+                        <!-- Item 2 -->
+                        <div class="project-accordion-item" data-project="2">
+                            <button class="accordion-trigger" aria-expanded="false">
+                                <span class="title">Writio - AI-Powered Code Tools</span>
+                                <span class="chevron" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-panel" hidden>
+                                <p class="desc">AI-powered coding suite connecting natural language to code with
+                                    Google's Gemini AI.</p>
+                                <ul class="mini-list">
+                                    <li>NL → Code generation</li>
+                                    <li>18+ language translation</li>
+                                    <li>Smart analysis with errors</li>
+                                </ul>
+                                <div class="tags">
+                                    <span>JavaScript</span><span>Gemini AI</span><span>Monaco</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="project-link" target="_blank" rel="noopener"
+                                        href="https://iamitkrp.github.io/code-checker/"><i
+                                            class="fa-solid fa-external-link-alt"></i> Live</a>
+                                </div>
+                            </div>
+                        </div>
 
-                            <!--=======================================================================================
+                        <!-- Item 3 -->
+                        <div class="project-accordion-item" data-project="3">
+                            <button class="accordion-trigger" aria-expanded="false">
+                                <span class="title">DistroSync</span>
+                                <span class="chevron" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-panel" hidden>
+                                <p class="desc">Synchronize and migrate packages across major Linux distributions with
+                                    conflict handling.</p>
+                                <ul class="mini-list">
+                                    <li>Cross-distro sync</li>
+                                    <li>apt/dnf/pacman/zypper</li>
+                                    <li>Export/Import with backups</li>
+                                </ul>
+                                <div class="tags">
+                                    <span>Python</span><span>Linux</span><span>CLI</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/DISTRO_SYNC"><i
+                                            class="fa-brands fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="project-accordion-item" data-project="4">
+                            <button class="accordion-trigger" aria-expanded="false">
+                                <span class="title">DSA Visualizer</span>
+                                <span class="chevron" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-panel" hidden>
+                                <p class="desc">Interactive visualizations for data structures and algorithms with
+                                    real-time controls.</p>
+                                <ul class="mini-list">
+                                    <li>Stack/Queue/Linked List/BST</li>
+                                    <li>Sorting visualizations</li>
+                                    <li>Real-time manipulation</li>
+                                </ul>
+                                <div class="tags">
+                                    <span>JavaScript</span><span>Canvas</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="project-link" target="_blank" rel="noopener"
+                                        href="https://iamitkrp.github.io/dsa_visualizer/"><i
+                                            class="fa-solid fa-external-link-alt"></i> Live</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="project-accordion-item" data-project="5">
+                            <button class="accordion-trigger" aria-expanded="false">
+                                <span class="title">Temp-Folio</span>
+                                <span class="chevron" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-panel" hidden>
+                                <p class="desc">A clean, responsive portfolio template focused on performance and
+                                    typography.</p>
+                                <ul class="mini-list">
+                                    <li>Responsive layout</li>
+                                    <li>Accessible UI</li>
+                                    <li>Optimized performance</li>
+                                </ul>
+                                <div class="tags">
+                                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="project-link" target="_blank" rel="noopener"
+                                        href="https://github.com/iamitkrp/temp-folio"><i
+                                            class="fa-brands fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-nav" aria-hidden="false">
+                        <button class="project-nav-btn prev" aria-label="Scroll left">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="project-nav-btn next" aria-label="Scroll right">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="stripes">
+
+                        <!--=======================================================================================
                         INNOVISION
                 =======================================================================================  -->
-                            <li id="project-item-1" class="project-item">
-                                <div class="info">
-                                    <span class="no">1.</span>
-                                    <span class="project-title">Media Scraper</span>
+                        <li id="project-item-1" class="project-item">
+                            <div class="info">
+                                <span class="no">1.</span>
+                                <span class="project-title">Media Scraper</span>
+                            </div>
+                            <div class="more-info">
+                                <div class="btn-1">
+                                    <a id="scramble-1" class="scramble" type="button">
+                                        <span id="scrambleSpan-1">EXPLORE</span>
+                                    </a>
                                 </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="scramble-1" class="scramble" type="button">
-                                            <span id="scrambleSpan-1">EXPLORE</span>
+                                <div class="btn-2">
+                                    <a id="scramble-2" class="scramble" type="button">
+                                        <span id="scrambleSpan-2">EXPLORE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <div id="detail-1" class="details">
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3 class="project-name">Media Scraper</h3>
+                                    <div class="project-links">
+                                        <a target="_blank" rel="noopener"
+                                            href="https://github.com/iamitkrp/CLI_DOWNLOADER" class="project-link">
+                                            <i class="fa-brands fa-github"></i> View Code
                                         </a>
                                     </div>
-                                    <div class="btn-2">
-                                        <a id="scramble-2" class="scramble" type="button">
-                                            <span id="scrambleSpan-2">EXPLORE</span>
-                                        </a>
-                                    </div>
                                 </div>
-                            </li>
-                            <div id="detail-1" class="details">
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 class="project-name">Media Scraper</h3>
-                                        <div class="project-links">
-                                            <a target="_blank" rel="noopener" href="https://github.com/iamitkrp/CLI_DOWNLOADER" class="project-link">
-                                                <i class="fa-brands fa-github"></i> View Code
-                                            </a>
-                                        </div>
+                                <div class="project-description">
+                                    <p>A powerful command-line tool designed for seamless downloading of Anime, Movies &
+                                        TV Shows. Built with efficiency and user experience in mind, this tool
+                                        streamlines the content acquisition process through intelligent automation and
+                                        robust error handling.</p>
+
+                                    <div class="project-features">
+                                        <h4>Key Features</h4>
+                                        <ul>
+                                            <li>Multi-source support for diverse content availability</li>
+                                            <li>Batch downloading with parallel processing for optimal speed</li>
+                                            <li>Resolution selection ranging from 360p to 1080p</li>
+                                            <li>HLS/M3U8 stream downloading capabilities</li>
+                                            <li>Real-time progress tracking and status updates</li>
+                                            <li>Cross-platform compatibility across major operating systems</li>
+                                            <li>Extensive CLI options for advanced customization</li>
+                                        </ul>
                                     </div>
-                                    <div class="project-description">
-                                        <p>A powerful command-line tool designed for seamless downloading of Anime, Movies & TV Shows. Built with efficiency and user experience in mind, this tool streamlines the content acquisition process through intelligent automation and robust error handling.</p>
-                                        
-                                        <div class="project-features">
-                                            <h4>Key Features</h4>
-                                            <ul>
-                                                <li>Multi-source support for diverse content availability</li>
-                                                <li>Batch downloading with parallel processing for optimal speed</li>
-                                                <li>Resolution selection ranging from 360p to 1080p</li>
-                                                <li>HLS/M3U8 stream downloading capabilities</li>
-                                                <li>Real-time progress tracking and status updates</li>
-                                                <li>Cross-platform compatibility across major operating systems</li>
-                                                <li>Extensive CLI options for advanced customization</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="project-tech">
-                                            <h4>Technologies Used</h4>
-                                            <div class="tech-tags">
-                                                <span class="tech-tag">Python</span>
-                                                <span class="tech-tag">CLI</span>
-                                                <span class="tech-tag">Web Scraping</span>
-                                                <span class="tech-tag">Parallel Processing</span>
-                                                <span class="tech-tag">HTTP Requests</span>
-                                                <span class="tech-tag">File I/O</span>
-                                            </div>
+
+                                    <div class="project-tech">
+                                        <h4>Technologies Used</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Python</span>
+                                            <span class="tech-tag">CLI</span>
+                                            <span class="tech-tag">Web Scraping</span>
+                                            <span class="tech-tag">Parallel Processing</span>
+                                            <span class="tech-tag">HTTP Requests</span>
+                                            <span class="tech-tag">File I/O</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
 
-                            <!--=======================================================================================
+                        <!--=======================================================================================
                         TRINITY
                 =======================================================================================  -->
 
-                            <li id="project-item-2" class="project-item">
-                                <div class="info">
-                                    <span class="no">2.</span>
-                                    <span class="project-title">Writio - AI-Powered Code Tools</span>
+                        <li id="project-item-2" class="project-item">
+                            <div class="info">
+                                <span class="no">2.</span>
+                                <span class="project-title">Writio - AI-Powered Code Tools</span>
+                            </div>
+                            <div class="more-info">
+                                <div class="btn-1">
+                                    <a id="scramble-3" class="scramble" type="button">
+                                        <span id="scrambleSpan-3">EXPLORE</span>
+                                    </a>
                                 </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="scramble-3" class="scramble" type="button">
-                                            <span id="scrambleSpan-3">EXPLORE</span>
+                                <div class="btn-2">
+                                    <a id="scramble-4" class="scramble" type="button">
+                                        <span id="scrambleSpan-4">EXPLORE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <div id="detail-2" class="details">
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3 class="project-name">Writio - AI-Powered Code Tools</h3>
+                                    <div class="project-links">
+                                        <a target="_blank" rel="noopener"
+                                            href="https://iamitkrp.github.io/code-checker/" class="project-link">
+                                            <i class="fa-solid fa-external-link-alt"></i> Live Demo
                                         </a>
                                     </div>
-                                    <div class="btn-2">
-                                        <a id="scramble-4" class="scramble" type="button">
-                                            <span id="scrambleSpan-4">EXPLORE</span>
-                                        </a>
-                                    </div>
                                 </div>
-                            </li>
-                            <div id="detail-2" class="details">
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 class="project-name">Writio - AI-Powered Code Tools</h3>
-                                        <div class="project-links">
-                                            <a target="_blank" rel="noopener" href="https://iamitkrp.github.io/code-checker/" class="project-link">
-                                                <i class="fa-solid fa-external-link-alt"></i> Live Demo
-                                            </a>
-                                        </div>
+                                <div class="project-description">
+                                    <p>An innovative suite of AI-powered coding tools that revolutionizes the
+                                        development workflow by leveraging Google's Gemini AI. This comprehensive
+                                        platform bridges the gap between natural language and code, making programming
+                                        more accessible and efficient for developers of all skill levels.</p>
+
+                                    <div class="project-features">
+                                        <h4>Key Features</h4>
+                                        <ul>
+                                            <li>Natural language to code generation with contextual understanding</li>
+                                            <li>Multi-language code translation across 18+ programming languages</li>
+                                            <li>Intelligent code analysis with detailed error suggestions</li>
+                                            <li>Real-time syntax highlighting and code completion</li>
+                                            <li>Cyberpunk-inspired modern UI with dark/light theme support</li>
+                                            <li>Responsive design optimized for desktop and mobile devices</li>
+                                            <li>Secure API integration with Google's Gemini AI services</li>
+                                        </ul>
                                     </div>
-                                    <div class="project-description">
-                                        <p>An innovative suite of AI-powered coding tools that revolutionizes the development workflow by leveraging Google's Gemini AI. This comprehensive platform bridges the gap between natural language and code, making programming more accessible and efficient for developers of all skill levels.</p>
-                                        
-                                        <div class="project-features">
-                                            <h4>Key Features</h4>
-                                            <ul>
-                                                <li>Natural language to code generation with contextual understanding</li>
-                                                <li>Multi-language code translation across 18+ programming languages</li>
-                                                <li>Intelligent code analysis with detailed error suggestions</li>
-                                                <li>Real-time syntax highlighting and code completion</li>
-                                                <li>Cyberpunk-inspired modern UI with dark/light theme support</li>
-                                                <li>Responsive design optimized for desktop and mobile devices</li>
-                                                <li>Secure API integration with Google's Gemini AI services</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="project-tech">
-                                            <h4>Technologies Used</h4>
-                                            <div class="tech-tags">
-                                                <span class="tech-tag">HTML5</span>
-                                                <span class="tech-tag">CSS3</span>
-                                                <span class="tech-tag">JavaScript</span>
-                                                <span class="tech-tag">Google Gemini AI</span>
-                                                <span class="tech-tag">Monaco Editor</span>
-                                                <span class="tech-tag">REST API</span>
-                                            </div>
+
+                                    <div class="project-tech">
+                                        <h4>Technologies Used</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Google Gemini AI</span>
+                                            <span class="tech-tag">Monaco Editor</span>
+                                            <span class="tech-tag">REST API</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <!--=======================================================================================
+                        <!--=======================================================================================
                         CO ATTAINMENT
                 =======================================================================================  -->
 
-                            <li id="project-item-3" class="project-item">
-                                <div class="info">
-                                    <span class="no">3.</span>
-                                    <span class="project-title">DistroSync</span>
+                        <li id="project-item-3" class="project-item">
+                            <div class="info">
+                                <span class="no">3.</span>
+                                <span class="project-title">DistroSync</span>
+                            </div>
+                            <div class="more-info">
+                                <div class="btn-1">
+                                    <a id="scramble-5" class="scramble" type="button">
+                                        <span id="scrambleSpan-5">EXPLORE</span>
+                                    </a>
                                 </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="scramble-5" class="scramble" type="button">
-                                            <span id="scrambleSpan-5">EXPLORE</span>
+                                <div class="btn-2">
+                                    <a id="scramble-6" class="scramble" type="button">
+                                        <span id="scrambleSpan-6">EXPLORE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <div id="detail-3" class="details">
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3 class="project-name">DistroSync</h3>
+                                    <div class="project-links">
+                                        <a target="_blank" rel="noopener" href="https://github.com/iamitkrp/DISTRO_SYNC"
+                                            class="project-link">
+                                            <i class="fa-brands fa-github"></i> View Code
                                         </a>
                                     </div>
-                                    <div class="btn-2">
-                                        <a id="scramble-6" class="scramble" type="button">
-                                            <span id="scrambleSpan-6">EXPLORE</span>
-                                        </a>
-                                    </div>
                                 </div>
-                            </li>
-                            <div id="detail-3" class="details">
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 class="project-name">DistroSync</h3>
-                                        <div class="project-links">
-                                            <a target="_blank" rel="noopener" href="https://github.com/iamitkrp/DISTRO_SYNC" class="project-link">
-                                                <i class="fa-brands fa-github"></i> View Code
-                                            </a>
-                                        </div>
+                                <div class="project-description">
+                                    <p>A sophisticated command-line utility designed to streamline the process of
+                                        maintaining consistent software environments across different Linux
+                                        distributions. This tool addresses the common challenge of package management
+                                        fragmentation by providing a unified solution for package synchronization.</p>
+
+                                    <div class="project-features">
+                                        <h4>Key Features</h4>
+                                        <ul>
+                                            <li>Cross-distribution package synchronization and migration</li>
+                                            <li>Support for major package managers: apt, dnf, pacman, and zypper</li>
+                                            <li>Automated package export and import functionality</li>
+                                            <li>Desktop environment integration for seamless user experience</li>
+                                            <li>Conflict resolution and dependency management</li>
+                                            <li>Backup and restore capabilities for package lists</li>
+                                            <li>Comprehensive logging and error handling</li>
+                                        </ul>
                                     </div>
-                                    <div class="project-description">
-                                        <p>A sophisticated command-line utility designed to streamline the process of maintaining consistent software environments across different Linux distributions. This tool addresses the common challenge of package management fragmentation by providing a unified solution for package synchronization.</p>
-                                        
-                                        <div class="project-features">
-                                            <h4>Key Features</h4>
-                                            <ul>
-                                                <li>Cross-distribution package synchronization and migration</li>
-                                                <li>Support for major package managers: apt, dnf, pacman, and zypper</li>
-                                                <li>Automated package export and import functionality</li>
-                                                <li>Desktop environment integration for seamless user experience</li>
-                                                <li>Conflict resolution and dependency management</li>
-                                                <li>Backup and restore capabilities for package lists</li>
-                                                <li>Comprehensive logging and error handling</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="project-tech">
-                                            <h4>Technologies Used</h4>
-                                            <div class="tech-tags">
-                                                <span class="tech-tag">Python</span>
-                                                <span class="tech-tag">Shell Scripting</span>
-                                                <span class="tech-tag">Linux</span>
-                                                <span class="tech-tag">CLI</span>
-                                                <span class="tech-tag">Package Management</span>
-                                                <span class="tech-tag">System Administration</span>
-                                            </div>
+
+                                    <div class="project-tech">
+                                        <h4>Technologies Used</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Python</span>
+                                            <span class="tech-tag">Shell Scripting</span>
+                                            <span class="tech-tag">Linux</span>
+                                            <span class="tech-tag">CLI</span>
+                                            <span class="tech-tag">Package Management</span>
+                                            <span class="tech-tag">System Administration</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
                         <!--=======================================================================================
                         PACMAN Game
                 =======================================================================================  -->
 
-                            <li id="project-item-4" class="project-item">
-                                <div class="info">
-                                    <span class="no">4.</span>
-                                    <span class="project-title">DSA Visualizer</span>
+                        <li id="project-item-4" class="project-item">
+                            <div class="info">
+                                <span class="no">4.</span>
+                                <span class="project-title">DSA Visualizer</span>
+                            </div>
+                            <div class="more-info">
+                                <div class="btn-1">
+                                    <a id="scramble-7" class="scramble" type="button">
+                                        <span id="scrambleSpan-7">EXPLORE</span>
+                                    </a>
                                 </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="scramble-7" class="scramble" type="button">
-                                            <span id="scrambleSpan-7">EXPLORE</span>
+                                <div class="btn-2">
+                                    <a id="scramble-8" class="scramble" type="button">
+                                        <span id="scrambleSpan-8">EXPLORE</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <div id="detail-4" class="details">
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3 class="project-name">DSA Visualizer</h3>
+                                    <div class="project-links">
+                                        <a target="_blank" rel="noopener"
+                                            href="https://iamitkrp.github.io/dsa_visualizer/" class="project-link">
+                                            <i class="fa-solid fa-external-link-alt"></i> Live Demo
                                         </a>
                                     </div>
-                                    <div class="btn-2">
-                                        <a id="scramble-8" class="scramble" type="button">
-                                            <span id="scrambleSpan-8">EXPLORE</span>
-                                        </a>
-                                    </div>
                                 </div>
-                            </li>
-                            <div id="detail-4" class="details">
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 class="project-name">DSA Visualizer</h3>
-                                        <div class="project-links">
-                                            <a target="_blank" rel="noopener" href="https://iamitkrp.github.io/dsa_visualizer/" class="project-link">
-                                                <i class="fa-solid fa-external-link-alt"></i> Live Demo
-                                            </a>
-                                        </div>
+                                <div class="project-description">
+                                    <p>An educational web application that transforms abstract data structures and
+                                        algorithms into interactive visual experiences. This tool serves as a
+                                        comprehensive learning platform for computer science students and professionals,
+                                        making complex concepts accessible through intuitive visual representations.</p>
+
+                                    <div class="project-features">
+                                        <h4>Key Features</h4>
+                                        <ul>
+                                            <li>Interactive visualizations for fundamental data structures</li>
+                                            <li>Step-by-step algorithm animations with speed control</li>
+                                            <li>Support for Stack, Queue, Linked List, and Binary Search Tree</li>
+                                            <li>Multiple sorting algorithm visualizations (Bubble, Quick, Merge, etc.)
+                                            </li>
+                                            <li>Real-time data manipulation and structure modification</li>
+                                            <li>Educational tooltips and explanations for each operation</li>
+                                            <li>Responsive design optimized for learning environments</li>
+                                        </ul>
                                     </div>
-                                    <div class="project-description">
-                                        <p>An educational web application that transforms abstract data structures and algorithms into interactive visual experiences. This tool serves as a comprehensive learning platform for computer science students and professionals, making complex concepts accessible through intuitive visual representations.</p>
-                                        
-                                        <div class="project-features">
-                                            <h4>Key Features</h4>
-                                            <ul>
-                                                <li>Interactive visualizations for fundamental data structures</li>
-                                                <li>Step-by-step algorithm animations with speed control</li>
-                                                <li>Support for Stack, Queue, Linked List, and Binary Search Tree</li>
-                                                <li>Multiple sorting algorithm visualizations (Bubble, Quick, Merge, etc.)</li>
-                                                <li>Real-time data manipulation and structure modification</li>
-                                                <li>Educational tooltips and explanations for each operation</li>
-                                                <li>Responsive design optimized for learning environments</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="project-tech">
-                                            <h4>Technologies Used</h4>
-                                            <div class="tech-tags">
-                                                <span class="tech-tag">HTML5</span>
-                                                <span class="tech-tag">CSS3</span>
-                                                <span class="tech-tag">JavaScript</span>
-                                                <span class="tech-tag">Canvas API</span>
-                                                <span class="tech-tag">Data Structures</span>
-                                                <span class="tech-tag">Algorithms</span>
-                                            </div>
+
+                                    <div class="project-tech">
+                                        <h4>Technologies Used</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Canvas API</span>
+                                            <span class="tech-tag">Data Structures</span>
+                                            <span class="tech-tag">Algorithms</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <!--=======================================================================================
+                        <!--=======================================================================================
                         CASTLE-BATTLE Game
                 =======================================================================================  -->
 
-                            <li id="project-item-5" class="project-item">
-                                <div class="info">
-                                    <span class="no">5.</span>
-                                    <span class="project-title">Temp-Folio</span>
+                        <li id="project-item-5" class="project-item">
+                            <div class="info">
+                                <span class="no">5.</span>
+                                <span class="project-title">Temp-Folio</span>
+                            </div>
+                            <div class="more-info">
+                                <div class="btn-1">
+                                    <a id="scramble-9" class="scramble" type="button">
+                                        <span id="scrambleSpan-9">EXPLORE</span>
+                                    </a>
                                 </div>
-                                <div class="more-info">
-                                    <div class="btn-1">
-                                        <a id="scramble-9" class="scramble" type="button">
-                                            <span id="scrambleSpan-9">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                    <div class="btn-2">
-                                        <a id="scramble-10" class="scramble" type="button">
-                                            <span id="scrambleSpan-10">EXPLORE</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <div id="detail-5" class="details">
-                                <div class="project-content">
-                                    <div class="project-header">
-                                        <h3 class="project-name">Temp-Folio</h3>
-                                        <div class="project-links">
-                                            <a target="_blank" rel="noopener" href="https://github.com/iamitkrp/temp-folio" class="project-link">
-                                                <i class="fa-brands fa-github"></i> View Code
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="project-description">
-                                        <p>A modern, responsive portfolio website designed to showcase professional work and skills in an elegant, user-friendly interface. This project demonstrates expertise in front-end development while maintaining clean design principles and optimal performance across all devices.</p>
-                                        
-                                        <div class="project-features">
-                                            <h4>Key Features</h4>
-                                            <ul>
-                                                <li>Fully responsive design optimized for all screen sizes</li>
-                                                <li>Interactive project showcase with smooth hover effects</li>
-                                                <li>Comprehensive skills section with visual representations</li>
-                                                <li>Professional navigation with smooth scrolling</li>
-                                                <li>Modern typography and clean visual hierarchy</li>
-                                                <li>Fast loading times and optimized performance</li>
-                                                <li>Cross-browser compatibility and accessibility features</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="project-tech">
-                                            <h4>Technologies Used</h4>
-                                            <div class="tech-tags">
-                                                <span class="tech-tag">HTML5</span>
-                                                <span class="tech-tag">CSS3</span>
-                                                <span class="tech-tag">Bootstrap 4</span>
-                                                <span class="tech-tag">JavaScript</span>
-                                                <span class="tech-tag">Font Awesome</span>
-                                                <span class="tech-tag">Responsive Design</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="btn-2">
+                                    <a id="scramble-10" class="scramble" type="button">
+                                        <span id="scrambleSpan-10">EXPLORE</span>
+                                    </a>
                                 </div>
                             </div>
+                        </li>
+                        <div id="detail-5" class="details">
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <h3 class="project-name">Temp-Folio</h3>
+                                    <div class="project-links">
+                                        <a target="_blank" rel="noopener" href="https://github.com/iamitkrp/temp-folio"
+                                            class="project-link">
+                                            <i class="fa-brands fa-github"></i> View Code
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-description">
+                                    <p>A modern, responsive portfolio website designed to showcase professional work and
+                                        skills in an elegant, user-friendly interface. This project demonstrates
+                                        expertise in front-end development while maintaining clean design principles and
+                                        optimal performance across all devices.</p>
 
-                        </div>
-                    </div>
-                    
-                    <div class="skills">
-                        <div class="marquee">
-                            <div class="marquee__inner">
-                                <span>SKILLS</span>
-                                <span class="hollow">SKILLS</span>
-                                <span>SKILLS</span>
-                                <span class="hollow">SKILLS</span>
-                                <span>SKILLS</span>
-                                <span class="hollow">SKILLS</span>
-                            </div>
-                        </div>
-                        <div class="stripes">
-                            <div class="skill-group">
-                                <h3 class="skill-group-title">Languages</h3>
-                                <ul class="skill-list-alt">
-                                    <li class="skill-item-alt" title="Java"><i class="devicon-java-plain skill-icon-alt"></i> Java</li>
-                                    <li class="skill-item-alt" title="Python"><i class="devicon-python-plain skill-icon-alt"></i> Python</li>
-                                    <li class="skill-item-alt" title="C/C++"><i class="devicon-cplusplus-plain skill-icon-alt"></i> C/C++</li>
-                                    <li class="skill-item-alt" title="JavaScript"><i class="devicon-javascript-plain skill-icon-alt"></i> JavaScript</li>
-                                    <li class="skill-item-alt" title="HTML"><i class="devicon-html5-plain skill-icon-alt"></i> HTML</li>
-                                    <li class="skill-item-alt" title="R"><i class="devicon-r-plain skill-icon-alt"></i> R</li>
-                                    <li class="skill-item-alt" title="Go"><i class="devicon-go-plain skill-icon-alt"></i> Go</li>
-                                    <li class="skill-item-alt" title="PHP"><i class="devicon-php-plain skill-icon-alt"></i> PHP</li>
-                                </ul>
-                            </div>
-                            <div class="skill-group">
-                                <h3 class="skill-group-title">Frameworks & Libraries</h3>
-                                <ul class="skill-list-alt">
-                                    <li class="skill-item-alt" title="React"><i class="devicon-react-original skill-icon-alt"></i> React</li>
-                                    <li class="skill-item-alt" title="Node.js"><i class="devicon-nodejs-plain skill-icon-alt"></i> Node.js</li>
-                                    <li class="skill-item-alt" title="Flask"><i class="devicon-flask-original skill-icon-alt"></i> Flask</li>
-                                    <li class="skill-item-alt" title="JUnit"><i class="devicon-junit-plain skill-icon-alt"></i> JUnit</li>
-                                    <li class="skill-item-alt" title="WordPress"><i class="devicon-wordpress-plain skill-icon-alt"></i> WordPress</li>
-                                    <li class="skill-item-alt" title="Material-UI"><i class="devicon-materialui-plain skill-icon-alt"></i> Material-UI</li>
-                                    <li class="skill-item-alt" title="FastAPI"><i class="devicon-fastapi-plain skill-icon-alt"></i> FastAPI</li>
-                                    <li class="skill-item-alt" title="Pandas"><i class="fa-solid fa-table skill-icon-alt"></i> Pandas</li>
-                                    <li class="skill-item-alt" title="NumPy"><i class="fa-solid fa-calculator skill-icon-alt"></i> NumPy</li>
-                                    <li class="skill-item-alt" title="Matplotlib"><i class="fa-solid fa-chart-line skill-icon-alt"></i> Matplotlib</li>
-                                </ul>
-                            </div>
-                            <div class="skill-group">
-                                <h3 class="skill-group-title">Databases & Tools</h3>
-                                <ul class="skill-list-alt">
-                                    <li class="skill-item-alt" title="SQL"><i class="devicon-mysql-plain skill-icon-alt"></i> SQL</li>
-                                    <li class="skill-item-alt" title="PostgreSQL"><i class="devicon-postgresql-plain skill-icon-alt"></i> PostgreSQL</li>
-                                    <li class="skill-item-alt" title="Supabase"><i class="devicon-supabase-plain skill-icon-alt"></i> Supabase</li>
-                                    <li class="skill-item-alt" title="MongoDB"><i class="devicon-mongodb-plain skill-icon-alt"></i> MongoDB</li>
-                                    <li class="skill-item-alt" title="Git"><i class="devicon-git-plain skill-icon-alt"></i> Git</li>
-                                    <li class="skill-item-alt" title="Docker"><i class="devicon-docker-plain skill-icon-alt"></i> Docker</li>
-                                    <li class="skill-item-alt" title="Travis CI"><i class="devicon-travis-plain skill-icon-alt"></i> Travis CI</li>
-                                    <li class="skill-item-alt" title="Google Cloud Platform"><i class="devicon-googlecloud-plain skill-icon-alt"></i> Google Cloud Platform</li>
-                                    <li class="skill-item-alt" title="VS Code"><i class="devicon-vscode-plain skill-icon-alt"></i> VS Code</li>
-                                    <li class="skill-item-alt" title="Visual Studio"><i class="devicon-visualstudio-plain skill-icon-alt"></i> Visual Studio</li>
-                                    <li class="skill-item-alt" title="PyCharm"><i class="devicon-pycharm-plain skill-icon-alt"></i> PyCharm</li>
-                                    <li class="skill-item-alt" title="CLion"><i class="devicon-clion-plain skill-icon-alt"></i> CLion</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="experience">
-                        <div class="marquee">
-                            <div class="marquee__inner" aria-hidden="true">
-                                <span>EXPERIENCE</span>
-                                <span class="hollow">EXPERIENCE</span>
-                                <span>EXPERIENCE</span>
-                                <span class="hollow">EXPERIENCE</span>
-                            </div>
-                        </div>
-                        <div class="stripes">
-                            <!-- Experience Item 01 -->
-                            <div class="experience-item">
-                                <div class="info">
-                                    <span class="no">01</span>
-                                    <span class="company-title">NOVEM CONTROLS</span>
-                                </div>
-                                <div class="experience-details">
-                                    <div class="role-info">
-                                        <h3 class="position">Software Engineer <span style="opacity: 0.7; font-weight: 300;">(Full-time, On-site)</span></h3>
-                                        <p class="duration">Jan 2024 – July 2025</p>
-                                        <p class="location">Chandigarh, India</p>
-                                    </div>
-                                    <div class="responsibilities">
-                                        <p>Developed cloud-based microservices for IoT data collection, processing, and analysis.</p>
-                                        <p>Automated CI/CD pipelines and monitoring workflows to improve reliability and deployment speed.</p>
-                                        <p>Implemented ML-based anomaly detection for predictive maintenance of IoT devices.</p>
-                                    </div>
-                                    <div class="job-skills" style="margin-top: 15px;">
-                                        <h4 style="margin-bottom: 10px; font-weight: 300; opacity: 0.7;">Tech Stack:</h4>
-                                        <ul class="skill-list-alt">
-                                            <li class="skill-item-alt" title="Python"><i class="devicon-python-plain skill-icon-alt"></i> Python</li>
-                                            <li class="skill-item-alt" title="Node.js"><i class="devicon-nodejs-plain skill-icon-alt"></i> Node.js</li>
-                                            <li class="skill-item-alt" title="C/C++"><i class="devicon-cplusplus-plain skill-icon-alt"></i> C/C++</li>
-                                            <li class="skill-item-alt" title="Docker"><i class="devicon-docker-plain skill-icon-alt"></i> Docker</li>
-                                            <li class="skill-item-alt" title="REST APIs"><i class="fa-solid fa-plug skill-icon-alt"></i> REST APIs</li>
-                                            <li class="skill-item-alt" title="Microservices"><i class="fa-solid fa-cubes skill-icon-alt"></i> Microservices</li>
-                                            <li class="skill-item-alt" title="TensorFlow/PyTorch"><i class="fa-solid fa-brain skill-icon-alt"></i> TensorFlow/PyTorch</li>
-                                            <li class="skill-item-alt" title="Git"><i class="devicon-git-plain skill-icon-alt"></i> Git</li>
-                                            <li class="skill-item-alt" title="CI/CD"><i class="fa-solid fa-gears skill-icon-alt"></i> CI/CD</li>
+                                    <div class="project-features">
+                                        <h4>Key Features</h4>
+                                        <ul>
+                                            <li>Fully responsive design optimized for all screen sizes</li>
+                                            <li>Interactive project showcase with smooth hover effects</li>
+                                            <li>Comprehensive skills section with visual representations</li>
+                                            <li>Professional navigation with smooth scrolling</li>
+                                            <li>Modern typography and clean visual hierarchy</li>
+                                            <li>Fast loading times and optimized performance</li>
+                                            <li>Cross-browser compatibility and accessibility features</li>
                                         </ul>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="education">
-                        <div class="marquee">
-                            <div class="marquee__inner" aria-hidden="true">
-                                <span>EDUCATION</span>
-                                <span class="hollow">EDUCATION</span>
-                                <span>EDUCATION</span>
-                                <span class="hollow">EDUCATION</span>
-                            </div>
-                        </div>
-                        <div class="stripes">
-                            <div class="education-item">
-                                <div class="info">                                  
-                                    <span class="institute-title" style="font-weight: 300; opacity: 0.8;">CHANDIGARH UNIVERSITY</span>
-                                </div>
-                                <div class="education-details">
-                                    <div class="course-info">
-                                        <h3 class="degree">Bachelor of Computer Applications</h3>
-                                        <p class="duration">2021 - 2024</p>
-                                    </div>
-                                    <div class="additional-info">
-                                        <p>Mohali, Punjab</p>
-                                        <p class="score">CGPA: 8.8</p>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="education-item">
-                                <div class="info">
-                                    <span class="institute-title" style="font-weight: 300; opacity: 0.8;">SARASWATI VIDYA MANDIR</span>
+                                    <div class="project-tech">
+                                        <h4>Technologies Used</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML5</span>
+                                            <span class="tech-tag">CSS3</span>
+                                            <span class="tech-tag">Bootstrap 4</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Font Awesome</span>
+                                            <span class="tech-tag">Responsive Design</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="education-details">
-                                    <div class="course-info">
-                                        <h3 class="degree">Higher Secondary Education (10+2)</h3>
-                                        <p class="duration">2019 - 2021</p>
-                                    </div>
-                                    <div class="additional-info">
-                                        <p>Ballia, Uttar Pradesh</p>
-                                        <p class="score">Percentage: 83%</p>
-                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="skills">
+                    <div class="marquee">
+                        <div class="marquee__inner">
+                            <span>SKILLS</span>
+                            <span class="hollow">SKILLS</span>
+                            <span>SKILLS</span>
+                            <span class="hollow">SKILLS</span>
+                            <span>SKILLS</span>
+                            <span class="hollow">SKILLS</span>
+                        </div>
+                    </div>
+                    <div class="stripes">
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Languages</h3>
+                            <ul class="skill-list-alt">
+                                <li class="skill-item-alt" title="Java"><i
+                                        class="devicon-java-plain skill-icon-alt"></i> Java</li>
+                                <li class="skill-item-alt" title="Python"><i
+                                        class="devicon-python-plain skill-icon-alt"></i> Python</li>
+                                <li class="skill-item-alt" title="C/C++"><i
+                                        class="devicon-cplusplus-plain skill-icon-alt"></i> C/C++</li>
+                                <li class="skill-item-alt" title="JavaScript"><i
+                                        class="devicon-javascript-plain skill-icon-alt"></i> JavaScript</li>
+                                <li class="skill-item-alt" title="HTML"><i
+                                        class="devicon-html5-plain skill-icon-alt"></i> HTML</li>
+                                <li class="skill-item-alt" title="R"><i class="devicon-r-plain skill-icon-alt"></i> R
+                                </li>
+                                <li class="skill-item-alt" title="Go"><i class="devicon-go-plain skill-icon-alt"></i> Go
+                                </li>
+                                <li class="skill-item-alt" title="PHP"><i class="devicon-php-plain skill-icon-alt"></i>
+                                    PHP</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Frameworks & Libraries</h3>
+                            <ul class="skill-list-alt">
+                                <li class="skill-item-alt" title="React"><i
+                                        class="devicon-react-original skill-icon-alt"></i> React</li>
+                                <li class="skill-item-alt" title="Node.js"><i
+                                        class="devicon-nodejs-plain skill-icon-alt"></i> Node.js</li>
+                                <li class="skill-item-alt" title="Flask"><i
+                                        class="devicon-flask-original skill-icon-alt"></i> Flask</li>
+                                <li class="skill-item-alt" title="JUnit"><i
+                                        class="devicon-junit-plain skill-icon-alt"></i> JUnit</li>
+                                <li class="skill-item-alt" title="WordPress"><i
+                                        class="devicon-wordpress-plain skill-icon-alt"></i> WordPress</li>
+                                <li class="skill-item-alt" title="Material-UI"><i
+                                        class="devicon-materialui-plain skill-icon-alt"></i> Material-UI</li>
+                                <li class="skill-item-alt" title="FastAPI"><i
+                                        class="devicon-fastapi-plain skill-icon-alt"></i> FastAPI</li>
+                                <li class="skill-item-alt" title="Pandas"><i
+                                        class="fa-solid fa-table skill-icon-alt"></i> Pandas</li>
+                                <li class="skill-item-alt" title="NumPy"><i
+                                        class="fa-solid fa-calculator skill-icon-alt"></i> NumPy</li>
+                                <li class="skill-item-alt" title="Matplotlib"><i
+                                        class="fa-solid fa-chart-line skill-icon-alt"></i> Matplotlib</li>
+                            </ul>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="skill-group-title">Databases & Tools</h3>
+                            <ul class="skill-list-alt">
+                                <li class="skill-item-alt" title="SQL"><i
+                                        class="devicon-mysql-plain skill-icon-alt"></i> SQL</li>
+                                <li class="skill-item-alt" title="PostgreSQL"><i
+                                        class="devicon-postgresql-plain skill-icon-alt"></i> PostgreSQL</li>
+                                <li class="skill-item-alt" title="Supabase"><i
+                                        class="devicon-supabase-plain skill-icon-alt"></i> Supabase</li>
+                                <li class="skill-item-alt" title="MongoDB"><i
+                                        class="devicon-mongodb-plain skill-icon-alt"></i> MongoDB</li>
+                                <li class="skill-item-alt" title="Git"><i class="devicon-git-plain skill-icon-alt"></i>
+                                    Git</li>
+                                <li class="skill-item-alt" title="Docker"><i
+                                        class="devicon-docker-plain skill-icon-alt"></i> Docker</li>
+                                <li class="skill-item-alt" title="Travis CI"><i
+                                        class="devicon-travis-plain skill-icon-alt"></i> Travis CI</li>
+                                <li class="skill-item-alt" title="Google Cloud Platform"><i
+                                        class="devicon-googlecloud-plain skill-icon-alt"></i> Google Cloud Platform</li>
+                                <li class="skill-item-alt" title="VS Code"><i
+                                        class="devicon-vscode-plain skill-icon-alt"></i> VS Code</li>
+                                <li class="skill-item-alt" title="Visual Studio"><i
+                                        class="devicon-visualstudio-plain skill-icon-alt"></i> Visual Studio</li>
+                                <li class="skill-item-alt" title="PyCharm"><i
+                                        class="devicon-pycharm-plain skill-icon-alt"></i> PyCharm</li>
+                                <li class="skill-item-alt" title="CLion"><i
+                                        class="devicon-clion-plain skill-icon-alt"></i> CLion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="marquee">
+                        <div class="marquee__inner" aria-hidden="true">
+                            <span>EXPERIENCE</span>
+                            <span class="hollow">EXPERIENCE</span>
+                            <span>EXPERIENCE</span>
+                            <span class="hollow">EXPERIENCE</span>
+                        </div>
+                    </div>
+                    <div class="stripes">
+                        <!-- Experience Item 01 -->
+                        <div class="experience-item">
+                            <div class="info">
+                                <span class="no">01</span>
+                                <span class="company-title">NOVEM CONTROLS</span>
+                            </div>
+                            <div class="experience-details">
+                                <div class="role-info">
+                                    <h3 class="position">Software Engineer <span
+                                            style="opacity: 0.7; font-weight: 300;">(Full-time, On-site)</span></h3>
+                                    <p class="duration">Jan 2024 – July 2025</p>
+                                    <p class="location">Chandigarh, India</p>
+                                </div>
+                                <div class="responsibilities">
+                                    <p>Developed cloud-based microservices for IoT data collection, processing, and
+                                        analysis.</p>
+                                    <p>Automated CI/CD pipelines and monitoring workflows to improve reliability and
+                                        deployment speed.</p>
+                                    <p>Implemented ML-based anomaly detection for predictive maintenance of IoT devices.
+                                    </p>
+                                </div>
+                                <div class="job-skills" style="margin-top: 15px;">
+                                    <h4 style="margin-bottom: 10px; font-weight: 300; opacity: 0.7;">Tech Stack:</h4>
+                                    <ul class="skill-list-alt">
+                                        <li class="skill-item-alt" title="Python"><i
+                                                class="devicon-python-plain skill-icon-alt"></i> Python</li>
+                                        <li class="skill-item-alt" title="Node.js"><i
+                                                class="devicon-nodejs-plain skill-icon-alt"></i> Node.js</li>
+                                        <li class="skill-item-alt" title="C/C++"><i
+                                                class="devicon-cplusplus-plain skill-icon-alt"></i> C/C++</li>
+                                        <li class="skill-item-alt" title="Docker"><i
+                                                class="devicon-docker-plain skill-icon-alt"></i> Docker</li>
+                                        <li class="skill-item-alt" title="REST APIs"><i
+                                                class="fa-solid fa-plug skill-icon-alt"></i> REST APIs</li>
+                                        <li class="skill-item-alt" title="Microservices"><i
+                                                class="fa-solid fa-cubes skill-icon-alt"></i> Microservices</li>
+                                        <li class="skill-item-alt" title="TensorFlow/PyTorch"><i
+                                                class="fa-solid fa-brain skill-icon-alt"></i> TensorFlow/PyTorch</li>
+                                        <li class="skill-item-alt" title="Git"><i
+                                                class="devicon-git-plain skill-icon-alt"></i> Git</li>
+                                        <li class="skill-item-alt" title="CI/CD"><i
+                                                class="fa-solid fa-gears skill-icon-alt"></i> CI/CD</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <footer class="site-footer">
-                        <div class="footer-content">
-                            <div class="footer-info">
-                                <a href="mailto:hello@amitkp.com" class="footer-link">
-                                    <i class="fa-solid fa-envelope"></i> hello@amitkp.com
-                                </a>
-                                <span class="footer-separator">|</span>
-                                <a href="tel:8934837403" class="footer-link">
-                                    <i class="fa-solid fa-phone"></i> 8934837403
-                                </a>
+                </div>
+
+                <div class="education">
+                    <div class="marquee">
+                        <div class="marquee__inner" aria-hidden="true">
+                            <span>EDUCATION</span>
+                            <span class="hollow">EDUCATION</span>
+                            <span>EDUCATION</span>
+                            <span class="hollow">EDUCATION</span>
+                        </div>
+                    </div>
+                    <div class="stripes">
+                        <div class="education-item">
+                            <div class="info">
+                                <span class="institute-title" style="font-weight: 300; opacity: 0.8;">CHANDIGARH
+                                    UNIVERSITY</span>
+                            </div>
+                            <div class="education-details">
+                                <div class="course-info">
+                                    <h3 class="degree">Bachelor of Computer Applications</h3>
+                                    <p class="duration">2021 - 2024</p>
+                                </div>
+                                <div class="additional-info">
+                                    <p>Mohali, Punjab</p>
+                                    <p class="score">CGPA: 8.8</p>
+                                </div>
                             </div>
                         </div>
-                    </footer>
+
+                        <div class="education-item">
+                            <div class="info">
+                                <span class="institute-title" style="font-weight: 300; opacity: 0.8;">SARASWATI VIDYA
+                                    MANDIR</span>
+                            </div>
+                            <div class="education-details">
+                                <div class="course-info">
+                                    <h3 class="degree">Higher Secondary Education (10+2)</h3>
+                                    <p class="duration">2019 - 2021</p>
+                                </div>
+                                <div class="additional-info">
+                                    <p>Ballia, Uttar Pradesh</p>
+                                    <p class="score">Percentage: 83%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!--=======================================================================================
+
+                <footer class="site-footer">
+                    <div class="footer-content">
+                        <div class="footer-info">
+                            <a href="mailto:hello@amitkp.com" class="footer-link">
+                                <i class="fa-solid fa-envelope"></i> hello@amitkp.com
+                            </a>
+                            <span class="footer-separator">|</span>
+                            <a href="tel:8934837403" class="footer-link">
+                                <i class="fa-solid fa-phone"></i> 8934837403
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--=======================================================================================
                     SIDEBAR-RIGHT
                 =======================================================================================  -->
-                <div class="side-bar-2">
-                    <div class="theme">
-                        <input type="checkbox" class="checkbox" id="checkbox">
-                        <label for="checkbox" class="checkbox-label">
-                            <i class="fas fa-moon"></i>
-                            <i class="fa-regular fa-sun"></i>
-                            <span class="ball"></span>
-                        </label>
+            <div class="side-bar-2">
+                <div class="theme">
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fa-regular fa-sun"></i>
+                        <span class="ball"></span>
+                    </label>
+                </div>
+                <div class="resume">
+                    <div class="resume-box">
+                        <i class="fa-solid fa-external-link"></i>
+                        <a target="_blank" rel="noopener"
+                            href="https://drive.google.com/file/d/19LnY_pbFQhxzsJny52DYA2zrLqtSw10y/view?usp=sharing">
+                            <p>RESUME</p>
+                        </a>
                     </div>
-                    <div class="resume">
-                        <div class="resume-box">
-                            <i class="fa-solid fa-external-link"></i>
-                            <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/19LnY_pbFQhxzsJny52DYA2zrLqtSw10y/view?usp=sharing"><p>RESUME</p></a> 
-                        </div>
-                    </div>
-                    <div class="mail">
-                        <a href="mailto:hello@amitkp.com">hello@amitkp.com</a>
-                        <div class="verticalbar"></div>
-                    </div>
-
+                </div>
+                <div class="mail">
+                    <a href="mailto:hello@amitkp.com">hello@amitkp.com</a>
+                    <div class="verticalbar"></div>
                 </div>
 
             </div>
+
         </div>
-        <canvas class="webgl"></canvas>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js' crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type="module" src="./script.js"></script>
-        <script src="/background-effects.js"></script>
-        <script src="/constellation.js"></script>
-        <div id="chat-launcher" class="chat-launcher" aria-label="Open chat" title="Chat" style="display:none;">
-            <span class="chat-icon-hero" aria-hidden="true">
-                <svg class="ci" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path class="bubble" d="M4 5.5h16c1.66 0 3 1.34 3 3v5c0 1.66-1.34 3-3 3H11l-4.2 3.2L8 16.5H4c-1.66 0-3-1.34-3-3v-5c0-1.66 1.34-3 3-3z"/>
-                    <circle class="dot d1" cx="9" cy="11" r="1.3"/>
-                    <circle class="dot d2" cx="12" cy="11" r="1.3"/>
-                    <circle class="dot d3" cx="15" cy="11" r="1.3"/>
-                </svg>
-            </span>
-            <span class="chat-launcher-text">Chat now!</span>
+    </div>
+    <canvas class="webgl"></canvas>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./script.js"></script>
+    <script src="/background-effects.js"></script>
+    <script src="/constellation.js"></script>
+    <div id="chat-launcher" class="chat-launcher" aria-label="Open chat" title="Chat" style="display:none;">
+        <span class="chat-icon-hero" aria-hidden="true">
+            <svg class="ci" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path class="bubble"
+                    d="M4 5.5h16c1.66 0 3 1.34 3 3v5c0 1.66-1.34 3-3 3H11l-4.2 3.2L8 16.5H4c-1.66 0-3-1.34-3-3v-5c0-1.66 1.34-3 3-3z" />
+                <circle class="dot d1" cx="9" cy="11" r="1.3" />
+                <circle class="dot d2" cx="12" cy="11" r="1.3" />
+                <circle class="dot d3" cx="15" cy="11" r="1.3" />
+            </svg>
+        </span>
+        <span class="chat-launcher-text">Chat now!</span>
+    </div>
+    <div id="chat-window" class="chat-window" role="dialog" aria-modal="true" style="display:none;">
+        <div class="chat-header">
+            <span>Chat with Amit</span>
+            <a href="./admin.html" target="_blank" rel="noopener" class="chat-admin-link" title="Admin login"
+                aria-label="Admin login">Admin</a>
+            <button id="chat-close" class="chat-icon-btn" aria-label="Close chat">×</button>
         </div>
-        <div id="chat-window" class="chat-window" role="dialog" aria-modal="true" style="display:none;">
-            <div class="chat-header">
-                <span>Chat with Amit</span>
-                <a href="./admin.html" target="_blank" rel="noopener" class="chat-admin-link" title="Admin login" aria-label="Admin login">Admin</a>
-                <button id="chat-close" class="chat-icon-btn" aria-label="Close chat">×</button>
-            </div>
-            <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
-            <div class="chat-name-row" id="chat-name-row">
-                <input id="chat-name-input" class="chat-name-input" placeholder="enter your name" />
-                <button id="chat-name-save" class="chat-name-save" aria-label="Save name">
-                    <i class="fa-solid fa-user-check"></i>
-                </button>
-                <button id="chat-clear" class="chat-name-save danger" title="Clear chat" aria-label="Clear chat">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-                <span id="chat-name-status" class="chat-name-status" aria-live="polite"></span>
-            </div>
-            <div class="chat-input-row">
-                <textarea id="chat-input" class="chat-input" placeholder="Type your message..." rows="1"></textarea>
-                <button id="chat-send" class="chat-send" aria-label="Send">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </div>
+        <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+        <div class="chat-name-row" id="chat-name-row">
+            <input id="chat-name-input" class="chat-name-input" placeholder="enter your name" />
+            <button id="chat-name-save" class="chat-name-save" aria-label="Save name">
+                <i class="fa-solid fa-user-check"></i>
+            </button>
+            <button id="chat-clear" class="chat-name-save danger" title="Clear chat" aria-label="Clear chat">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            <span id="chat-name-status" class="chat-name-status" aria-live="polite"></span>
         </div>
-        <script type="module" src="./chat.js"></script>
-    </body>
+        <div class="chat-input-row">
+            <textarea id="chat-input" class="chat-input" placeholder="Type your message..." rows="1"></textarea>
+            <button id="chat-send" class="chat-send" aria-label="Send">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <script type="module" src="./chat.js"></script>
+</body>
 
 </html>
